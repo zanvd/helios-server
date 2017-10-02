@@ -2,16 +2,16 @@
 Unit Tests for Helios
 """
 
-import unittest, datetime, re, urllib
+import unittest, datetime, re, urllib.request, urllib.parse, urllib.error
 import django_webtest
 
-import models
-import datatypes
+from . import models
+from . import datatypes
 
 from helios_auth import models as auth_models
-from views import ELGAMAL_PARAMS
-import views
-import utils
+from .views import ELGAMAL_PARAMS
+from . import views
+from . import utils
 
 from django.db import IntegrityError, transaction
 from django.test.client import Client
@@ -613,7 +613,7 @@ class ElectionBlackboxTests(WebTest):
 
         # now log out as administrator
         self.clear_login()
-        self.assertEquals(self.client.session.has_key('user'), False)
+        self.assertEquals('user' in self.client.session, False)
 
         # return the voter username and password to vote
         return election_id, username, password
@@ -629,7 +629,7 @@ class ElectionBlackboxTests(WebTest):
 
         # parse it as an encrypted vote with randomness, and make sure randomness is there
         the_ballot = utils.from_json(response.testbody)
-        assert the_ballot['answers'][0].has_key('randomness'), "no randomness"
+        assert 'randomness' in the_ballot['answers'][0], "no randomness"
         assert len(the_ballot['answers'][0]['randomness']) == 2, "not enough randomness"
         
         # parse it as an encrypted vote, and re-serialize it
@@ -661,7 +661,7 @@ class ElectionBlackboxTests(WebTest):
             # confirm the vote, now with the actual form
             cast_form = cast_confirm_page.form
         
-            if 'status_update' in cast_form.fields.keys():
+            if 'status_update' in list(cast_form.fields.keys()):
                 cast_form['status_update'] = False
             response = cast_form.submit()
 
@@ -761,7 +761,7 @@ class ElectionBlackboxTests(WebTest):
         response = self.app.get("/helios/elections/%s/view" % election_id)
 
         # ensure it redirects
-        self.assertRedirects(response, "/helios/elections/%s/password_voter_login?%s" % (election_id, urllib.urlencode({"return_url": "/helios/elections/%s/view" % election_id})))
+        self.assertRedirects(response, "/helios/elections/%s/password_voter_login?%s" % (election_id, urllib.parse.urlencode({"return_url": "/helios/elections/%s/view" % election_id})))
 
         login_form = response.follow().form
 

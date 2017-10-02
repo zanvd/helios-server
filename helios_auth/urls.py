@@ -6,9 +6,9 @@ Ben Adida (ben@adida.net)
 
 from django.conf.urls import *
 
-from views import *
-from auth_systems.password import password_login_view, password_forgotten_view
-from auth_systems.twitter import follow_view
+from .views import *
+from .auth_systems.password import password_login_view, password_forgotten_view
+from .auth_systems.twitter import follow_view
 
 urlpatterns = patterns('',
     # basic static stuff

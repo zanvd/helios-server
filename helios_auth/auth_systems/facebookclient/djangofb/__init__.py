@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.exceptions import ImproperlyConfigured
 from django.conf import settings
 from datetime import datetime
+import collections
 
 try:
     from threading import local
@@ -64,7 +65,7 @@ def require_login(next=None, internal=None):
     """
     def decorator(view):
         def newview(request, *args, **kwargs):
-            next = newview.next
+            next = newview.__next__
             internal = newview.internal
 
             try:
@@ -75,7 +76,7 @@ def require_login(next=None, internal=None):
             if internal is None:
                 internal = request.facebook.internal
 
-            if callable(next):
+            if isinstance(next, collections.Callable):
                 next = next(request.path)
             elif isinstance(next, int):
                 next = '/'.join(request.path.split('/')[next + 1:])
@@ -127,7 +128,7 @@ def require_add(next=None, internal=None, on_install=None):
     """
     def decorator(view):
         def newview(request, *args, **kwargs):
-            next = newview.next
+            next = newview.__next__
             internal = newview.internal
 
             try:
@@ -138,7 +139,7 @@ def require_add(next=None, internal=None, on_install=None):
             if internal is None:
                 internal = request.facebook.internal
 
-            if callable(next):
+            if isinstance(next, collections.Callable):
                 next = next(request.path)
             elif isinstance(next, int):
                 next = '/'.join(request.path.split('/')[next + 1:])
@@ -158,7 +159,7 @@ def require_add(next=None, internal=None, on_install=None):
             if not fb.added:
                 return fb.redirect(fb.get_add_url(next=next))
 
-            if 'installed' in request.GET and callable(on_install):
+            if 'installed' in request.GET and isinstance(on_install, collections.Callable):
                 on_install(request)
 
             if internal and request.method == 'GET' and fb.app_name:

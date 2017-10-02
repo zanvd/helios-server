@@ -3,7 +3,7 @@ from django.conf.urls import *
 
 from django.conf import settings
 
-from views import *
+from .views import *
 
 urlpatterns = None
 

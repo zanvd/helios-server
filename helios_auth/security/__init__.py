@@ -11,7 +11,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.core.exceptions import *
 from django.conf import settings
 
-import oauth
+from . import oauth
 
 import uuid
 
@@ -95,10 +95,10 @@ def get_user(request):
   # request.session.set_expiry(settings.SESSION_COOKIE_AGE)
   
   # set up CSRF protection if needed
-  if not request.session.has_key('csrf_token') or (type(request.session['csrf_token']) != str and type(request.session['csrf_token']) != unicode):
+  if 'csrf_token' not in request.session or (type(request.session['csrf_token']) != str and type(request.session['csrf_token']) != str):
     request.session['csrf_token'] = str(uuid.uuid4())
 
-  if request.session.has_key('user'):
+  if 'user' in request.session:
     user = request.session['user']
 
     # find the user
@@ -111,7 +111,7 @@ def check_csrf(request):
   if request.method != "POST":
     return HttpResponseNotAllowed("only a POST for this URL")
     
-  if (not request.POST.has_key('csrf_token')) or (request.POST['csrf_token'] != request.session['csrf_token']):
+  if ('csrf_token' not in request.POST) or (request.POST['csrf_token'] != request.session['csrf_token']):
     raise Exception("A CSRF problem was detected")
 
 def save_in_session_across_logouts(request, field_name, field_value):
