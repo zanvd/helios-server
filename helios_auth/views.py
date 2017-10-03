@@ -42,15 +42,17 @@ def index(request):
 
   #form = password.LoginForm()
 
-  return render_template(request,'index', {'return_url' : request.GET.get('return_url', '/'),
+  return render_template(request,'index', {'return_url' : request.GET.get('return_url', reverse('server_ui.views.home')),
                                            'enabled_auth_systems' : helios_auth.ENABLED_AUTH_SYSTEMS,
                                            'default_auth_system': helios_auth.DEFAULT_AUTH_SYSTEM,
                                            'default_auth_system_obj': default_auth_system_obj})
 
-def login_box_raw(request, return_url='/', auth_systems = None):
+def login_box_raw(request, return_url = None, auth_systems = None):
   """
   a chunk of HTML that shows the various login options
   """
+  if return_url is None:
+    return_url = reverse('server_ui.views.home')
   default_auth_system_obj = None
   if helios_auth.DEFAULT_AUTH_SYSTEM:
     default_auth_system_obj = AUTH_SYSTEMS[helios_auth.DEFAULT_AUTH_SYSTEM]
@@ -105,8 +107,10 @@ def do_local_logout(request):
 
   request.session['user_for_remote_logout'] = user
 
-def do_remote_logout(request, user, return_url="/"):
+def do_remote_logout(request, user, return_url = None):
   # FIXME: do something with return_url
+  if return_url is None:
+    return_url = reverse('server_ui.views.home')
   auth_system = AUTH_SYSTEMS[user['type']]
   
   # does the auth system have a special logout procedure?
@@ -116,7 +120,9 @@ def do_remote_logout(request, user, return_url="/"):
     response = auth_system.do_logout(user_for_remote_logout)
     return response
 
-def do_complete_logout(request, return_url="/"):
+def do_complete_logout(request, return_url = None):
+  if return_url is None:
+    return_url = reverse('server_ui.views.home')
   do_local_logout(request)
   user_for_remote_logout = request.session.get('user_for_remote_logout', None)
   if user_for_remote_logout:
@@ -129,7 +135,7 @@ def logout(request):
   logout
   """
 
-  return_url = request.GET.get('return_url',"/")
+  return_url = request.GET.get('return_url', reverse('server_ui.views.home'))
   response = do_complete_logout(request, return_url)
   if response:
     return response
@@ -163,7 +169,7 @@ def start(request, system_name):
   request.session['auth_system_name'] = system_name
   
   # where to return to when done
-  request.session['auth_return_url'] = request.GET.get('return_url', '/')
+  request.session['auth_return_url'] = request.GET.get('return_url', reverse('server_ui.views.home'))
 
   return _do_auth(request)
 
@@ -204,7 +210,7 @@ def after(request):
   return HttpResponseRedirect(reverse(after_intervention))
 
 def after_intervention(request):
-  return_url = "/"
+  return_url = reverse('server_ui.views.home')
   if 'auth_return_url' in request.session:
     return_url = request.session['auth_return_url']
     del request.session['auth_return_url']

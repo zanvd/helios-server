@@ -48,11 +48,11 @@ def get_user_info_after_auth(request):
   email = id_token['email']
 
   # get the nice name
-  http = httplib2.Http(".cache")
+  http = httplib2.Http(settings.CACHE_PATH)
   http = credentials.authorize(http)
   (resp_headers, content) = http.request("https://www.googleapis.com/plus/v1/people/me", "GET")
 
-  response = json.loads(content)
+  response = json.loads(content.decode("utf-8"))
 
   name = response['displayName']
   

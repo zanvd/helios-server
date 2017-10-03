@@ -43,7 +43,7 @@ def get_user_info_after_auth(request):
   code = request.GET['code']
 
   # do the POST manually, because OAuth2WebFlow can't do auth header for token exchange
-  http = httplib2.Http(".cache")
+  http = httplib2.Http(settings.CACHE_PATH)
   auth_header = "Basic %s" % base64.b64encode(settings.CLEVER_CLIENT_ID + ":" + settings.CLEVER_CLIENT_SECRET)
   resp_headers, content = http.request("https://clever.com/oauth/tokens", "POST", urllib.parse.urlencode({
         "code" : code,

@@ -1,3 +1,4 @@
+{% load static %}
 {% extends "helios/templates/cryptobase.html" %}
 
 {% block title %}Questions for {{election.name}}{% endblock %}
@@ -132,7 +133,7 @@
   }
 
   $(document).ready(function() {
-      $('#questions').setTemplateURL("/static/helios/static_templates/question.html");
+      $('#questions').setTemplateURL("{% static 'helios/static_templates/question.html' %}");
 
       refresh();
   });

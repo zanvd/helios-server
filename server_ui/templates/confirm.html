@@ -1,3 +1,4 @@
+{% load static %}
 {% extends 'server_ui/templates/base.html' %}
 {% block title %}Confirm Vote{% endblock %}
 
@@ -44,7 +45,7 @@ function show_waiting() {
 
 <div id="waiting_div" align="center">
   Verifying and Casting your ballot<br />
-  <img src="/static/helios/loading.gif" />
+  <img src="{% static 'helios/loading.gif' %}" />
 </div>
 
 {% endblock %}

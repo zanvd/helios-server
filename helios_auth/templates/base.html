@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html 
      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,7 +14,7 @@
       <!--
           <link rel="stylesheet" type="text/css"  media="screen, projection" href="{{ MEDIA_URL }}combined-{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}.css" />
       -->
-      <link rel="stylesheet" type="text/css" media="screen" href="/static/main.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="{% static 'main.css' %}">
 
     {% endblock %}
 

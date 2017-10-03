@@ -286,7 +286,7 @@ Anyone can vote in this election.
 {% if election.voting_has_stopped %}
 <p style="font-size: 1.2em;">
 {% if election.result %}
-verify <a target="_blank" href="/verifier/verify.html?election_url={% url "helios.views.one_election" election.uuid %}">election tally</a>.
+verify <a target="_blank" href="{% url "verifier" "verify.html" %}?election_url={% url "helios.views.one_election" election.uuid %}">election tally</a>.
 {% endif %}
 
 review the <a href="{{vote_url}}">voting booth</a>.

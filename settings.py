@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.contenttypes',
     'django.contrib.auth',
+    'django.contrib.staticfiles',
     #'django.contrib.sites',
     ## needed for queues
     'djcelery',
@@ -260,6 +261,8 @@ logging.basicConfig(
     format = '%(asctime)s %(levelname)s %(message)s'
 )
 
+# caching
+CACHE_PATH = get_from_env('CACHE_PATH', "/tmp/helios/.cache")
 
 # set up django-celery
 # BROKER_BACKEND = "kombu.transport.DatabaseTransport"
