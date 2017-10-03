@@ -8,7 +8,8 @@ Ben Adida
 """
 
 from django.db import models
-from .jsonfield import JSONField
+from django.conf import settings
+from django.contrib.postgres.fields import JSONField
 
 import datetime, logging
 
@@ -164,8 +165,8 @@ class User(models.Model):
     else:
       name_display = self.pretty_name
 
-    return """<img class="%s-logo" src="/static/auth/login-icons/%s.png" alt="%s" /> %s""" % (
-      size, self.user_type, self.user_type, name_display)
+    return """<img class="%s-logo" src="%s/auth/login-icons/%s.png" alt="%s" /> %s""" % (
+      size, settings.STATIC_URL, self.user_type, self.user_type, name_display)
 
   @property
   def display_html_small(self):

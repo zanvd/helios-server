@@ -104,9 +104,9 @@ class RandomPool:
         """
         data = ''
         if N <= 0:
-            nbytes = int((self.bits - self.entropy)/8+0.5)
+            nbytes = int((self.bits - self.entropy)//8+0.5)
         else:
-            nbytes = int(N/8+0.5)
+            nbytes = int(N//8+0.5)
         if winrandom:
             # Windows CryptGenRandom provides random data.
             data = winrandom.new().get_bytes(nbytes)
@@ -173,7 +173,7 @@ class RandomPool:
         Return N bytes of random data.
         """
 
-        s=''
+        s=b''
         i, pool = self._getPos, self._randpool
         h=self._hash()
         dsize = self._hash().digest_size

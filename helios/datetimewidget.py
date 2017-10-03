@@ -28,14 +28,14 @@ class DateTimeWidget(forms.widgets.TextInput):
     class Media:
         css = {
             'all': (
-                    '/static/helios/jscal/css/jscal2.css',
-                    '/static/helios/jscal/css/border-radius.css',
-                    '/static/helios/jscal/css/win2k/win2k.css',
+                    settings.STATIC_URL + 'helios/jscal/css/jscal2.css',
+                    settings.STATIC_URL + 'helios/jscal/css/border-radius.css',
+                    settings.STATIC_URL + 'helios/jscal/css/win2k/win2k.css',
                     )
         }
         js = (
-              '/static/helios/jscal/js/jscal2.js',
-              '/static/helios/jscal/js/lang/en.js',
+              settings.STATIC_URL + 'helios/jscal/js/jscal2.js',
+              settings.STATIC_URL + 'helios/jscal/js/lang/en.js',
         )
 
     dformat = '%Y-%m-%d %H:%M'

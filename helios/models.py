@@ -22,7 +22,7 @@ from helios import datatypes
 
 # useful stuff in helios_auth
 from helios_auth.models import User, AUTH_SYSTEMS
-from helios_auth.jsonfield import JSONField
+from django.contrib.postgres.fields import JSONField
 from helios.datatypes.djangofield import LDObjectField
 
 import csv, copy

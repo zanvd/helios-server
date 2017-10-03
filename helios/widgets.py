@@ -40,6 +40,7 @@ class SelectTimeWidget(Widget):
     minute_field = '%s_minute'
     meridiem_field = '%s_meridiem'
     twelve_hr = False # Default to 24hr.
+    template_name = 'django/forms/widgets/select_date.html'
     
     def __init__(self, attrs=None, hour_step=None, minute_step=None, twelve_hr=False):
         """

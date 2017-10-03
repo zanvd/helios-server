@@ -138,9 +138,9 @@ def factor(n):
     while n != 1:
         p = trial_division(n)
         e = 1
-        n /= p
+        n //= p
         while n%p == 0:
-            e += 1; n /= p
+            e += 1; n //= p
         F.append((p,e))
     F.sort()
     return F
@@ -173,14 +173,14 @@ def xgcd(a, b):
     4
     """
     if a == 0 and b == 0: return (0, 0, 1)
-    if a == 0: return (abs(b), 0, b/abs(b))
-    if b == 0: return (abs(a), a/abs(a), 0)
+    if a == 0: return (abs(b), 0, b//abs(b))
+    if b == 0: return (abs(a), a//abs(a), 0)
     x_sign = 1; y_sign = 1
     if a < 0: a = -a; x_sign = -1
     if b < 0: b = -b; y_sign = -1
     x = 1; y = 0; r = 0; s = 1
     while b != 0:
-        (c, q) = (a%b, a/b)
+        (c, q) = (a%b, a//b)
         (a, b, r, s, x, y) = (b, c, x-q*r, y-q*s, r, s)
     return (a, x*x_sign, y*y_sign)
 
@@ -230,7 +230,7 @@ def solve_linear(a,b,n):
     """
     g, c, _ = xgcd(a,n)                 # (1)
     if b%g != 0: return None
-    return ((b/g)*c) % n                
+    return ((b//g)*c) % n                
 
 def crt(a, b, m, n):
     """
@@ -281,7 +281,7 @@ def powermod(a, m, n):
         if m%2 != 0:
             ans = (ans * apow) % n            # (3)
         apow = (apow * apow) % n              # (4)
-        m /= 2   
+        m //= 2   
     return ans % n
 
 
@@ -312,7 +312,7 @@ def primitive_root(p):
     while a < p:
         generates = True
         for q, _ in F:
-            if powermod(a, (p-1)/q, p) == 1:
+            if powermod(a, (p-1)//q, p) == 1:
                 generates = False
                 break
         if generates: return a
@@ -394,7 +394,7 @@ def miller_rabin(n, num_trials=4):
     m = n - 1
     k = 0
     while m%2 == 0:
-        k += 1; m /= 2
+        k += 1; m //= 2
     # Now n - 1 = (2**k) * m with m odd
     for i in range(num_trials):
         a = randrange(2,n-1)                  # (1)
@@ -503,8 +503,8 @@ def str_to_numlist(s, bound):
     [4995371940984439512L, 92656709616492L]   #rand
     """
     assert bound >= 256, "bound must be at least 256."
-    n = int(log(bound) / log(256))          # (1)
-    salt = min(int(n/8) + 1, n-1)           # (2)
+    n = int(log(bound) // log(256))         # (1)
+    salt = min(int(n//8) + 1, n-1)          # (2)
     i = 0; v = []
     while i < len(s):                       # (3)
         c = 0; pow = 1
@@ -536,15 +536,15 @@ def numlist_to_str(v, bound):
     TOP SECRET MESSAGE
     """
     assert bound >= 256, "bound must be at least 256."
-    n = int(log(bound) / log(256))
+    n = int(log(bound) // log(256))
     s = ""
-    salt = min(int(n/8) + 1, n-1)
+    salt = min(int(n//8) + 1, n-1)
     for x in v:
         for j in range(n):
             y = x%256
             if y > 0 and j >= salt:
                 s += chr(y)
-            x /= 256
+            x //= 256
     return s
 
 
@@ -654,7 +654,7 @@ def legendre(a, p):
     -1
     """
     assert p%2 == 1, "p must be an odd prime."
-    b = powermod(a, (p-1)/2, p)
+    b = powermod(a, (p-1)//2, p)
     if b == 1: return 1
     elif b == p-1: return -1
     return 0
@@ -685,7 +685,7 @@ def sqrtmod(a, p):
     a %= p
     if p == 2: return a 
     assert legendre(a, p) == 1, "a must be a square mod p."
-    if p%4 == 3: return powermod(a, (p+1)/4, p)
+    if p%4 == 3: return powermod(a, (p+1)//4, p)
 
     def mul(x, y):   # multiplication in R       # (1)
         return ((x[0]*y[0] + a*y[1]*x[1]) % p, \
@@ -696,12 +696,12 @@ def sqrtmod(a, p):
         while n != 0:
            if n%2 != 0: ans = mul(ans, xpow)
            xpow = mul(xpow, xpow)
-           n /= 2
+           n //= 2
         return ans
 
     while True:
         z = randrange(2,p)
-        u, v = pow((1,z), (p-1)/2)
+        u, v = pow((1,z), (p-1)//2)
         if v != 0:
             vinv = inversemod(v, p)
             for x in [-u*vinv, (1-u)*vinv, (-1-u)*vinv]:
@@ -757,7 +757,7 @@ def contfrac_rat(numer, denom):
     a = numer; b = denom
     v = []
     while b != 0:
-        v.append(a/b)
+        v.append(a//b)
         (a, b) = (b, a%b)
     return v
 
@@ -897,7 +897,7 @@ def ellcurve_mul(E, m, P):
     while m != 0:
         if m%2 != 0: mP = ellcurve_add(E, mP, power)
         power = ellcurve_add(E, power, power)
-        m /= 2
+        m //= 2
     return mP
 
 
@@ -924,7 +924,7 @@ def lcm_to(B):
     ans = 1
     logB = log(B)
     for p in primes(B):
-        ans *= p**int(logB/log(p))
+        ans *= p**int(logB//log(p))
     return ans
 
 def pollard(N, m):
@@ -1079,7 +1079,7 @@ def elgamal_encrypt(plain_text, public_key):
     a, b, p = E 
     assert p > 10000, "p must be at least 10000."
     v = [1000*x for x in \
-           str_to_numlist(plain_text, p/1000)]       # (1)
+           str_to_numlist(plain_text, p//1000)]      # (1)
     cipher = []
     for x in v:
         while not legendre(x**3+a*x+b, p)==1:        # (2)
@@ -1114,8 +1114,8 @@ def elgamal_decrypt(cipher_text, private_key):
         nrB = ellcurve_mul(E, n, rB)
         minus_nrB = (nrB[0], -nrB[1])
         P = ellcurve_add(E, minus_nrB, P_plus_rnB)
-        plain.append(P[0]/1000)
-    return numlist_to_str(plain, p/1000)
+        plain.append(P[0]//1000)
+    return numlist_to_str(plain, p//1000)
 
 
 ##################################################
@@ -1232,11 +1232,11 @@ def prove_associative():                        # (15)
     y1 = var(3); y2 = var(4); y3 = var(5)
     a  = var(6); b  = var(7)
     
-    lambda12 = (y1 - y2)/(x1 - x2)              
+    lambda12 = (y1 - y2)//(x1 - x2)              
     x4       = lambda12*lambda12 - x1 - x2
     nu12     = y1 - lambda12*x1   
     y4       = -lambda12*x4 - nu12
-    lambda23 = (y2 - y3)/(x2 - x3)
+    lambda23 = (y2 - y3)//(x2 - x3)
     x5       = lambda23*lambda23 - x2 - x3
     nu23     = y2 - lambda23*x2
     y5       = -lambda23*x5 - nu23
@@ -1268,9 +1268,9 @@ def prove_associative():                        # (15)
 def examples():
     """
     >>> from ent import *
-    >>> 7/5
+    >>> 7//5
     1
-    >>> -2/3
+    >>> -2//3
     -1
     >>> 1.0/3
     0.33333333333333331

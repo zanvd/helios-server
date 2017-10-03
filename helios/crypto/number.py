@@ -45,11 +45,11 @@ def getRandomNumber(N, randfunc):
     """getRandomNumber(N:int, randfunc:callable):long
     Return an N-bit random number."""
 
-    S = randfunc(N/8)
+    S = randfunc(N//8)
     odd_bits = N % 8
     if odd_bits != 0:
         char = ord(randfunc(1)) >> (8-odd_bits)
-        S = chr(char) + S
+        S = bytes([char]) + S
     value = bytes_to_long(S)
     value |= 2 ** (N-1)                # Ensure high bit is set
     assert size(value) >= N
@@ -71,7 +71,7 @@ def inverse(u, v):
     u3, v3 = int(u), int(v)
     u1, v1 = 1, 0
     while v3 > 0:
-        q=u3 / v3
+        q=u3 // v3
         u1, v1 = v1, u1 - v1*q
         u3, v3 = v3, u3 - v3*q
     while u1<0:
