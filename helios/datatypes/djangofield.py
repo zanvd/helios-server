@@ -13,59 +13,59 @@ from django.db.models import signals
 from django.conf import settings
 from django.core.serializers.json import DjangoJSONEncoder
 
+from numbers import Number
+from django.contrib.postgres.fields import JSONField
+from django.contrib.postgres.fields.jsonb import JsonAdapter
+
 from . import LDObject
 
-class LDObjectField(models.TextField):
+class LDObjectField(JSONField):
     """
     LDObject is a generic textfield that neatly serializes/unserializes
     JSON objects seamlessly.
-    
-    deserialization_params added on 2011-01-09 to provide additional hints at deserialization time
     """
+
+    description = "A LDObject"
 
     def __init__(self, type_hint=None, **kwargs):
         self.type_hint = type_hint
         super(LDObjectField, self).__init__(**kwargs)
 
+    def deconstruct(self):
+        name, path, args, kwargs = super(LDObjectField, self).deconstruct()
+        if self.type_hint is not None:
+            kwargs['type_hint'] = self.type_hint
+        return name, path, args, kwargs
+
+    def from_db_value(self, value, expression, connection, context):
+        """Convert our value to LDObject after we load it from the DB"""
+        #value = super(LDObjectField, self).from_db_value(value, expression, connection, context)
+        if value is None:
+            return None
+
+        "we give the wrapped object back because we're not dealing with serialization types"
+        return LDObject.fromDict(value, type_hint = self.type_hint).wrapped_obj
+
     def to_python(self, value):
-        """Convert our string value to LDObject after we load it from the DB"""
+        """Convert value to LDObject"""
 
         # did we already convert this?
-        if not isinstance(value, str):
+        if not isinstance(value, (str, Number, dict, list, bool)):
             return value
 
-        if  value == None:
-            return None
+        value = super(LDObjectField, self).to_python(value)
 
-        # in some cases, we're loading an existing array or dict,
-        # we skip this part but instantiate the LD object
-        if isinstance(value, str):
-            try:
-                parsed_value = json.loads(value)
-            except:
-                raise Exception("value is not JSON parseable, that's bad news")
-        else:
-            parsed_value = value
-
-        if parsed_value != None:
-            "we give the wrapped object back because we're not dealing with serialization types"            
-            return_val = LDObject.fromDict(parsed_value, type_hint = self.type_hint).wrapped_obj
-            return return_val
-        else:
-            return None
+        "we give the wrapped object back because we're not dealing with serialization types"
+        return LDObject.fromDict(value, type_hint = self.type_hint).wrapped_obj
 
     def get_prep_value(self, value):
         """Convert our JSON object to a string before we save"""
-        if isinstance(value, str):
+        if isinstance(value, JsonAdapter):
             return value
 
-        if value == None:
+        if value is None:
             return None
 
         # instantiate the proper LDObject to dump it appropriately
         ld_object = LDObject.instantiate(value, datatype=self.type_hint)
-        return ld_object.serialize()
-
-    def value_to_string(self, obj):
-        value = self._get_val_from_obj(obj)
-        return self.get_db_prep_value(value)
+        return super(LDObjectField, self).get_prep_value(ld_object.toDict(complete = True))
