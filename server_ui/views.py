@@ -45,7 +45,7 @@ def home(request):
     auth_systems.remove('password')
   except: pass
 
-  login_box = auth_views.login_box_raw(request, return_url="/", auth_systems=auth_systems)
+  login_box = auth_views.login_box_raw(request, return_url=reverse('server_ui.views.home'), auth_systems=auth_systems)
 
   return render_template(request, "index", {'elections': featured_elections,
                                             'elections_administered' : elections_administered,

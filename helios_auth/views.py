@@ -183,7 +183,7 @@ def after(request):
   # which auth system were we using?
   if 'auth_system_name' not in request.session:
     do_local_logout(request)
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(reverse('server_ui.views.home'))
     
   system = AUTH_SYSTEMS[request.session['auth_system_name']]
   

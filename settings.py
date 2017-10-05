@@ -145,7 +145,7 @@ INSTALLED_APPS = (
     #'django.contrib.sites',
     ## needed for queues
     'djcelery',
-    #'kombu.transport.django',
+    'kombu.transport.django',
     ## in Django 1.7 we now use built-in migrations, no more south
     ## 'south',
     ## HELIOS stuff

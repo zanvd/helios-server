@@ -309,23 +309,23 @@ class DataFormatBlackboxTests(object):
         expected.close()
 
     def test_election(self):
-        response = self.client.get("/helios/elections/%s" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.one_election', args = [self.election.uuid]), follow=False)
         self.assertEqualsToFile(response, self.EXPECTED_ELECTION_FILE)
 
     def test_election_metadata(self):
-        response = self.client.get("/helios/elections/%s/meta" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.one_election_meta', args = [self.election.uuid]), follow=False)
         self.assertEqualsToFile(response, self.EXPECTED_ELECTION_METADATA_FILE)
 
     def test_voters_list(self):
-        response = self.client.get("/helios/elections/%s/voters/" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.voter_list', args = [self.election.uuid]), follow=False)
         self.assertEqualsToFile(response, self.EXPECTED_VOTERS_FILE)
 
     def test_trustees_list(self):
-        response = self.client.get("/helios/elections/%s/trustees/" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.list_trustees', args = [self.election.uuid]), follow=False)
         self.assertEqualsToFile(response, self.EXPECTED_TRUSTEES_FILE)
 
     def test_ballots_list(self):
-        response = self.client.get("/helios/elections/%s/ballots/" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.ballot_list', args = [self.election.uuid]), follow=False)
         self.assertEqualsToFile(response, self.EXPECTED_BALLOTS_FILE)
 
 ## now we have a set of fixtures and expected results for various formats
@@ -433,41 +433,41 @@ class ElectionBlackboxTests(WebTest):
         session.save()        
 
     def test_election_params(self):
-        response = self.client.get("/helios/elections/params")
+        response = self.client.get(reverse('helios.views.election_params'))
         self.assertEquals(response.content, views.ELGAMAL_PARAMS_LD_OBJECT.serialize())
 
     def test_election_404(self):
-        response = self.client.get("/helios/elections/foobar")
+        response = self.client.get(reverse('helios.views.one_election', args = ['foobar']))
         self.assertEquals(response.status_code, 404)
 
     def test_election_bad_trustee(self):
-        response = self.client.get("/helios/t/%s/foobar@bar.com/badsecret" % self.election.short_name)
+        response = self.client.get(reverse('helios.views.trustee_login', args = [self.election.short_name, 'foobar@bar.com', 'badsecret']))
         self.assertEquals(response.status_code, 404)
 
     def test_get_election_shortcut(self):
-        response = self.client.get("/helios/e/%s" % self.election.short_name, follow=True)
+        response = self.client.get(reverse('helios.views.election_shortcut', args = [self.election.short_name]), follow=True)
         self.assertContains(response, self.election.description)
         
     def test_get_election_raw(self):
-        response = self.client.get("/helios/elections/%s" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.one_election', args = [self.election.uuid]), follow=False)
         self.assertEquals(response.content, self.election.toJSON())
     
     def test_get_election(self):
-        response = self.client.get("/helios/elections/%s/view" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.one_election_view', args = [self.election.uuid]), follow=False)
         self.assertContains(response, self.election.description)
 
     def test_get_election_questions(self):
-        response = self.client.get("/helios/elections/%s/questions" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.one_election_questions', args = [self.election.uuid]), follow=False)
         for q in self.election.questions:
             self.assertContains(response, q['question'])
     
     def test_get_election_trustees(self):
-        response = self.client.get("/helios/elections/%s/trustees" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.list_trustees', args = [self.election.uuid]), follow=False)
         for t in self.election.trustee_set.all():
             self.assertContains(response, t.name)
 
     def test_get_election_voters(self):
-        response = self.client.get("/helios/elections/%s/voters/list" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.voters_list_pretty', args = [self.election.uuid]), follow=False)
         # check total count of voters
         if self.election.num_voters == 0:
             self.assertContains(response, "no voters")
@@ -475,11 +475,11 @@ class ElectionBlackboxTests(WebTest):
             self.assertContains(response, "(of %s)" % self.election.num_voters)
 
     def test_get_election_voters_raw(self):
-        response = self.client.get("/helios/elections/%s/voters/" % self.election.uuid, follow=False)
+        response = self.client.get(reverse('helios.views.voter_list', args = [self.election.uuid]), follow=False)
         self.assertEquals(len(utils.from_json(response.content)), self.election.num_voters)
         
     def test_election_creation_not_logged_in(self):
-        response = self.client.post("/helios/elections/new", {
+        response = self.client.post(reverse('helios.views.election_new'), {
                 "short_name" : "test-complete",
                 "name" : "Test Complete",
                 "description" : "A complete election test",
@@ -488,15 +488,15 @@ class ElectionBlackboxTests(WebTest):
                 "use_advanced_audit_features": "1",
                 "private_p" : "False"})
 
-        self.assertRedirects(response, "/auth/?return_url=/helios/elections/new")
+        self.assertRedirects(response, "%s?return_url=%s" % (reverse('helios_auth.views.index'), reverse('helios.views.election_new')))
     
     def test_election_edit(self):
         # a bogus call to set up the session
-        self.client.get("/")
+        self.client.get(reverse('server_ui.views.home'))
 
         self.setup_login()
-        response = self.client.get("/helios/elections/%s/edit" % self.election.uuid)
-        response = self.client.post("/helios/elections/%s/edit" % self.election.uuid, {
+        response = self.client.get(reverse('helios.views.one_election_edit', args = [self.election.uuid]))
+        response = self.client.post(reverse('helios.views.one_election_edit', args = [self.election.uuid]), {
                 "short_name" : self.election.short_name + "-2",
                 "name" : self.election.name,
                 "description" : self.election.description,
@@ -505,7 +505,7 @@ class ElectionBlackboxTests(WebTest):
                 'csrf_token': self.client.session['csrf_token']
                 })
 
-        self.assertRedirects(response, "/helios/elections/%s/view" % self.election.uuid)
+        self.assertRedirects(response, reverse('helios.views.one_election_view', args = [self.election.uuid]))
 
         new_election = models.Election.objects.get(uuid = self.election.uuid)
         self.assertEquals(new_election.short_name, self.election.short_name + "-2")
@@ -514,7 +514,7 @@ class ElectionBlackboxTests(WebTest):
         "do the setup part of a whole election"
 
         # a bogus call to set up the session
-        self.client.get("/")
+        self.client.get(reverse('server_ui.views.home'))
 
         # REPLACE with params?
         self.setup_login()
@@ -534,7 +534,7 @@ class ElectionBlackboxTests(WebTest):
         # override with the given
         full_election_params.update(election_params)
 
-        response = self.client.post("/helios/elections/new", full_election_params)
+        response = self.client.post(reverse('helios.views.election_new'), full_election_params)
 
         # we are redirected to the election, let's extract the ID out of the URL
         election_id = re.search('/elections/([^/]+)/', str(response['Location'])).group(1)
@@ -542,13 +542,13 @@ class ElectionBlackboxTests(WebTest):
         # helios is automatically added as a trustee
 
         # check that helios is indeed a trustee
-        response = self.client.get("/helios/elections/%s/trustees/view" % election_id)
+        response = self.client.get(reverse('helios.views.list_trustees_view', args = [election_id]))
         self.assertContains(response, "Trustee #1")
 
         # add a few voters with an improperly placed email address
         FILE = "helios/fixtures/voter-badfile.csv"
         voters_file = open(FILE)
-        response = self.client.post("/helios/elections/%s/voters/upload" % election_id, {'voters_file': voters_file})
+        response = self.client.post(reverse('helios.views.voters_upload', args = [election_id]), {'voters_file': voters_file})
         voters_file.close()
         self.assertContains(response, "HOLD ON")
 
@@ -558,49 +558,49 @@ class ElectionBlackboxTests(WebTest):
         # I just needed some unicode quickly.
         FILE = "helios/fixtures/voter-file.csv"
         voters_file = open(FILE)
-        response = self.client.post("/helios/elections/%s/voters/upload" % election_id, {'voters_file': voters_file})
+        response = self.client.post('helios.views.voters_upload', args = [election_id]), {'voters_file': voters_file})
         voters_file.close()
         self.assertContains(response, "first few rows of this file")
 
         # now we confirm the upload
-        response = self.client.post("/helios/elections/%s/voters/upload" % election_id, {'confirm_p': "1"})
-        self.assertRedirects(response, "/helios/elections/%s/voters/list" % election_id)
+        response = self.client.post('helios.views.voters_upload', args = [election_id]), {'confirm_p': "1"})
+        self.assertRedirects(response, 'helios.views.voters_list_pretty', args = [election_id]))
 
         # and we want to check that there are now voters
-        response = self.client.get("/helios/elections/%s/voters/" % election_id)
+        response = self.client.get('helios.views.voter_list', args = [election_id]))
         NUM_VOTERS = 4
         self.assertEquals(len(utils.from_json(response.content)), NUM_VOTERS)
 
         # let's get a single voter
         single_voter = models.Election.objects.get(uuid = election_id).voter_set.all()[0]
-        response = self.client.get("/helios/elections/%s/voters/%s" % (election_id, single_voter.uuid))
+        response = self.client.get('helios.views.one_voter', args = [election_id, single_voter.uuid])
         self.assertContains(response, '"uuid": "%s"' % single_voter.uuid)
 
-        response = self.client.get("/helios/elections/%s/voters/foobar" % election_id)
+        response = self.client.get('helios.views.one_voter', args = [election_id, 'foobar']))
         self.assertEquals(response.status_code, 404)
         
         # add questions
-        response = self.client.post("/helios/elections/%s/save_questions" % election_id, {
+        response = self.client.post('helios.views.one_election_save_questions', args = [election_id]), {
                 'questions_json': utils.to_json([{"answer_urls": ["http://example.com",None], "answers": ["Alice", "Bob"], "choice_type": "approval", "max": 1, "min": 0, "question": "Who should be president?", "result_type": "absolute", "short_name": "Who should be president?", "tally_type": "homomorphic"}]),
                 'csrf_token': self.client.session['csrf_token']})
 
         self.assertContains(response, "SUCCESS")
 
         # freeze election
-        response = self.client.post("/helios/elections/%s/freeze" % election_id, {
+        response = self.client.post('helios.views.one_election_freeze', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token']})
-        self.assertRedirects(response, "/helios/elections/%s/view" % election_id)
+        self.assertRedirects(response, 'helios.views.one_election_view', args = [election_id]))
 
         # email the voters
         num_messages_before = len(mail.outbox)
-        response = self.client.post("/helios/elections/%s/voters/email" % election_id, {
+        response = self.client.post('helios.views.voters_email', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token'],
                 "subject" : "your password",
                 "body" : "time to vote",
                 "suppress_election_links" : "0",
                 "send_to" : "all"
                 })
-        self.assertRedirects(response, "/helios/elections/%s/view" % election_id)
+        self.assertRedirects(response, 'helios.views.one_election_view', args = [election_id]))
         num_messages_after = len(mail.outbox)
         self.assertEquals(num_messages_after - num_messages_before, NUM_VOTERS)
 
@@ -623,7 +623,7 @@ class ElectionBlackboxTests(WebTest):
         check_user_logged_in looks for the "you're already logged" message
         """
         # vote by preparing a ballot via the server-side encryption
-        response = self.app.post("/helios/elections/%s/encrypt-ballot" % election_id, {
+        response = self.app.post('helios.views.encrypt_ballot', args = [election_id]), {
                 'answers_json': utils.to_json([[1]])})
         self.assertContains(response, "answers")
 
@@ -637,9 +637,9 @@ class ElectionBlackboxTests(WebTest):
         encrypted_vote = ballot.serialize()
         
         # cast the ballot
-        response = self.app.post("/helios/elections/%s/cast" % election_id, {
+        response = self.app.post(reverse('helios.views.one_election_cast', args = [election_id]), {
                 'encrypted_vote': encrypted_vote})
-        self.assertRedirects(response, "%s/helios/elections/%s/cast_confirm" % (settings.SECURE_URL_HOST, election_id))
+        self.assertRedirects(response, settings.SECURE_URL_HOST + reverse('helios.views.one_election_cast_confirm', args = [election_id]))
 
         cast_confirm_page = response.follow()
         
@@ -665,7 +665,7 @@ class ElectionBlackboxTests(WebTest):
                 cast_form['status_update'] = False
             response = cast_form.submit()
 
-        self.assertRedirects(response, "%s/helios/elections/%s/cast_done" % (settings.URL_HOST, election_id))
+        self.assertRedirects(response, settings.URL_HOST + reverse('helios.views.one_election_cast_done', args = [election_id]))
 
         # at this point an email should have gone out to the user
         # at position num_messages after, since that was the len() before we cast this ballot
@@ -679,7 +679,7 @@ class ElectionBlackboxTests(WebTest):
             # so if need_login is False, it was a private election, and we do need to re-login here
             # we need to re-login if it's a private election, because all data, including ballots
             # is otherwise private
-            login_page = self.app.get("/helios/elections/%s/password_voter_login" % election_id)
+            login_page = self.app.get(reverse('helios.views.password_voter_login', args = [election_id]))
 
             # if we redirected, that's because we can see the page, I think
             if login_page.status_int != 302:
@@ -695,7 +695,7 @@ class ElectionBlackboxTests(WebTest):
         self.assertContains(response, html_escape(encrypted_vote))
 
         # if we request the redirect to cast_done, the voter should be logged out, but not the user
-        response = self.app.get("/helios/elections/%s/cast_done" % election_id)
+        response = self.app.get(reverse('helios.views.one_election_cast_done', args = [election_id]))
 
         # FIXME: how to check this? We can't do it by checking session that we're doign webtes
         # assert not self.client.session.has_key('CURRENT_VOTER')
@@ -705,33 +705,33 @@ class ElectionBlackboxTests(WebTest):
         self.setup_login()
 
         # encrypted tally
-        response = self.client.post("/helios/elections/%s/compute_tally" % election_id, {
+        response = self.client.post(reverse('helios.views.one_election_compute_tally', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token']                
                 })
-        self.assertRedirects(response, "/helios/elections/%s/view" % election_id)
+        self.assertRedirects(response, reverse('helios.views.one_election_view', args = [election_id]))
 
         # should trigger helios decryption automatically
         self.assertNotEquals(models.Election.objects.get(uuid=election_id).get_helios_trustee().decryption_proofs, None)
 
         # combine decryptions
-        response = self.client.post("/helios/elections/%s/combine_decryptions" % election_id, {
+        response = self.client.post(reverse('helios.views.combine_decryptions', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token'],
                 })
 
         # after tallying, we now go back to election_view
-        self.assertRedirects(response, "/helios/elections/%s/view" % election_id)
+        self.assertRedirects(response, reverse('helios.views.one_election_view', args = [election_id]))
 
         # check that we can't get the tally yet
-        response = self.client.get("/helios/elections/%s/result" % election_id)
+        response = self.client.get(reverse('helios.views.one_election_result', args = [election_id]))
         self.assertEquals(response.status_code, 403)
 
         # release
-        response = self.client.post("/helios/elections/%s/release_result" % election_id, {
+        response = self.client.post(reverse('helios.views.release_result', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token'],
                 })
 
         # check that tally matches
-        response = self.client.get("/helios/elections/%s/result" % election_id)
+        response = self.client.get(reverse('helios.views.one_election_result', args = [election_id]))
         self.assertEquals(utils.from_json(response.content), [[0,1]])
         
     def test_do_complete_election(self):
@@ -758,10 +758,10 @@ class ElectionBlackboxTests(WebTest):
 
         # get the password_voter_login_form via the front page
         # (which will test that redirects are doing the right thing)
-        response = self.app.get("/helios/elections/%s/view" % election_id)
+        response = self.app.get(reverse('helios.views.one_election_view', args = [election_id]))
 
         # ensure it redirects
-        self.assertRedirects(response, "/helios/elections/%s/password_voter_login?%s" % (election_id, urllib.parse.urlencode({"return_url": "/helios/elections/%s/view" % election_id})))
+        self.assertRedirects(response, "%s?%s" % (reverse('helios.views.password_voter_login', args = [election_id]), urllib.parse.urlencode({"return_url": reverse('helios.views.one_election_view', args = [election_id])})))
 
         login_form = response.follow().form
 
@@ -769,16 +769,16 @@ class ElectionBlackboxTests(WebTest):
         login_form['password'] = password
 
         response = login_form.submit()
-        self.assertRedirects(response, "/helios/elections/%s/view" % election_id)
+        self.assertRedirects(response, reverse('helios.views.one_election_view', args = [election_id]))
 
         self._cast_ballot(election_id, username, password, need_login = False)
         self._do_tally(election_id)
 
     def test_election_voters_eligibility(self):
         # create the election
-        self.client.get("/")
+        self.client.get(reverse('sever_ui.views.home'))
         self.setup_login()
-        response = self.client.post("/helios/elections/new", {
+        response = self.client.post(reverse('helios.views.election_new'), {
                 "short_name" : "test-eligibility",
                 "name" : "Test Eligibility",
                 "description" : "An election test for voter eligibility",
@@ -791,21 +791,21 @@ class ElectionBlackboxTests(WebTest):
         election_id = re.match("(.*)/elections/(.*)/view", response['Location']).group(2)
 
         # update eligiblity
-        response = self.client.post("/helios/elections/%s/voters/eligibility" % election_id, {
+        response = self.client.post(reverse('helios.views.voters_eligibility', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token'],
                 "eligibility": "openreg"})
 
         self.clear_login()
-        response = self.client.get("/helios/elections/%s/voters/list" % election_id)
+        response = self.client.get(reverse('helios.views.voters_list_pretty', args = [election_id]))
         self.assertContains(response, "Anyone can vote")
 
         self.setup_login()
-        response = self.client.post("/helios/elections/%s/voters/eligibility" % election_id, {
+        response = self.client.post(reverse('helios.views.voters_eligibility', args = [election_id]), {
                 "csrf_token" : self.client.session['csrf_token'],
                 "eligibility": "closedreg"})
 
         self.clear_login()
-        response = self.client.get("/helios/elections/%s/voters/list" % election_id)
+        response = self.client.get(reverse('helios.views.voters_list_pretty', args = [election_id]))
         self.assertContains(response, "Only the voters listed here")
 
     def test_do_complete_election_with_trustees(self):

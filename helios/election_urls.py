@@ -71,7 +71,7 @@ urlpatterns = [
     url(r'^/cast$', one_election_cast, name = 'helios.views.one_election_cast'),
     url(r'^/cast_confirm$', one_election_cast_confirm, name = 'helios.views.one_election_cast_confirm'),
     url(r'^/password_voter_login$', password_voter_login, name = 'helios.views.password_voter_login'),
-    url(r'^/cast_done$', one_election_cast_done, name = 'helios.views.ne_election_cast_done'),
+    url(r'^/cast_done$', one_election_cast_done, name = 'helios.views.one_election_cast_done'),
     
     # post audited ballot
     url(r'^/post-audited-ballot', post_audited_ballot, name = 'helios.views.post_audited_ballot'),

@@ -97,7 +97,7 @@ def admin_autologin(request):
 
   user = users[0]
   request.session['user'] = {'type' : user.user_type, 'user_id' : user.user_id}
-  return HttpResponseRedirect("/")
+  return HttpResponseRedirect(reverse('server_ui.views.home'))
 
 ##
 ## General election features
@@ -123,7 +123,7 @@ def election_shortcut(request, election_short_name):
 # a hidden view behind the shortcut that performs the actual perm check
 @election_view()
 def _election_vote_shortcut(request, election):
-  vote_url = "%s/booth/vote.html?%s" % (settings.SECURE_URL_HOST, urllib.parse.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
+  vote_url = "%s%s?%s" % (settings.SECURE_URL_HOST, reverse('booth', args = ['vote.html']), urllib.parse.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
   
   test_cookie_url = "%s?%s" % (reverse(test_cookie), urllib.parse.urlencode({'continue_url' : vote_url}))
 
@@ -303,7 +303,7 @@ def one_election_view(request, election):
   election_badge_url = get_election_badge_url(election)
   status_update_message = None
 
-  vote_url = "%s/booth/vote.html?%s" % (settings.SECURE_URL_HOST, urllib.parse.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
+  vote_url = "%s%s?%s" % (settings.SECURE_URL_HOST, reverse('booth', args = ['vote.html']), urllib.parse.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
 
   test_cookie_url = "%s?%s" % (reverse(test_cookie), urllib.parse.urlencode({'continue_url' : vote_url}))
   
@@ -1240,7 +1240,7 @@ def voters_eligibility(request, election):
 
   if request.method == "GET":
     # this shouldn't happen, only POSTs
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(reverse('server_ui.views.home'))
 
   # for now, private elections cannot change eligibility
   if election.private_p:
