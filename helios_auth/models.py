@@ -165,7 +165,7 @@ class User(models.Model):
     else:
       name_display = self.pretty_name
 
-    return """<img class="%s-logo" src="%s/auth/login-icons/%s.png" alt="%s" /> %s""" % (
+    return """<img class="%s-logo" src="%sauth/login-icons/%s.png" alt="%s" /> %s""" % (
       size, settings.STATIC_URL, self.user_type, self.user_type, name_display)
 
   @property
