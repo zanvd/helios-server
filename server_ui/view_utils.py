@@ -4,7 +4,7 @@ Utilities for single election views
 Ben Adida (2009-07-18)
 """
 
-from django.template import Context, Template, loader
+from django.template import Template, loader
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
 

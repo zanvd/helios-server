@@ -4,7 +4,7 @@ Utilities for all views
 Ben Adida (12-30-2008)
 """
 
-from django.template import Context, Template, loader
+from django.template import Template, loader
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
 
@@ -69,8 +69,7 @@ def render_template_raw(request, template_name, vars={}):
   else:
     full_vars = vars
 
-  c = Context(full_vars)  
-  return t.render(c)
+  return t.render(full_vars)
 
 
 def render_json(json_txt):
