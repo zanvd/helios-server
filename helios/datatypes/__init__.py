@@ -108,6 +108,9 @@ class LDObject(object):
     # fields to serialize
     FIELDS = []
 
+    # bytes fields stored as JSON strings
+    BYTES_FIELDS = []
+
     # structured fields are other LD objects, not simple types
     STRUCTURED_FIELDS = {}
 
@@ -179,6 +182,8 @@ class LDObject(object):
             else:
                 # a simple type
                 new_val = self.process_value_in(f, d[f])
+                if f in self.BYTE_FIELDS:
+                    new_val = new_val.encode("utf-8")
                 self._setattr_wrapped(f, new_val)
         
     def serialize(self):

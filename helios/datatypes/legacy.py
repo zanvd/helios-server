@@ -18,6 +18,7 @@ class Election(LegacyObject):
     WRAPPED_OBJ_CLASS = models.Election
     FIELDS = ['uuid', 'questions', 'name', 'short_name', 'description', 'voters_hash', 'openreg',
               'frozen_at', 'public_key', 'cast_url', 'use_voter_aliases', 'voting_starts_at', 'voting_ends_at']
+    BYTE_FIELDS = ['voters_hash']
 
     STRUCTURED_FIELDS = {
         'public_key' : 'legacy/EGPublicKey',
@@ -50,6 +51,7 @@ class EncryptedVote(LegacyObject):
     """
     WRAPPED_OBJ_CLASS = homomorphic.EncryptedVote
     FIELDS = ['answers', 'election_hash', 'election_uuid']
+    BYTE_FIELDS = ['election_hash']
     STRUCTURED_FIELDS = {
         'answers' : arrayOf('legacy/EncryptedAnswer')
         }
@@ -63,6 +65,7 @@ class EncryptedVoteWithRandomness(LegacyObject):
     """
     WRAPPED_OBJ_CLASS = homomorphic.EncryptedVote
     FIELDS = ['answers', 'election_hash', 'election_uuid']
+    BYTE_FIELDS = ['election_hash']
     STRUCTURED_FIELDS = {
         'answers' : arrayOf('legacy/EncryptedAnswerWithRandomness')
         }
@@ -70,6 +73,7 @@ class EncryptedVoteWithRandomness(LegacyObject):
 
 class Voter(LegacyObject):
     FIELDS = ['election_uuid', 'uuid', 'voter_type', 'voter_id_hash', 'name']
+    BYTE_FIELDS = ['voter_id_hash']
 
     ALIASED_VOTER_FIELDS = ['election_uuid', 'uuid', 'alias']
 
@@ -85,10 +89,12 @@ class Voter(LegacyObject):
 
 class ShortCastVote(LegacyObject):
     FIELDS = ['cast_at', 'voter_uuid', 'voter_hash', 'vote_hash']
+    BYTE_FIELDS = ['voter_hash', 'vote_hash']
     STRUCTURED_FIELDS = {'cast_at' : 'core/Timestamp'}
 
 class CastVote(LegacyObject):
     FIELDS = ['vote', 'cast_at', 'voter_uuid', 'voter_hash', 'vote_hash']
+    BYTE_FIELDS = ['voter_hash', 'vote_hash']
     STRUCTURED_FIELDS = {
         'cast_at' : 'core/Timestamp',
         'vote' : 'legacy/EncryptedVote'}
@@ -99,6 +105,7 @@ class CastVote(LegacyObject):
 
 class Trustee(LegacyObject):
     FIELDS = ['uuid', 'public_key', 'public_key_hash', 'pok', 'decryption_factors', 'decryption_proofs', 'email']
+    BYTE_FIELDS = ['public_key_hash']
 
     STRUCTURED_FIELDS = {
         'public_key' : 'legacy/EGPublicKey',

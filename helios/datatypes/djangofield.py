@@ -6,16 +6,10 @@ http://www.djangosnippets.org/snippets/377/
 and adapted to LDObject
 """
 
-import datetime
-import json
-from django.db import models
-from django.db.models import signals
-from django.conf import settings
-from django.core.serializers.json import DjangoJSONEncoder
-
 from numbers import Number
 from django.contrib.postgres.fields import JSONField
 from django.contrib.postgres.fields.jsonb import JsonAdapter
+from helios_auth.utils import JSONBytesEncoder
 
 from . import LDObject
 
@@ -29,6 +23,7 @@ class LDObjectField(JSONField):
 
     def __init__(self, type_hint=None, **kwargs):
         self.type_hint = type_hint
+        kwargs['encoder'] = JSONBytesEncoder
         super(LDObjectField, self).__init__(**kwargs)
 
     def deconstruct(self):

@@ -8,8 +8,14 @@ Some basic utils
 import json
 
 ## JSON
+class JSONBytesEncoder(json.JSONEncoder):
+  def default(self, o):
+    if isinstance(o, bytes):
+      return o.decode("utf-8")
+    return super(JSONBytesEncoder, self).default(o)
+
 def to_json(d):
-  return json.dumps(d, sort_keys=True)
+  return json.dumps(d, sort_keys=True, cls=JSONBytesEncoder)
   
 def from_json(json_str):
   if not json_str: return None

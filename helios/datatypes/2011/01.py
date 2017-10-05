@@ -10,6 +10,7 @@ class Trustee(LDObject):
   """
   
   FIELDS = ['uuid', 'public_key', 'public_key_hash', 'pok', 'decryption_factors', 'decryption_proofs', 'email']
+  BYTE_FIELDS = ['public_key_hash']
   STRUCTURED_FIELDS = {
     'pok' : 'pkc/elgamal/DiscreteLogProof',
     'public_key' : 'pkc/elgamal/PublicKey'
@@ -21,6 +22,7 @@ class Election(LDObject):
   FIELDS = ['uuid', 'questions', 'name', 'short_name', 'description', 'voters_hash', 'openreg',
             'frozen_at', 'public_key', 'cast_url', 'use_advanced_audit_features', 
             'use_voter_aliases', 'voting_starts_at', 'voting_ends_at']
+  BYTE_FIELDS = ['voters_hash']
   
   STRUCTURED_FIELDS = {
     'public_key' : 'pkc/elgamal/PublicKey',
@@ -32,6 +34,7 @@ class Election(LDObject):
 
 class Voter(LDObject):
     FIELDS = ['election_uuid', 'uuid', 'voter_type', 'voter_id_hash', 'name']
+    BYTE_FIELDS = ['voter_id_hash']
 
 class EncryptedAnswer(LDObject):
     FIELDS = ['choices', 'individual_proofs', 'overall_proof', 'randomness', 'answer']
