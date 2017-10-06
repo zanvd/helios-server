@@ -2,7 +2,7 @@
 Legacy datatypes for Helios (v3.0)
 """
 
-from helios.datatypes import LDObject, arrayOf, DictObject, ListObject
+from helios.datatypes import LDObject, DictObject, ListObject
 from helios.crypto import elgamal as crypto_elgamal
 from helios.workflows import homomorphic
 from helios import models
@@ -31,18 +31,18 @@ class EncryptedAnswer(LegacyObject):
     WRAPPED_OBJ_CLASS = homomorphic.EncryptedAnswer
     FIELDS = ['choices', 'individual_proofs', 'overall_proof']
     STRUCTURED_FIELDS = {
-        'choices': arrayOf('legacy/EGCiphertext'),
-        'individual_proofs': arrayOf('legacy/EGZKDisjunctiveProof'),
+        'choices': 'legacy/EGCiphertext[]',
+        'individual_proofs': 'legacy/EGZKDisjunctiveProof[]',
         'overall_proof' : 'legacy/EGZKDisjunctiveProof'
         }
 
 class EncryptedAnswerWithRandomness(LegacyObject):
     FIELDS = ['choices', 'individual_proofs', 'overall_proof', 'randomness', 'answer']
     STRUCTURED_FIELDS = {
-        'choices': arrayOf('legacy/EGCiphertext'),
-        'individual_proofs': arrayOf('legacy/EGZKDisjunctiveProof'),
+        'choices': 'legacy/EGCiphertext[]',
+        'individual_proofs': 'legacy/EGZKDisjunctiveProof[]',
         'overall_proof' : 'legacy/EGZKDisjunctiveProof',
-        'randomness' : arrayOf('core/BigInteger')
+        'randomness' : 'core/BigInteger[]'
         }
 
 class EncryptedVote(LegacyObject):
@@ -53,7 +53,7 @@ class EncryptedVote(LegacyObject):
     FIELDS = ['answers', 'election_hash', 'election_uuid']
     BYTE_FIELDS = ['election_hash']
     STRUCTURED_FIELDS = {
-        'answers' : arrayOf('legacy/EncryptedAnswer')
+        'answers' : 'legacy/EncryptedAnswer[]'
         }
 
     def includeRandomness(self):
@@ -67,7 +67,7 @@ class EncryptedVoteWithRandomness(LegacyObject):
     FIELDS = ['answers', 'election_hash', 'election_uuid']
     BYTE_FIELDS = ['election_hash']
     STRUCTURED_FIELDS = {
-        'answers' : arrayOf('legacy/EncryptedAnswerWithRandomness')
+        'answers' : 'legacy/EncryptedAnswerWithRandomness[]'
         }
     
 
@@ -110,8 +110,8 @@ class Trustee(LegacyObject):
     STRUCTURED_FIELDS = {
         'public_key' : 'legacy/EGPublicKey',
         'pok': 'legacy/DLogProof',
-        'decryption_factors': arrayOf(arrayOf('core/BigInteger')),
-        'decryption_proofs' : arrayOf(arrayOf('legacy/EGZKProof'))}
+        'decryption_factors': 'core/BigInteger[][]',
+        'decryption_proofs' : 'legacy/EGZKProof[][]'}
 
 class EGParams(LegacyObject):
     WRAPPED_OBJ_CLASS = crypto_elgamal.Cryptosystem
@@ -163,7 +163,7 @@ class EGZKDisjunctiveProof(LegacyObject):
     WRAPPED_OBJ_CLASS = crypto_elgamal.ZKDisjunctiveProof
     FIELDS = ['proofs']
     STRUCTURED_FIELDS = {
-        'proofs': arrayOf('legacy/EGZKProof')}
+        'proofs': 'legacy/EGZKProof[]'}
 
     def loadDataFromDict(self, d):
         "hijack and make sure we add the proofs name back on"
@@ -203,7 +203,7 @@ class Tally(LegacyObject):
     WRAPPED_OBJ_CLASS = homomorphic.Tally
     FIELDS = ['tally', 'num_tallied']
     STRUCTURED_FIELDS = {
-        'tally': arrayOf(arrayOf('legacy/EGCiphertext'))}
+        'tally': 'legacy/EGCiphertext[][]'}
 
 class Eligibility(ListObject, LegacyObject):
     WRAPPED_OBJ = list

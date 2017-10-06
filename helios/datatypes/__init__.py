@@ -26,6 +26,7 @@ And when data comes in:
   LDObject.deserialize(json_string, type=...)
 """
 
+from re import match
 from helios import utils
 from helios.crypto import utils as cryptoutils
 from importlib import import_module
@@ -42,33 +43,55 @@ def recursiveToDict(obj):
     else:
         return obj.toDict()
 
-def get_class(datatype):
+def get_object(datatype, obj, fromDict = False):
     # already done?
     if not isinstance(datatype, str):
         return datatype
 
-    # parse datatype string "v31/Election" --> from v31 import Election
-    parsed_datatype = datatype.split("/")
-    
-    # get the module
-    dynamic_module = import_module("." + ".".join(parsed_datatype[:-1]), package = "helios.datatypes")
-    
-    if not dynamic_module:
-        raise Exception("no module for %s" % datatpye)
+    m = match(r'^(.*)\[\]$', datatype)
+    if m is not None:
+        return_obj = ArrayOfObjects([] if fromDict else obj)
+        return_obj.ELEMENT_TYPE = m.group(1)
+    else:
+        # parse datatype string "v31/Election" --> from v31 import Election
+        parsed_datatype = datatype.split("/")
 
-    # go down the attributes to get to the class
-    try:
-        dynamic_ptr = dynamic_module
-        for attr in parsed_datatype[1:]:
-            dynamic_ptr = getattr(dynamic_ptr, attr)
-        dynamic_cls = dynamic_ptr
-    except AttributeError:
-        raise Exception ("no module for %s" % datatype)    
+        # get the module
+        dynamic_module = import_module("." + ".".join(parsed_datatype[:-1]), package = "helios.datatypes")
 
-    dynamic_cls.datatype = datatype
-        
-    return dynamic_cls
-        
+        if not dynamic_module:
+            raise Exception("no module for %s" % datatype)
+
+        # go down the attributes to get to the class
+        try:
+            dynamic_ptr = dynamic_module
+            for attr in parsed_datatype[1:]:
+                dynamic_ptr = getattr(dynamic_ptr, attr)
+            dynamic_cls = dynamic_ptr
+        except AttributeError:
+            raise Exception ("no module for %s" % datatype)
+
+        if fromDict:
+            wrapped_obj_cls = dynamic_cls.WRAPPED_OBJ_CLASS
+            if not wrapped_obj_cls:
+                raise Exception("cannot instantiate wrapped object for %s" % datatype)
+
+            wrapped_obj = wrapped_obj_cls()
+        else:
+            wrapped_obj = obj
+
+        # instantiate the class
+        return_obj = dynamic_cls(wrapped_obj)
+
+    return_obj.datatype = datatype
+
+    # load the data
+    if fromDict:
+        return_obj.loadDataFromDict(obj)
+    else:
+        return_obj.loadData()
+
+    return return_obj
 
 class LDObjectContainer(object):
     """
@@ -137,14 +160,7 @@ class LDObject(object):
         if obj == None:
             return None
 
-        # the class
-        dynamic_cls = get_class(datatype)
-
-        # instantiate it and load data
-        return_obj = dynamic_cls(obj)
-        return_obj.loadData()
-
-        return return_obj
+        return get_object(datatype, obj)
 
     def _getattr_wrapped(self, attr):
         return getattr(self.wrapped_obj, attr)
@@ -227,21 +243,7 @@ class LDObject(object):
         # FIXME: get this from the dictionary itself
         ld_type = type_hint
 
-        # get the LD class so we know what wrapped object to instantiate
-        ld_cls = get_class(ld_type)
-
-        wrapped_obj_cls = ld_cls.WRAPPED_OBJ_CLASS
-        
-        if not wrapped_obj_cls:
-            raise Exception("cannot instantiate wrapped object for %s" % ld_type)
-
-        wrapped_obj = wrapped_obj_cls()
-
-        # then instantiate the LD object and load the data
-        ld_obj = ld_cls(wrapped_obj)
-        ld_obj.loadDataFromDict(d)
-
-        return ld_obj
+        return get_object(ld_type, d, fromDict = True)
 
     fromJSONDict = fromDict
 
@@ -289,7 +291,7 @@ class LDObject(object):
         return other != None and self.uuid == other.uuid
   
 
-class BaseArrayOfObjects(LDObject):
+class ArrayOfObjects(LDObject):
     """
     If one type has, as a subtype, an array of things, then this is the structured field used
     """
@@ -297,7 +299,7 @@ class BaseArrayOfObjects(LDObject):
     WRAPPED_OBJ_CLASS = list
 
     def __init__(self, wrapped_obj):
-        super(BaseArrayOfObjects, self).__init__(wrapped_obj)
+        super(ArrayOfObjects, self).__init__(wrapped_obj)
     
     def toDict(self, complete=False):
         return [item.toDict(complete=complete) for item in self.items]
@@ -312,17 +314,6 @@ class BaseArrayOfObjects(LDObject):
         self.items = [LDObject.fromDict(element, type_hint = self.ELEMENT_TYPE) for element in d]
         self.wrapped_obj = [item.wrapped_obj for item in self.items]
         
-
-def arrayOf(element_type):
-    """
-    a wrapper for the construtor of the array
-    returns the constructor
-    """
-    class ArrayOfTypedObjects(BaseArrayOfObjects):
-        ELEMENT_TYPE = element_type
-
-    return ArrayOfTypedObjects
-
 class DictObject(object):
     "when the wrapped object is actually dictionary"
     def _getattr_wrapped(self, attr):

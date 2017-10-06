@@ -1143,10 +1143,10 @@ class Trustee(HeliosModel):
                       null=True)
   
   # decryption factors
-  decryption_factors = LDObjectField(type_hint = datatypes.arrayOf(datatypes.arrayOf('core/BigInteger')),
+  decryption_factors = LDObjectField(type_hint = 'core/BigInteger[][]',
                                      null=True)
 
-  decryption_proofs = LDObjectField(type_hint = datatypes.arrayOf(datatypes.arrayOf('legacy/EGZKProof')),
+  decryption_proofs = LDObjectField(type_hint = 'legacy/EGZKProof[][]',
                                     null=True)
 
   class Meta:

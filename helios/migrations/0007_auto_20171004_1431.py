@@ -52,12 +52,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='trustee',
             name='decryption_factors',
-            field=helios.datatypes.djangofield.LDObjectField(null=True, type_hint=helios.datatypes.arrayOf(helios.datatypes.arrayOf('core/BigInteger'))),
+            field=helios.datatypes.djangofield.LDObjectField(null=True, type_hint='core/BigInteger[][]'),
         ),
         migrations.AlterField(
             model_name='trustee',
             name='decryption_proofs',
-            field=helios.datatypes.djangofield.LDObjectField(null=True, type_hint=helios.datatypes.arrayOf(helios.datatypes.arrayOf('legacy/EGZKProof'))),
+            field=helios.datatypes.djangofield.LDObjectField(null=True, type_hint='legacy/EGZKProof[][]'),
         ),
         migrations.AlterField(
             model_name='trustee',

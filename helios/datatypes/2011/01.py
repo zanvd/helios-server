@@ -2,7 +2,7 @@
 data types for 2011/01 Helios
 """
 
-from helios.datatypes import LDObject, arrayOf, DictObject, ListObject
+from helios.datatypes import LDObject, DictObject, ListObject
 
 class Trustee(LDObject):
   """
@@ -39,8 +39,8 @@ class Voter(LDObject):
 class EncryptedAnswer(LDObject):
     FIELDS = ['choices', 'individual_proofs', 'overall_proof', 'randomness', 'answer']
     STRUCTURED_FIELDS = {
-        'choices': arrayOf('pkc/elgamal/EGCiphertext'),
-        'individual_proofs': arrayOf('pkc/elgamal/DisjunctiveProof'),
+        'choices': 'pkc/elgamal/EGCiphertext[]',
+        'individual_proofs': 'pkc/elgamal/DisjunctiveProof[]',
         'overall_proof' : 'pkc/elgamal/DisjunctiveProof',
         'randomness' : 'core/BigInteger'
         # answer is not a structured field, it's an as-is integer
