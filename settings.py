@@ -27,6 +27,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+RESET_USERS = [{'user_type': 'google', 'user_id': 'ben@adida.net', 'info': {'name':'Ben Adida'}}]
+
 # is this the master Helios web site?
 MASTER_HELIOS = (get_from_env('MASTER_HELIOS', '0') == '1')
 
