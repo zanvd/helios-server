@@ -28,6 +28,7 @@ And when data comes in:
 
 from helios import utils
 from helios.crypto import utils as cryptoutils
+from importlib import import_module
 
 ##
 ## utility function
@@ -50,7 +51,7 @@ def get_class(datatype):
     parsed_datatype = datatype.split("/")
     
     # get the module
-    dynamic_module = __import__(".".join(parsed_datatype[:-1]), globals(), locals(), [], level=-1)
+    dynamic_module = import_module("." + ".".join(parsed_datatype[:-1]), package = "helios.datatypes")
     
     if not dynamic_module:
         raise Exception("no module for %s" % datatpye)

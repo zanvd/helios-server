@@ -51,8 +51,8 @@ def render_template_raw(request, template_name, vars={}):
   t = loader.get_template(template_name + '.html')
   
   vars_with_user = prepare_vars(request, vars)
-  c = Context(vars_with_user)  
-  return t.render(c)
+  #c = Context(vars_with_user)  
+  return t.render(vars_with_user)
 
 def render_json(json_txt):
   return HttpResponse(json_txt)

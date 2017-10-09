@@ -10,7 +10,6 @@ from helios.crypto import algs, utils
 import logging
 import uuid
 import datetime
-from helios import models
 from . import WorkflowObject
 
 class EncryptedAnswer(WorkflowObject):

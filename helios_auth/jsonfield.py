@@ -10,7 +10,7 @@ from django.db.models import signals
 from django.conf import settings
 from django.core.serializers.json import DjangoJSONEncoder
 
-class JSONField(models.TextField, metaclass=models.SubfieldBase):
+class JSONField(models.TextField):
     """
     JSONField is a generic textfield that neatly serializes/unserializes
     JSON objects seamlessly.

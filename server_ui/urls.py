@@ -3,10 +3,10 @@ from django.conf.urls import *
 
 from .views import *
 
-urlpatterns = patterns('',
-  (r'^$', home),
-  (r'^about$', about),
-  (r'^docs$', docs),
-  (r'^faq$', faq),
-  (r'^privacy$', privacy),
-)
+urlpatterns = [
+  url(r'^$', home),
+  url(r'^about$', about),
+  url(r'^docs$', docs),
+  url(r'^faq$', faq),
+  url(r'^privacy$', privacy),
+]

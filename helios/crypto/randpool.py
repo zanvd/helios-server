@@ -141,7 +141,7 @@ class RandomPool:
         for i in range(N):
             self.stir()
 
-    def stir (self, s = ''):
+    def stir (self, s = b''):
         """stir(s:string)
         Mix up the randomness pool.  This will call add_event() twice,
         but out of paranoia the entropy attribute will not be
@@ -155,9 +155,9 @@ class RandomPool:
         # Loop over the randomness pool: hash its contents
         # along with a counter, and add the resulting digest
         # back into the pool.
-        for i in range(self.bytes / self._hash().digest_size):
+        for i in range(self.bytes // self._hash().digest_size):
             h = self._hash(self._randpool)
-            h.update(str(self.__counter) + str(i) + str(self._addPos) + s)
+            h.update((str(self.__counter) + str(i) + str(self._addPos)).encode('utf-8') + s)
             self._addBytes( h.digest() )
             self.__counter = (self.__counter + 1) & 0xFFFFffff
 
@@ -192,7 +192,7 @@ class RandomPool:
         return s[:N]
 
 
-    def add_event(self, s=''):
+    def add_event(self, s=b''):
         """add_event(s:string)
         Add an event to the random pool.  The current time is stored
         between calls and used to estimate the entropy.  The optional
@@ -202,7 +202,7 @@ class RandomPool:
         event = time.time()*1000
         delta = self._noise()
         s = (s + long_to_bytes(event) +
-             4*chr(0xaa) + long_to_bytes(delta) )
+             4*b'0xaa' + long_to_bytes(delta) )
         self._addBytes(s)
         if event==self._event1 and event==self._event2:
             # If events are coming too closely together, assume there's
@@ -247,16 +247,16 @@ class RandomPool:
         # between measurements, and taking the median of the resulting
         # list.  (We also hash all the times and add them to the pool)
         interval = [None] * 100
-        h = self._hash(repr((id(self),id(interval))))
+        h = self._hash(repr((id(self),id(interval))).encode('utf-8'))
 
         # Compute 100 differences
         t=time.time()
-        h.update(repr(t))
+        h.update(repr(t).encode('utf-8'))
         i = 0
         j = 0
         while i < 100:
             t2=time.time()
-            h.update(repr((i,j,t2)))
+            h.update(repr((i,j,t2)).encode('utf-8'))
             j += 1
             delta=int((t2-t)*1e6)
             if delta:
@@ -266,8 +266,8 @@ class RandomPool:
 
         # Take the median of the array of intervals
         interval.sort()
-        self._ticksize=interval[len(interval)/2]
-        h.update(repr((interval,self._ticksize)))
+        self._ticksize=interval[len(interval)//2]
+        h.update(repr((interval,self._ticksize)).encode('utf-8'))
         # mix in the measurement times and wash the random pool
         self.stir(h.digest())
 
@@ -275,7 +275,7 @@ class RandomPool:
         "XOR the contents of the string S into the random pool"
         i, pool = self._addPos, self._randpool
         for j in range(0, len(s)):
-            pool[i]=pool[i] ^ ord(s[j])
+            pool[i]=pool[i] ^ s[j]
             i=(i+1) % self.bytes
         self._addPos = i
 

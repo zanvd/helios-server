@@ -1,4 +1,3 @@
-
 import os, json
 
 # a massive hack to see if we're testing, in which case we use different settings
@@ -12,8 +11,13 @@ def get_from_env(var, default):
     else:
         return default
 
+import django
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = get_from_env('SECRET_KEY', 'replaceme')
+
+#django.setup()
+
 DEBUG = (get_from_env('DEBUG', '1') == '1')
-TEMPLATE_DEBUG = DEBUG
 
 # add admins of the form: 
 #    ('Ben Adida', 'ben@adida.net'),
@@ -81,9 +85,6 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 STATIC_URL = '/media/'
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = get_from_env('SECRET_KEY', 'replaceme')
-
 # If debug is set to false and ALLOWED_HOSTS is not declared, django raises  "CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False."
 # If in production, you got a bad request (400) error
 #More info: https://docs.djangoproject.com/en/1.7/ref/settings/#allowed-hosts (same for 1.6)
@@ -109,12 +110,6 @@ if (get_from_env('HSTS', '0') == '1'):
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader'
-)
-
 MIDDLEWARE_CLASSES = (
     # make all things SSL
     #'sslify.middleware.SSLifyMiddleware',
@@ -131,26 +126,31 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 ROOT_PATH = os.path.dirname(__file__)
-TEMPLATE_DIRS = (
-    ROOT_PATH,
-    os.path.join(ROOT_PATH, 'templates')
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [ROOT_PATH, os.path.join(ROOT_PATH, 'templates')],
+    },
+]
 
 INSTALLED_APPS = (
 #    'django.contrib.auth',
 #    'django.contrib.contenttypes',
     'djangosecure',
     'django.contrib.sessions',
+    'django.contrib.contenttypes',
+    'django.contrib.auth',
     #'django.contrib.sites',
     ## needed for queues
     'djcelery',
-    'kombu.transport.django',
+    #'kombu.transport.django',
     ## in Django 1.7 we now use built-in migrations, no more south
     ## 'south',
     ## HELIOS stuff
-    'helios_auth',
-    'helios',
-    'server_ui',
+    'helios_auth.apps.HeliosAuthConfig',
+    'helios.apps.HeliosConfig',
+    'server_ui.apps.ServerUIConfig',
 )
 
 ##
@@ -282,3 +282,4 @@ if ROLLBAR_ACCESS_TOKEN:
     'access_token': ROLLBAR_ACCESS_TOKEN,
     'environment': 'development' if DEBUG else 'production',  
   }
+

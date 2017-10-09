@@ -10,22 +10,22 @@ from .views import *
 from .auth_systems.password import password_login_view, password_forgotten_view
 from .auth_systems.twitter import follow_view
 
-urlpatterns = patterns('',
+urlpatterns = [
     # basic static stuff
-    (r'^$', index),
-    (r'^logout$', logout),
-    (r'^start/(?P<system_name>.*)$', start),
+    url(r'^$', index, name = 'helios_auth.views.index'),
+    url(r'^logout$', logout, name = 'helios_auth.views.logout'),
+    url(r'^start/(?P<system_name>.*)$', start, name = 'helios_auth.views.start'),
     # weird facebook constraint for trailing slash
-    (r'^after/$', after),
-    (r'^why$', perms_why),
-    (r'^after_intervention$', after_intervention),
+    url(r'^after/$', after, name = 'helios_auth.views.after'),
+    url(r'^why$', perms_why, name = 'helios_auth.views.perms_why'),
+    url(r'^after_intervention$', after_intervention, name = 'helios_auth.views.after_intervention'),
     
     ## should make the following modular
 
     # password auth
-    (r'^password/login', password_login_view),
-    (r'^password/forgot', password_forgotten_view),
+    url(r'^password/login', password_login_view, name = 'helios_auth.views.password_login_view'),
+    url(r'^password/forgot', password_forgotten_view, name = 'helios_auth.views.password_forgotten_view'),
 
     # twitter
-    (r'^twitter/follow', follow_view),
-)
+    url(r'^twitter/follow', follow_view, name = 'helios_auth.views.follow_view'),
+]

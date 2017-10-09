@@ -16,7 +16,6 @@ import bleach
 
 from .crypto import electionalgs, algs, utils
 from helios import utils as heliosutils
-import helios.views
 
 from helios import datatypes
 
@@ -32,6 +31,7 @@ import unicodecsv
 class HeliosModel(models.Model, datatypes.LDObjectContainer):
   class Meta:
     abstract = True
+    app_label = 'helios'
 
 class Election(HeliosModel):
   admin = models.ForeignKey(User)
@@ -575,7 +575,8 @@ class Election(HeliosModel):
 
   @property
   def url(self):
-    return helios.views.get_election_url(self)
+    from helios.views import get_election_url
+    return get_election_url(self)
 
   def init_tally(self):
     # FIXME: create the right kind of tally
@@ -663,6 +664,9 @@ class ElectionLog(models.Model):
   log = models.CharField(max_length=500)
   at = models.DateTimeField(auto_now_add=True)
 
+  class Meta:
+    app_label = 'helios'
+
 ##
 ## UTF8 craziness for CSV
 ##
@@ -701,6 +705,9 @@ class VoterFile(models.Model):
   processing_started_at = models.DateTimeField(auto_now_add=False, null=True)
   processing_finished_at = models.DateTimeField(auto_now_add=False, null=True)
   num_voters = models.IntegerField(null=True)
+
+  class Meta:
+    app_label = 'helios'
 
   def itervoters(self):
     if self.voter_file_content:
@@ -813,6 +820,7 @@ class Voter(HeliosModel):
 
   class Meta:
     unique_together = (('election', 'voter_login_id'))
+    app_label = 'helios'
 
   def __init__(self, *args, **kwargs):
     super(Voter, self).__init__(*args, **kwargs)
@@ -1091,6 +1099,9 @@ class AuditedBallot(models.Model):
   vote_hash = models.CharField(max_length=100)
   added_at = models.DateTimeField(auto_now_add=True)
 
+  class Meta:
+    app_label = 'helios'
+
   @classmethod
   def get(cls, election, vote_hash):
     return cls.objects.get(election = election, vote_hash = vote_hash)
@@ -1140,6 +1151,7 @@ class Trustee(HeliosModel):
 
   class Meta:
     unique_together = (('election', 'email'))
+    app_label = 'helios'
     
   def save(self, *args, **kwargs):
     """

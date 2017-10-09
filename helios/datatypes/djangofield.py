@@ -15,7 +15,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 from . import LDObject
 
-class LDObjectField(models.TextField, metaclass=models.SubfieldBase):
+class LDObjectField(models.TextField):
     """
     LDObject is a generic textfield that neatly serializes/unserializes
     JSON objects seamlessly.
