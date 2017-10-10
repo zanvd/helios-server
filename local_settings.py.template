@@ -22,3 +22,5 @@ RESET_USERS = [
 DEFAULT_FROM_EMAIL = get_from_env('DEFAULT_FROM_EMAIL', 'helios@lkrv.fri.uni-lj.si')
 DEFAULT_FROM_NAME = get_from_env('DEFAULT_FROM_NAME', 'Helios at lkrv.fri.uni-lj.si')
 SERVER_EMAIL = '%s <%s>' % (DEFAULT_FROM_NAME, DEFAULT_FROM_EMAIL)
+EMAIL_HOST = '212.235.188.18'
+EMAIL_PORT = 25
