@@ -15,7 +15,7 @@ import copy
 
 from django.conf import settings
 
-@task(name = 'helios.taksk.cast_vote_verify_and_store')
+@task(name = 'helios.tasks.cast_vote_verify_and_store')
 def cast_vote_verify_and_store(cast_vote_id, status_update_message=None, **kwargs):
     cast_vote = CastVote.objects.get(id = cast_vote_id)
     result = cast_vote.verify_and_store()
