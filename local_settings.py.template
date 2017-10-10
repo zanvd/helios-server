@@ -19,3 +19,6 @@ RESET_USERS = [
     {'user_type': 'google', 'user_id': 'zd5636@student.uni-lj.si', 'info': {'name':'Zan Valter Dragan'}},
     {'user_type': 'google', 'user_id': 'jvidali@gmail.com', 'info': {'name':'Janos Vidali'}}
 ]
+DEFAULT_FROM_EMAIL = get_from_env('DEFAULT_FROM_EMAIL', 'helios@lkrv.fri.uni-lj.si')
+DEFAULT_FROM_NAME = get_from_env('DEFAULT_FROM_NAME', 'Helios at lkrv.fri.uni-lj.si')
+SERVER_EMAIL = '%s <%s>' % (DEFAULT_FROM_NAME, DEFAULT_FROM_EMAIL)
