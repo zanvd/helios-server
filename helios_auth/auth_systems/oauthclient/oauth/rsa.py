@@ -41,7 +41,7 @@ class OAuthSignatureMethod_RSA_SHA1(oauth.OAuthSignatureMethod):
       )
       key = ''
       raw = '&'.join(sig)
-      return key, raw
+      return key.encode("utf-8"), raw.encode("utf-8")
 
   def build_signature(self, oauth_request, consumer, token):
     key, base_string = self.build_signature_base_string(oauth_request,

@@ -954,7 +954,7 @@ class Facebook(object):
         """Hashes arguments by joining key=value pairs, appending a secret, and then taking the MD5 hex digest."""
         # @author: houyr
         # fix for UnicodeEncodeError
-        hasher = hashlib.md5(''.join(['%s=%s' % (isinstance(x, str) and x.encode("utf-8") or x, isinstance(args[x], str) and args[x].encode("utf-8") or args[x]) for x in sorted(args.keys())]))
+        hasher = hashlib.md5(''.join(['%s=%s' % (isinstance(x, str) and x.encode("utf-8") or x, isinstance(args[x], str) and args[x].encode("utf-8") or args[x]) for x in sorted(args.keys())]).encode("utf-8"))
         if secret:
             hasher.update(secret)
         elif self.secret:
@@ -1074,7 +1074,7 @@ class Facebook(object):
         Hash an email address in a format suitable for Facebook Connect.
 
         """
-        email = email.lower().strip()
+        email = email.lower().strip().encode("utf-8")
         return "%s_%s" % (
             struct.unpack("I", struct.pack("i", binascii.crc32(email)))[0],
             hashlib.md5(email).hexdigest(),
@@ -1378,7 +1378,7 @@ class Facebook(object):
                 params[key] = value
                 vals += '%s=%s' % (key, value)
                 
-        hasher = hashlib.md5(vals)
+        hasher = hashlib.md5(vals.encode("utf-8"))
 
         hasher.update(self.secret_key)
         digest = hasher.hexdigest()
@@ -1395,7 +1395,7 @@ if __name__ == '__main__':
     # sample desktop application
 
     api_key = ''
-    secret_key = ''
+    secret_key = b''
 
     facebook = Facebook(api_key, secret_key)
 

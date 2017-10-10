@@ -400,7 +400,7 @@ class OAuthServer(object):
         valid_sig = signature_method.check_signature(oauth_request, consumer, token, signature)
         if not valid_sig:
             key, base = signature_method.build_signature_base_string(oauth_request, consumer, token)
-            raise OAuthError('Invalid signature. Expected signature base string: %s' % base)
+            raise OAuthError('Invalid signature. Expected signature base string: %s' % base.decode("utf-8"))
         built = signature_method.build_signature(oauth_request, consumer, token)
 
     def _check_timestamp(self, timestamp):
@@ -507,7 +507,7 @@ class OAuthSignatureMethod_HMAC_SHA1(OAuthSignatureMethod):
         if token:
             key += escape(token.secret)
         raw = '&'.join(sig)
-        return key, raw
+        return key.encode("utf-8"), raw.encode("utf-8")
 
     def build_signature(self, oauth_request, consumer, token):
         # build the base signature string
@@ -529,7 +529,7 @@ class OAuthSignatureMethod_PLAINTEXT(OAuthSignatureMethod):
         sig = escape(consumer.secret) + '&'
         if token:
             sig = sig + escape(token.secret)
-        return sig
+        return sig.encode("utf-8")
 
     def build_signature(self, oauth_request, consumer, token):
         return self.build_signature_base_string(oauth_request, consumer, token)
