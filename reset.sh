@@ -18,6 +18,6 @@ fi
 
 $SUDO dropdb $HOST helios
 $SUDO createdb $HOST helios
-$PYTHON manage.py syncdb
+$PYTHON manage.py makemigrations
 $PYTHON manage.py migrate
 echo "$SHELLCMD" | $PYTHON manage.py shell

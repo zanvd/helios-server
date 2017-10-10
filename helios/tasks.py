@@ -15,7 +15,7 @@ import copy
 
 from django.conf import settings
 
-@task()
+@task(name = 'helios.taksk.cast_vote_verify_and_store')
 def cast_vote_verify_and_store(cast_vote_id, status_update_message=None, **kwargs):
     cast_vote = CastVote.objects.get(id = cast_vote_id)
     result = cast_vote.verify_and_store()
@@ -36,7 +36,7 @@ def cast_vote_verify_and_store(cast_vote_id, status_update_message=None, **kwarg
         logger = cast_vote_verify_and_store.get_logger(**kwargs)
         logger.error("Failed to verify and store %d" % cast_vote_id)
     
-@task()
+@task(name = 'helios.tasks.voters_email')
 def voters_email(election_id, subject_template, body_template, extra_vars={},
                  voter_constraints_include=None, voter_constraints_exclude=None):
     """
@@ -55,13 +55,13 @@ def voters_email(election_id, subject_template, body_template, extra_vars={},
     for voter in voters:
         single_voter_email.delay(voter.uuid, subject_template, body_template, extra_vars)            
 
-@task()
+@task(name = 'helios.tasks.voters_notify')
 def voters_notify(election_id, notification_template, extra_vars={}):
     election = Election.objects.get(id = election_id)
     for voter in election.voter_set.all():
         single_voter_notify.delay(voter.uuid, notification_template, extra_vars)
 
-@task()
+@task(name = 'helios.tasks.single_voter_email')
 def single_voter_email(voter_uuid, subject_template, body_template, extra_vars={}):
     voter = Voter.objects.get(uuid = voter_uuid)
 
@@ -73,7 +73,7 @@ def single_voter_email(voter_uuid, subject_template, body_template, extra_vars={
 
     voter.send_message(subject, body)
 
-@task()
+@task(name = 'helios.tasks.single_voter_notify')
 def single_voter_notify(voter_uuid, notification_template, extra_vars={}):
     voter = Voter.objects.get(uuid = voter_uuid)
 
@@ -84,7 +84,7 @@ def single_voter_notify(voter_uuid, notification_template, extra_vars={}):
 
     voter.send_notification(notification)
 
-@task()
+@task(name = 'helios.tasks.election_compute_tally')
 def election_compute_tally(election_id):
     election = Election.objects.get(id = election_id)
     election.compute_tally()
@@ -101,7 +101,7 @@ Helios
     if election.has_helios_trustee():
         tally_helios_decrypt.delay(election_id = election.id)
 
-@task()
+@task(name = 'helios.tasks.tally_helios_decrypt')
 def tally_helios_decrypt(election_id):
     election = Election.objects.get(id = election_id)
     election.helios_trustee_decrypt()
@@ -115,7 +115,7 @@ for election %s.
 Helios
 """ % election.name)
 
-@task()
+@task(name = 'helios.tasks.voter_file_process')
 def voter_file_process(voter_file_id):
     voter_file = VoterFile.objects.get(id = voter_file_id)
     voter_file.process()
@@ -131,7 +131,7 @@ has been processed.
 Helios
 """ % (voter_file.election.name, voter_file.num_voters))
 
-@task()
+@task(name = 'helios.tasks.election_notify_admin')
 def election_notify_admin(election_id, subject, body):
     election = Election.objects.get(id = election_id)
     election.admin.send_message(subject, body)
