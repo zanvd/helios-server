@@ -21,7 +21,7 @@ def do_hmac(k,s):
   """
   HMAC a value with a key, hex output
   """
-  mac = hmac.new(k, s, hashlib.sha1)
+  mac = hmac.new(k.encode("utf-8"), s.encode("utf-8"), hashlib.sha1)
   return mac.hexdigest()
 
 

@@ -62,7 +62,7 @@ class RandomPool:
         if cipher is not None:
             warnings.warn("'cipher' parameter is no longer used")
 
-        if isinstance(hash, bytes):
+        if isinstance(hash, str):
             # ugly hack to force __import__ to give us the end-path module
             hash = __import__('Crypto.Hash.'+hash,
                               None, None, ['new'])
@@ -384,17 +384,17 @@ class KeyboardRandomPool (PersistentRandomPool):
         print(bits,'bits of entropy are now required.  Please type on the keyboard')
         print('until enough randomness has been accumulated.')
         kb = KeyboardEntry()
-        s=''    # We'll save the characters typed and add them to the pool.
+        s=b''    # We'll save the characters typed and add them to the pool.
         hash = self._hash
         e = 0
         try:
             while e < bits:
                 temp=str(bits-e).rjust(6)
                 os.write(1, temp)
-                s=s+kb.getch()
+                s=s+kb.getch().encode("utf-8")
                 e += self.add_event(s)
                 os.write(1, 6*chr(8))
-            self.add_event(s+hash.new(s).digest() )
+            self.add_event(s+hash(s.encode("utf-8")).digest() )
         finally:
             kb.close()
         print('\n\007 Enough.  Please wait a moment.\n')
@@ -404,7 +404,7 @@ class KeyboardRandomPool (PersistentRandomPool):
 if __name__ == '__main__':
     pool = RandomPool()
     print('random pool entropy', pool.entropy, 'bits')
-    pool.add_event('something')
+    pool.add_event(b'something')
     print(repr(pool.get_bytes(100)))
     import tempfile, os
     fname = tempfile.mktemp()

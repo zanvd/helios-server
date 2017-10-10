@@ -151,9 +151,9 @@ INSTALLED_APPS = (
     ## in Django 1.7 we now use built-in migrations, no more south
     ## 'south',
     ## HELIOS stuff
-    'helios_auth.apps.HeliosAuthConfig',
-    'helios.apps.HeliosConfig',
-    'server_ui.apps.ServerUIConfig',
+    'helios_auth',
+    'helios',
+    'server_ui',
 )
 
 ##
@@ -218,7 +218,7 @@ GOOGLE_CLIENT_SECRET = get_from_env('GOOGLE_CLIENT_SECRET', '')
 # facebook
 FACEBOOK_APP_ID = get_from_env('FACEBOOK_APP_ID','')
 FACEBOOK_API_KEY = get_from_env('FACEBOOK_API_KEY','')
-FACEBOOK_API_SECRET = get_from_env('FACEBOOK_API_SECRET','')
+FACEBOOK_API_SECRET = get_from_env('FACEBOOK_API_SECRET','').encode("utf-8")
 
 # twitter
 TWITTER_API_KEY = ''

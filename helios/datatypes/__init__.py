@@ -132,7 +132,7 @@ class LDObject(object):
     FIELDS = []
 
     # bytes fields stored as JSON strings
-    BYTES_FIELDS = []
+    BYTE_FIELDS = []
 
     # structured fields are other LD objects, not simple types
     STRUCTURED_FIELDS = {}
