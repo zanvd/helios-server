@@ -1,0 +1,21 @@
+# Copy to local_settings.py and edit
+
+from settings import *
+
+SECRET_KEY = '0123456789abcdef01234567891bcdef'
+ALLOWED_HOSTS = ['127.0.0.1', 'lkrv.fri.uni-lj.si']
+URL_HOST = 'https://lkrv.fri.uni-lj.si'
+LOGIN_URL = '/helios/auth/'
+STATIC_URL = '/helios/static/'
+SECURE_URL_HOST = 'https://lkrv.fri.uni-lj.si'
+MAIN_LOGO_URL = STATIC_URL + 'logo.png'
+GOOGLE_CLIENT_ID = '987654321098-abcdefghijklmnopqrstuvwxyz765432.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET = '10ZYXWVUTSRQPONMLKJIHGFE'
+CACHE_PATH = '/var/evolitve-helios/.cache'
+TIME_ZONE = 'Europe/Ljubljana'
+DATABASES['default']['HOST'] = '/var/opt/gitlab/postgresql/'
+DATABASE_SUPERUSER = 'gitlab-psql'
+RESET_USERS = [
+    {'user_type': 'google', 'user_id': 'zd5636@student.uni-lj.si', 'info': {'name':'Zan Valter Dragan'}},
+    {'user_type': 'google', 'user_id': 'jvidali@gmail.com', 'info': {'name':'Janos Vidali'}}
+]
