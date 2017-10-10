@@ -17,6 +17,6 @@ if __name__ == '__main__':
     except:
         pass
     try:
-        print('''SHELLCMD="from helios_auth.models import User; %s"''' % ' '.join("User.objects.create(*%s);" % repr(user) for user in settings.RESET_USERS))
+        print('''SHELLCMD="from helios_auth.models import User; %s"''' % ' '.join("User.objects.create(**%s);" % repr(user) for user in settings.RESET_USERS))
     except:
         pass
