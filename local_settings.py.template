@@ -2,6 +2,7 @@
 
 from settings import *
 
+DEBUG = False
 SECRET_KEY = '0123456789abcdef01234567891bcdef'
 ALLOWED_HOSTS = ['127.0.0.1', 'lkrv.fri.uni-lj.si']
 URL_HOST = 'https://lkrv.fri.uni-lj.si'
