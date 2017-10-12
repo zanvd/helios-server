@@ -1,0 +1,74 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          celery
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Celery worker for Helios
+### END INIT INFO
+# celery init script
+
+# Based on spamassassin init script
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/bin/python3
+NAME=celery
+SNAME=celery
+DESC="Celery daemon"
+PIDFILE="/var/run/$NAME.pid"
+PNAME="celery"
+DOPTIONS="manage.py celeryd -E -B --beat --concurrency=1 --settings=local_settings"
+USER="www-data"
+DIR=/var/evolitve-helios/
+
+# Defaults - don't touch, edit /etc/default/
+ENABLED=0
+OPTIONS=""
+ONESHOT=0
+
+test -x $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+case "$1" in
+    start)
+        log_begin_msg "Starting $DESC: $NAME"
+
+        pid=$( pidofproc -p $PIDFILE $DAEMON )
+        if [ -n "$pid" ] ; then
+            log_begin_msg ". Already running"
+            log_end_msg 0
+            exit 0
+        fi
+
+        start-stop-daemon --start --quiet --oknodo --chuid $USER --chdir $DIR --exec $DAEMON --background --pidfile $PIDFILE -m -- $OPTIONS $DOPTIONS
+
+        log_end_msg $?
+        ;;
+    stop)
+        log_begin_msg "Stopping $DESC: $NAME"
+
+        start-stop-daemon --stop --quiet --oknodo --user $USER --exec $DAEMON --pidfile $PIDFILE
+        rm -f $PIDFILE
+
+        log_end_msg $?
+        ;;
+    restart|force-reload)
+        log_begin_msg "Restarting $DESC: $NAME"
+
+        start-stop-daemon --stop --retry 5 --quiet --oknodo --user $USER --exec $DAEMON --pidfile $PIDFILE
+        rm -f $PIDFILE
+
+        start-stop-daemon --start --quiet --oknodo --chuid $USER --chdir $DIR --exec $DAEMON --background --pidfile $PIDFILE -m -- $OPTIONS $DOPTIONS
+
+        log_end_msg $?
+        ;;
+    *)
+        N=/etc/init.d/$SNAME
+        echo "Usage: $N {start|stop|restart|force-reload}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0
