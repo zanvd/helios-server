@@ -1,6 +1,7 @@
 {% extends 'server_ui/templates/base.html' %}
 {% load static %}
-{% block title %}Confirm Vote{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Confirm Vote' %}{% endblock %}
 
 {% block content %}
 <script language="javascript">
@@ -13,20 +14,20 @@ function show_waiting() {
   $('#waiting_div').show();
 }
 </script>
-<h1>Confirm your Vote</h1>
+<h1>{% trans 'Confirm your Vote' %}</h1>
 
 {% if error %}
 <p style="color: red;">{{error}}</p>
 {% endif %}
 
-<h3>Your Ballot</h3>
+<h3>{% trans 'Your Ballot' %}</h3>
 
 <p style="font-size:1.6em;">
     <tt>{{vote_fingerprint}}</tt>
 </p>
 
 <div id="cast_div">
-<h3>Cast Your Ballot with your Credentials</h3>
+<h3>{% trans 'Cast Your Ballot with your Credentials' %}</h3>
 
 <form method="post" onsubmit="show_waiting();" action="">
     <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
@@ -35,16 +36,16 @@ function show_waiting() {
 {{form.as_table}}
 </table><br />
 
-    <input type="submit" value="cast this ballot" /><br /><br />
+    <input type="submit" value="{% trans 'Cast this ballot' %}" /><br /><br />
 </form>
 
 <p>
-    Forgot your password? <a href="{% url "helios_auth.auth_systems.password.password_forgotten_view" %}?return_url={% url "server_ui.views.cast_confirm" %}">Have it emailed to you</a>.<br />(don't worry, we won't forget your vote).
+    {% trans 'Forgot your password?' %} <a href="{% url "helios_auth.auth_systems.password.password_forgotten_view" %}?return_url={% url "server_ui.views.cast_confirm" %}">{% blocktrans %}Have it emailed to you</a>.<br />(don't worry, we won't forget your vote).{% endblocktrans %}
 </p>
 </div>
 
 <div id="waiting_div" align="center">
-  Verifying and Casting your ballot<br />
+  {% trans 'Verifying and Casting your ballot' %}<br />
   <img src="{% static 'helios/loading.gif' %}" />
 </div>
 
