@@ -57,7 +57,7 @@ msgid ""
 "<b>Why?</b> Helios prevents you from auditing and casting the same ballot to "
 "provide you with some protection against coercion."
 msgstr ""
-"<b>Zakaj?</b> E-volitve vam ne omogočijo revidiranja in oddaje iste "
+"<b>Zakaj?</b> E-volitve vam ne omogočajo revidiranja in oddaje iste "
 "glasovnice, saj se s tem poveča zaščita pred voljenjem pod prisilo."
 
 #: heliosbooth/templates/audit.html:16
@@ -71,10 +71,10 @@ msgid ""
 "and cast your ballot."
 msgstr ""
 "<b>Kaj sedaj?</b> <a onclick=\"$('#audit_trail').select(); return false;\" "
-"href=\"#\">Označite revidirane podatke vaše glasovnice</a>,\n"
-"    kopirajte jih, nato uporabite <a target=\"_blank\" href=\"single-ballot-"
+"href=\"#\">Izberite podatke iz revizije vaše glasovnice</a>,\n"
+"    jih skopirajte v odložišče, nato uporabite <a target=\"_blank\" href=\"single-ballot-"
 "verify.html?election_url={$T.election_url}\">\n"
-"    potrjevalnik glasovnic</a> za njihovo preverbo.<br/>\n"
+"    preverjevalnik glasovnic</a> za njihovo preverbo.<br/>\n"
 "    Ko ste z rezultatom zadovoljni, kliknite \"Nazaj na volitve\" in oddajte "
 "svojo glasovnico."
 
@@ -84,8 +84,8 @@ msgid ""
 "    you can post this audited ballot to the Helios tracking center so that "
 "others might double-check the verification of this ballot."
 msgstr ""
-"Preden odditete nazaj na volitve,<br/>\n"
-"    lahko oddate revidirano glasovnico v E-volitve sledilni sistem, tako da lahko "
+"Preden greste nazaj na glasovanje,<br/>\n"
+"    lahko oddaste revidirano glasovnico v sledilni sistem E-volitve, tako da lahko "
 "tudi ostali preverejo veljavnost te glasovnice."
 
 #: heliosbooth/templates/audit.html:29
@@ -93,12 +93,12 @@ msgid ""
 "<b>Even if you post your audited ballot, you must go back to voting and "
 "choose \"cast\" if you want your vote to count.</b>"
 msgstr ""
-"<b>>Tudi če glasovnico objavite v sledilni sistem, morate še vedno odditi nazaj na volitve in "
-"svojo glasovnico oddati.</b>"
+"<b>>Tudi če glasovnico objavite v sledilni sistem, morate še vedno oditi nazaj na volitve in "
+"oddati svojo glasovnico.</b>"
 
 #: heliosbooth/templates/audit.html:31
 msgid "Back to voting"
-msgstr "Nazaj na volitve"
+msgstr "Nazaj na glasovanje"
 
 #: heliosbooth/templates/audit.html:33
 msgid "Post audited ballot to tracking center"
@@ -106,7 +106,7 @@ msgstr "Oddaj glasovnico v sledilni sistem"
 
 #: heliosbooth/templates/done.html:2
 msgid "Your Vote is Being Submitted"
-msgstr "Vaša glasovnica je oddana"
+msgstr "Vaša glasovnica se oddaja"
 
 #: heliosbooth/templates/done.html:5
 msgid ""
@@ -132,8 +132,8 @@ msgid ""
 "            <span style=\"font-size: 14pt;\">You can easily navigate "
 "forwards and backwards.</span>"
 msgstr ""
-"<b>Iyberite</b> željeno.<br/>\n"
-"            <span style=\"font-size: 14pt;\">Z lahkoto lahko navigirate "
+"<b>Izberite</b> želeno.<br/>\n"
+"            <span style=\"font-size: 14pt;\">Enostavno se lahko premikate "
 "naprej ali nazaj.</span>"
 
 #: heliosbooth/templates/election.html:16
@@ -145,7 +145,7 @@ msgid ""
 msgstr ""
 "<b>Pregled in potrditev</b> vaše izbire.<br/>\n"
 "            <span style=\"font-size: 14pt;\">\n"
-"            Vaša izbira je varno kriptirana in prejmete "
+"            Vaša izbira je varno šifrirana, in prejmete "
 "vaš pametni sledilec glasovnice.<br/>"
 
 #: heliosbooth/templates/election.html:23
@@ -155,7 +155,7 @@ msgid ""
 "            You will be asked to log in to submit your encrypted ballot for "
 "tallying."
 msgstr ""
-"<b>Oddaja</b> vaše zakriptirane glasovnice.<br/>\n"
+"<b>Oddaja</b> vaše zašifrirane glasovnice.<br/>\n"
 "            <span style=\"font-size: 14pt;\">\n"
 "            Pred oddajo se boste morali prijaviti, če še niste."
 
@@ -176,7 +176,7 @@ msgstr ""
 
 #: heliosbooth/templates/footer.html:9
 msgid "Election Fingerprint: "
-msgstr "Podpis volitev:"
+msgstr "Prstni odtis volitev:"
 
 #: heliosbooth/templates/question.html:10
 msgid ""
@@ -235,7 +235,7 @@ msgstr "Naslednje vprašanje"
 
 #: heliosbooth/templates/seal.html:4
 msgid "Audit"
-msgstr "Revidacija"
+msgstr "Revizija"
 
 #: heliosbooth/templates/seal.html:4
 msgid "[optional]"
@@ -246,15 +246,15 @@ msgid ""
 "If you choose, you can audit your ballot and reveal how your choices were "
 "encrypted."
 msgstr ""
-"Če želite, lahko revidirate vašo glasovnico in pregledate, kako je bila vaša izbira kriptirana."
+"Če želite, lahko revidirate vašo glasovnico in pregledate, kako je bila vaša izbira šifrirana."
 
 #: heliosbooth/templates/seal.html:11
 msgid "You will then be guided to re-encrypt your choices for final casting."
-msgstr "Nato vas bomo vodili, kako ponovno zakriptirati glasovnico za zadnjo oddajo."
+msgstr "Nato vas bomo vodili, kako ponovno zašifrirati glasovnico za končno oddajo."
 
 #: heliosbooth/templates/seal.html:13
 msgid "Verify Encryption"
-msgstr "Potrdi kriptiranje"
+msgstr "Potrdi šifriranje"
 
 #: heliosbooth/templates/seal.html:19
 msgid "Review your Ballot"
@@ -270,7 +270,7 @@ msgstr "Niste izbrali odgovora"
 
 #: heliosbooth/templates/seal.html:33
 msgid "[you under-voted: you may select up to {$T.question.max}]"
-msgstr "[izbrali ste manj odgovorov, kot je možno: lahko izberete do {$T.question.max} odgovorov]"
+msgstr "[izbrali ste manj odgovorov, kot je dovoljeno: lahko izberete do {$T.question.max} odgovorov]"
 
 #: heliosbooth/templates/seal.html:35
 msgid "Edit response"
@@ -294,7 +294,7 @@ msgid ""
 "destroyed, and only the encrypted version\n"
 "    will remain. The encrypted version will be submitted to the Helios "
 "server."
-msgstr "Ko potrdite oddajo, bo nekriptirana verzija vaše glasovnice uničena in ostala bo zgolj kriptirana. Slednja bo poslana na strežnik E-volitve."
+msgstr "Ko potrdite oddajo, bo nešifrirana verzija vaše glasovnice uničena in ostala bo zgolj šifrirana. Slednja bo poslana na strežnik E-volitve."
 
 #: heliosbooth/templates/seal.html:52
 msgid "Submit this Vote!"
@@ -302,14 +302,14 @@ msgstr "Oddaja glasovnice"
 
 #: heliosbooth/templates/submit.html:2
 msgid "Submit Your Encrypted Ballot"
-msgstr "Oddaja kriptirane glasovnice"
+msgstr "Oddaja šifrirane glasovnice"
 
 #: heliosbooth/templates/submit.html:5
 msgid ""
 "All information, other than your encrypted ballot,<br/>\n"
 "    has been removed from memory."
 msgstr ""
-"Vsi podatki razen kriptirane glasovnice,<br/>\n"
+"Vsi podatki razen šifrirane glasovnice<br/>\n"
 "    so bili odstranjeni iz spomina."
 
 #: heliosbooth/templates/submit.html:10
@@ -346,7 +346,7 @@ msgstr "Glasovanje"
 msgid ""
 "If you leave this page with an in-progress ballot, your ballot will be lost."
 msgstr ""
-"Če zapustite stran sedaj, bojo trenutni podatki izgubljeni."
+"Če zapustite stran sedaj, bo vaša glasovnica izgubljena."
 
 #: heliosbooth/vote.html:78
 msgid ""
@@ -368,7 +368,7 @@ msgid ""
 "Maximum number of options selected.<br />To change your selection, please de-"
 "select a current selection first."
 msgstr ""
-"Izbrali ste največje možno število odgovorov.<br />Če želite spremeniti izbiro, prosimo, najprej odstranite eno že izbrano."
+"Izbrali ste največje možno število odgovorov.<br />Če želite spremeniti izbiro, prosimo, najprej odstranite eno od že izbranih."
 
 #: heliosbooth/vote.html:359 heliosbooth/vote.html:636
 msgid "Processing..."
@@ -379,7 +379,7 @@ msgid ""
 "There appears to be a problem with the encryption process.\\nPlease email "
 "help@heliosvoting.org and indicate that your encryption process froze at "
 msgstr ""
-"Prišlo je do napake pri kriptiranju vaše zahteve.\nProsimo kontaktiraje <EMAIL> in sporočite, da se je vaša enkripcija ustavila pri "
+"Prišlo je do napake pri šifriranju vaše zahteve.\nProsimo kontaktiraje <EMAIL> in sporočite, da se je vaša enkripcija ustavila pri "
 
 #: heliosbooth/vote.html:568
 msgid ""
@@ -389,11 +389,11 @@ msgid ""
 msgstr ""
 "Vaša revidirana glasovnica je bila oddana.\nBodite pozorni na to, da ta glasovnica "
 "ne šteje k skupnemu seštevku glasov.\nPojdite nazaj na ustvarjanje nove glasovnice "
-"in ustvarite navadno glasovnico za oddajo glasu."
+"in ustvarite novo glasovnico za oddajo glasu."
 
 #: heliosbooth/vote.html:598
 msgid "Your smart ballot tracker for "
-msgstr "Vaš pametni sledilec glasonice za volitve "
+msgstr "Vaš pametni sledilec glasovnice za volitve "
 
 #: heliosbooth/vote.html:610
 msgid "Select"
@@ -425,19 +425,15 @@ msgid ""
 "to perform encryption\n"
 "                    within the browser."
 msgstr ""
-"Na vašem sistemu nismo zaznali programske opreme Java, katero sistem E-volitve potrebuje za normalno delovanje."
+"Na vašem sistemu nismo zaznali programske opreme Java, ki jo sistem E-volitve potrebuje za šifriranje v brskalniku."
 
 #: heliosbooth/vote.html:628
 msgid ""
 "You may be able to install Java by visiting <a target=\"_new\" href=\"https://"
 "java.com\">java.com</a>."
 msgstr ""
-"Prosimo namestite si Java programsko opremo: <a target=\"_new\" href=\"https://"
+"Prosimo, da si namestite programsko opremo Java: <a target=\"_new\" href=\"https://"
 "java.com\">java.com</a>."
-
-#: heliosbooth/vote.html:640
-msgid "E-volitve kriptirajo vašo glasovnico"
-msgstr ""
 
 #: heliosbooth/vote.html:645
 msgid "This may take up to two minutes."
@@ -445,7 +441,7 @@ msgstr "Ta proces lahko traja do 2 minut."
 
 #: heliosverifier/verify.html:37
 msgid "Sorry, in-browser verification requires Java Support at this time."
-msgstr "Oprostite, preverba potrebuje Java programsko opremo."
+msgstr "Oprostite, preverba potrebuje programsko opremo Java."
 
 #: heliosverifier/verify.html:46 heliosverifier/verify.html:177
 msgid "VERIFIED"
@@ -453,19 +449,11 @@ msgstr "Preverjeno"
 
 #: heliosverifier/verify.html:46
 msgid "FAIL"
-msgstr "Neuspelo"
+msgstr "Neuspešno"
 
 #: heliosverifier/verify.html:58
 msgid "Loading ballot for voter #"
 msgstr "Nalaganje glasovnice za volivca #"
-
-#: heliosverifier/verify.html:65
-msgid "Ni glasovnice za volivca #"
-msgstr ""
-
-#: heliosverifier/verify.html:67
-msgid "Glasovnica je bila najdena za volivca #"
-msgstr ""
 
 #: heliosverifier/verify.html:96
 msgid "Election"
@@ -481,7 +469,7 @@ msgstr "Volitve naložene: "
 
 #: heliosverifier/verify.html:105
 msgid "Election fingerprint: "
-msgstr "Podpis volitev: "
+msgstr "Prstni odtis volitev: "
 
 #: heliosverifier/verify.html:111
 msgid ""
@@ -530,11 +518,11 @@ msgstr "Zaupnik #"
 
 #: heliosverifier/verify.html:177
 msgid "PK"
-msgstr "PK"
+msgstr "ZK"
 
 #: heliosverifier/verify.html:181
 msgid "ERROR for PK of trustee"
-msgstr "Napaka pri primarnem ključu zaupnika."
+msgstr "Napaka pri zasebnem ključu zaupnika."
 
 #: heliosverifier/verify.html:192
 msgid "Election public key CORRECTLY FORMED."
@@ -562,7 +550,7 @@ msgstr "Zaupnik"
 
 #: heliosverifier/verify.html:214
 msgid "decryption factor verifies"
-msgstr "pravilen dekriptirni faktor."
+msgstr "pravilen odšifrirni faktor."
 
 #: heliosverifier/verify.html:216
 msgid "ERROR with Trustee"
@@ -570,7 +558,7 @@ msgstr "Napaka z zaupnikom"
 
 #: heliosverifier/verify.html:216
 msgid "decryption factor does not verify"
-msgstr "nepravilen dekriptirni faktor."
+msgstr "nepravilen odšifrirni faktor."
 
 #: heliosverifier/verify.html:238
 msgid "FINAL RESULT"
@@ -755,7 +743,7 @@ msgid ""
 msgstr ""
 "\n"
 "        <div class=\"row\">\n"
-"            <p>Helios je neodvisna organizacija, katero vodi <a href=\"http://"
+"            <p>Helios je neodvisna organizacija, ki jo vodi <a href=\"http://"
 "ben.adida.net\">Ben Adida</a>.</p>\n"
 "        </div>\n"
 "\n"
@@ -789,7 +777,7 @@ msgstr "Koda"
 
 #: server_ui/templates/base.html:65
 msgid "Docs"
-msgstr "Dockumentacija"
+msgstr "Dokumentacija"
 
 #: server_ui/templates/base.html:67 server_ui/templates/faq.html:11
 msgid "FAQ"
@@ -858,7 +846,7 @@ msgstr "Pozabljeno geslo?"
 msgid ""
 "Have it emailed to you</a>.<br />(don't worry, we won't forget your vote)."
 msgstr ""
-"Poslali vam ga bomo po e-pošti</a>.<br />(ne skrbite, ne bomo pozabili vašega glasu)"
+"Pošljite si ga po e-pošti</a>.<br />(ne skrbite, ne bomo pozabili vašega glasu)"
 
 #: server_ui/templates/confirm.html:48
 msgid "Verifying and Casting your ballot"
@@ -866,7 +854,7 @@ msgstr "Preverjanje in oddaja vaše glasovnice"
 
 #: server_ui/templates/docs.html:12
 msgid "Documentation"
-msgstr "Dokumentacije"
+msgstr "Dokumentacija"
 
 #: server_ui/templates/docs.html:17
 msgid ""
@@ -875,17 +863,17 @@ msgid ""
 "providing an intelligent ballot tracker to let you verify that your\n"
 "ballot was received and counted properly:"
 msgstr ""
-"E-Volitve temeljijo na Helios Voting tehnologiji, katera uporablja napredne recenzirane\n"
+"E-volitve temeljijo na tehnologiji Helios Voting, ki uporablja napredne recenzirane\n"
 "kriptografske tehnike, ki omogočijo, da vaš glas ostane anonimen. Ob tem pa ponuja inteligentno\n"
-"sledenje glasovnici, s pomočjo česar se lahko prepričate, da se je vaša glasovnica zares upoštevala:"
+"sledenje glasovnici, s pomočjo katere se lahko prepričate, da se je vaša glasovnica zares upoštevala:"
 
 #: server_ui/templates/docs.html:24
 msgid "Technical documentation"
-msgstr "Tehnična dokumentacije"
+msgstr "Tehnična dokumentacija"
 
 #: server_ui/templates/docs.html:25
 msgid "Original peer-reviewed (Usenix Security 2008)"
-msgstr "Originalna recenzija (Usenix Security 2008)"
+msgstr "Originalni članek (Usenix Security 2008)"
 
 #: server_ui/templates/docs.html:26
 msgid ""
@@ -893,7 +881,7 @@ msgid ""
 "href=\"http://1.37e2.net/\">Tom Roeder</a> that verifies Helios elections."
 msgstr ""
 "<a href=\"https://github.com/google/pyrios\">Pyrios</a>, Go knjižnica (<a "
-"href=\"http://1.37e2.net/\">Tom Roeder</a>), ki potrjuje E-volitve."
+"href=\"http://1.37e2.net/\">Tom Roeder</a>), ki preverja E-volitve."
 
 #: server_ui/templates/docs.html:27
 msgid ""
@@ -911,7 +899,7 @@ msgstr "Helios v medijih:"
 
 #: server_ui/templates/docs.html:35
 msgid "KCBS News Interview, May 2010"
-msgstr "KCBS News intervju, May 2010"
+msgstr "KCBS News Interview, May 2010"
 
 #: server_ui/templates/docs.html:36
 msgid "Harvard Magazine, April 2010"
@@ -935,7 +923,7 @@ msgid ""
 "A vote was successfully cast for <b>%(voter.voter_id)s</b>, with vote "
 "fingerprint:"
 msgstr ""
-"Uspešno ste oddali glas z identifikacijo <b>%(voter.voter_id)s</b>, ter unikatno kodo:"
+"Uspešno ste oddali glas z identifikacijo <b>%(voter.voter_id)s</b> ter unikatno kodo:"
 
 #: server_ui/templates/done.html:15
 msgid "Visit the"
@@ -963,7 +951,7 @@ msgstr "Pregled volitev"
 
 #: server_ui/templates/faq.html:14
 msgid "What makes Helios different/better than other voting systems?"
-msgstr "Kaj naredi E-volitve drugačni/boljši volilni sistem?"
+msgstr "Kaj naredi E-volitve drugačen/boljši volilni sistem?"
 
 #: server_ui/templates/faq.html:16
 msgid ""
@@ -972,10 +960,10 @@ msgid ""
 "was received and tallied appropriately. What this means is that no one, not "
 "even the administrators of the Helios Voting system, can alter your vote."
 msgstr ""
-"E-volitve temeljijo na Helios volilni tehnologiji, katera omgoča pregled "
-"nad glasovnicami. Vsak volivec dobi pametni sledilec glasovnice, "
-"s katerim lahko preveru, ali je bil njegov glas zares upoštevan in pravilno štet. "
-"Kar pomeni, da nihče ne more spremeniti vašega glasu (tudi upravniki sistema)."
+"E-volitve temeljijo na volilni tehnologiji Helios, ki omgoča pravo "
+"preverljivost. Vsak volivec dobi pametni sledilec glasovnice, "
+"s katerim lahko preveri, ali je bil njegov glas zares upoštevan in pravilno štet. "
+"Tako ne more nihče spremeniti vašega glasu, tudi upravitelji sistema ne."
 
 #: server_ui/templates/faq.html:23
 msgid "I’ve heard of “voter-verifiable” before, what’s different about Helios?"
@@ -997,7 +985,7 @@ msgstr ""
 
 #: server_ui/templates/faq.html:32
 msgid "How secret is my vote on Helios?"
-msgstr "Kako je zagotovljena anonimnost glasovanja na E-volitvah?"
+msgstr "Kako se zagotovi anonimnost glasovanja pri E-volitvah?"
 
 #: server_ui/templates/faq.html:34
 msgid ""
@@ -1013,12 +1001,12 @@ msgid ""
 "decryption, which further ensures that only the tally, never the individual "
 "votes, are decrypted."
 msgstr ""
-"Preko uporabe HTTPS seje, je vaša celotna povezava zakriptirana in zaščitena "
-"pred morebitnimi prestrezanji prometa. Poleg tega so vsi glasovi v bazi zakriptirani, "
+"Z uporabo seje HTTPS se vaša celotna povezava zašifrira in zaščiti "
+"pred morebitnim prestrezanjem prometa. Poleg tega so vsi glasovi v bazi zašifrirani, "
 "tako da tudi morebitni nedovoljeni dostop do baze ne bi imel nikarkšnih posledic za vas. "
 "E-volitve uporabljajo tudi napredne kriptografske tehnologije za štetje glasov "
-"in odkriptira zgolj končno število, kar pomeni, da vaša glasovnica nikoli "
-"ni odkriptirana kot samostojna enota."
+"in odšifrira zgolj končno število, kar pomeni, da vaša glasovnica nikoli "
+"ni odšifrirana kot samostojna enota."
 
 #: server_ui/templates/faq.html:41
 msgid "What’s so “smart” about the Helios Ballot Tracker?"
@@ -1037,12 +1025,12 @@ msgid ""
 "what makes it smart."
 msgstr ""
 "Pri navadnih pošiljkah je številka paketa večinoma naključno število, "
-"katero nima nobenega dodatnega pomena. Pri dostavi paketa se tako lahko "
-"ta številka ohrani, vendar vsebina pa ne nujno. V digitalnem svetu "
+"ki nima nobenega dodatnega pomena. Pri dostavi paketa se tako lahko "
+"ta številka ohrani, vsebina pa ne nujno. V digitalnem svetu "
 "pa lahko naredimo posebno vrsto sledilne številke, ki je vse prej "
-"kot naključna, saj predstavlja podpis vaše glasovnice. Kar pomeni da, "
-"če je vaš sledilec prepoznan v končnem štetju, potem ste lahko prepričani, "
-"da je prišel tudi glas."
+"kot naključna, saj predstavlja podpis vaše glasovnice. "
+"Če je vaš sledilec prepoznan v končnem štetju, potem ste lahko prepričani, "
+"da se je upošteval tudi vaš glas."
 
 #: server_ui/templates/faq.html:50
 msgid "Is Helios the only system that provides this level of verifiability?"
@@ -1085,8 +1073,8 @@ msgstr ""
 "Ne, ne smejo se. Volitve preko spleta so primerne zgolj takrat, ki ni "
 "pričakovati večjih poskusov poneverb glasov. Državne volitve so "
 "prevelika odgovornost, zato odsvetujemo zbiranje glasov preko spletnih volitev. "
-"To sicer ni direktno povezano s samim sistemom E-voltev, marveč z napadi "
-"na uporabnika in povezavo, kjer se zelo hitro lahko pojavijo vdori, "
+"To sicer ni neposredno povezano s samim sistemom E-voltev, pač pa z napadi "
+"na uporabnika in povezavo, saj se lahko zelo hitro pojavijo vdori, "
 "onemogočanje oddaje glasu in podobno."
 
 #: server_ui/templates/faq.html:64
@@ -1109,7 +1097,7 @@ msgid ""
 "made truly verifiable elections as easy as everything else on the Web."
 msgstr ""
 "Verjamemo, da je demokracija zelo pomembna, pa najsi bo to za književni klub,"
-"študentski svet, sindikat ali država. Zato je naš sistem narejen, tako da je "
+"študentski svet, sindikat ali država. Zato je naš sistem narejen tako, da je "
 "kar se da enostaven za uporabo."
 
 #: server_ui/templates/index.html:22
@@ -1129,7 +1117,7 @@ msgid ""
 "<b>proven</b>: Helios is open-source, vetted by top-tier experts, and in use "
 "by major organizations."
 msgstr ""
-"<b>dokazljive</b>: sistem temelji na odprtokodni Helios tehnologiji, katera "
+"<b>dokazljive</b>: sistem temelji na odprtokodni tehnologiji Helios, ki "
 "je preverjena s strani strokovnjakov in uporabljena na večjih organizacijah."
 
 #: server_ui/templates/index.html:37
@@ -1177,7 +1165,7 @@ msgid ""
 "Select an election to start voting. You will be asked for your voting "
 "credentials after you complete a ballot."
 msgstr ""
-"Izberite željene volitve. Pred oddajo glasu, vas bomo prosili za prijavo v sistem."
+"Izberite želene volitve. Pred oddajo glasu vas bomo prosili za prijavo v sistem."
 
 #: server_ui/templates/privacy.html:15
 msgid "In General"
@@ -1218,7 +1206,7 @@ msgid ""
 "use origin sandboxing to limit how much Facebook and Twitter can determine "
 "about you, and we only use those buttons on the election information page."
 msgstr ""
-"Ne uporabljamo zunanjih sledilcev in oglaševanja, katero bi lahko posredovalo "
+"Ne uporabljamo zunanjih sledilcev in oglaševanja, ki bi lahko posredovalo "
 "vaše podatke."
 
 #: server_ui/templates/privacy.html:24
@@ -1226,7 +1214,7 @@ msgid ""
 "If you want to stop reading here, you can: the rest provides detail about "
 "the above principles without weakening them."
 msgstr ""
-"Spodaj si lahko preberete še podrbnejši opis ravnanja z vašimi podatki."
+"Spodaj si lahko preberete še podrobnejši opis ravnanja z vašimi podatki."
 
 #: server_ui/templates/privacy.html:27
 msgid "For Voters"
@@ -1242,7 +1230,7 @@ msgstr "Z vašim glasom ravnamo z veliko zaupnostjo."
 
 #: server_ui/templates/privacy.html:31
 msgid "Helios uses SSL to transmit data between your browser and our servers."
-msgstr "Za komunikacjio med vašim brskalnikom in strežnikom uporabljamo kriptirano HTTPS povezavo."
+msgstr "Za komunikacjio med vašim brskalnikom in strežnikom uporabljamo šifrirano povezavo HTTPS."
 
 #: server_ui/templates/privacy.html:32
 msgid ""
@@ -1250,8 +1238,8 @@ msgid ""
 "decryption, your vote is <em>still</em> encrypted with the election key. "
 "Helios servers never see your vote."
 msgstr ""
-"Dodatno uporabljamo kriptiranje same glasovnice. Tako je vaš glas "
-"<em>še vedno</em> kriptiran, tudi po odkriptiranju HTTPS seje. "
+"Dodatno uporabljamo šifriranje same glasovnice. Tako je vaš glas "
+"<em>še vedno</em> šifriran, tudi po odšifriranju HTTPS seje. "
 "Na ta način tudi naši strežniki ne morejo neposredno prebrati vašega glasu."
 
 #: server_ui/templates/privacy.html:33
@@ -1261,7 +1249,7 @@ msgid ""
 "homomorphic encryption, and only the final tally &mdash; never an "
 "intermediate tally &mdash; is decrypted."
 msgstr ""
-"Vaša glasovnica ni nikoli individualno odkriptirana, ampak je del vseh "
+"Vaša glasovnica ni nikoli individualno odšifrirana, ampak je del vseh "
 "oddanih glasovnic in skupnega štetja."
 
 #: server_ui/templates/privacy.html:34
@@ -1304,10 +1292,10 @@ msgid ""
 "external services so that it never has access to your credentials at those "
 "services."
 msgstr ""
-"Glede na nastavitve volitev, je za oddajo glasu potrebna prijava, "
-"kar je lahko v obliki uporabniškega imena in gesla ali pa s pomočjo "
+"Za oddajo glasu potrebna prijava. Odvisno od nastavitev volitev "
+"se lahko prijavite z uporabniškim imenom in geslom ali pa s pomočjo "
 "zunanjih načinov prijave (Facebook, Google, Yahoo, Twitter). "
-"E-volitve pri prijavi s pomočjo zunanjih sistemov nima dostopa do vaših računov."
+"E-volitve pri prijavi s pomočjo zunanjih sistemov nimajo dostopa do vaših računov."
 
 #: server_ui/templates/privacy.html:41
 msgid ""
@@ -1316,8 +1304,8 @@ msgid ""
 "example the Facebook group that you belong to that was designated as the "
 "eligibility requirement for this election."
 msgstr ""
-"Za potrebe glasovanja E-volitve shranijo nekatere vaše podatke "
-"(ime, e-poštni naslov) in podatke s katerimi overimo vašo pristojnost do glasovanja."
+"Za potrebe preverjanja izvedbe volitev E-volitve shranijo nekatere vaše podatke "
+"(ime, e-poštni naslov) in podatke, s katerimi overimo vašo pravico do glasovanja."
 
 #: server_ui/templates/privacy.html:42
 msgid ""
@@ -1329,9 +1317,9 @@ msgid ""
 msgstr ""
 "Shranimo tudi naslednje podatke: kje ste glasovali in kdaj, "
 "ter kolikokrat ste oddali svoj glas (šteje se zgolj zadnji oddani). "
-"Ti podatki so na voljo upravnikom sistema E-volitve kot del procesa "
-"preverjanja izvedba volitev. To je ključnega pomena za zagotavljanje varnosti "
-"in zaupnosti voltev."
+"Ti podatki so na voljo upraviteljem sistema E-volitve kot del procesa "
+"preverjanja izvedbe volitev. To je ključnega pomena za zagotavljanje varnosti "
+"in zaupnosti volitev."
 
 #: server_ui/templates/privacy.html:43
 msgid ""
@@ -1343,8 +1331,8 @@ msgid ""
 "mask or fully hide your email address to prevent email harvesting for spam."
 msgstr ""
 "Če so volitve označene kot javne, potem so javno dostopni tudi nekateri "
-"podatki o volitvah: kdo je voli, kdaj in številka sledilca. "
-"Če upravnik sistema izbere možnost prikaza vzdevkov za uporabnike, "
+"podatki o volitvah: dejstvo, da ste volili, kdaj ste volili, in številka sledilca. "
+"Če je upravitelj sistema izbral možnost prikaza vzdevkov za uporabnike, "
 "bo ta vzdevek ravno tako prikazan. Vaš e-poštni naslov pa bo v vsakem "
 "primeru prikrit ali v celoti odstranjen iz javnega prikaza."
 
@@ -1379,10 +1367,10 @@ msgid ""
 "email address, and user ID. Helios will use this information to message you "
 "when your election requires attention."
 msgstr ""
-"Za ustvarjanje in administracijo volitev se boste mogli prijaviti s pomočjo "
+"Za ustvarjanje in administracijo volitev se boste morali prijaviti s pomočjo "
 "Google, Facebook ali Twitter računa. Sistem E-volitve pridobi zgolj "
-"informacije o vašem računu, katere so potrebne za vašo identifikacijo v prihodnje: "
-"ime, e-pošta in uporabniški ID. Te podatke bo sistem E-volitev uporabil, "
+"informacije o vašem računu, ki so potrebne za vašo identifikacijo v prihodnje: "
+"ime, e-pošta in uporabniški ID. Te podatke bo sistem E-volitve uporabil, "
 "ko vas bo moral kontaktirati zaradi vaših volitev."
 
 #: templates/404.html:3
@@ -1415,7 +1403,7 @@ msgstr "Številka strani mora biti celo število"
 
 #: venv/lib/python3.6/site-packages/django/core/paginator.py:42
 msgid "That page number is less than 1"
-msgstr "Številka strani ne sme biti manjše od 1."
+msgstr "Številka strani ne sme biti manjša od 1."
 
 #: venv/lib/python3.6/site-packages/django/core/paginator.py:47
 msgid "That page contains no results"
