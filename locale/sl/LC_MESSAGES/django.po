@@ -200,8 +200,6 @@ msgid "as many as you approve of"
 msgstr "kolikor želite"
 
 #: heliosbooth/templates/question.html:34
-#: venv/lib/python3.6/site-packages/django/forms/widgets.py:709
-#: venv37/lib/python3.7/site-packages/django/forms/widgets.py:700
 msgid "Yes"
 msgstr "Da"
 
