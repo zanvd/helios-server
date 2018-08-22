@@ -7,21 +7,21 @@
         <b>{$T.question.question}</b>
         <br/>
         <span style="font-size: 0.6em;">
-            {% blocktrans %}#{$T.question_num + 1} of {$T.last_question_num + 1} &mdash;
-             vote for
+            #{$T.question_num + 1} {% trans 'of' %} {$T.last_question_num + 1} &mdash;
+             {% trans 'vote for' %}
             {#if $T.question.min && $T.question.min > 0}
                 {#if $T.question.max}
-                    {$T.question.min} to {$T.question.max}
+                    {$T.question.min} {% trans 'to' %} {$T.question.max}
                 {#else}
-                    at least {$T.question.min}
+                    {% trans 'at least' %} {$T.question.min}
                 {#/if}
             {#else}
                 {#if $T.question.max}
-                    {#if $T.question.max > 1}up to {#/if}{$T.question.max}
+                    {#if $T.question.max > 1}{% trans 'up to' %} {#/if}{$T.question.max}
                 {#else}
-                as many as you approve of
+                {% trans 'as many as you approve of' %}
                 {#/if}
-            {#/if}{% endblocktrans %}
+            {#/if}
         </span>
     </p>
 
