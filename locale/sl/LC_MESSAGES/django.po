@@ -29,8 +29,8 @@ msgid ""
 "You are currently logged in as<br /><b>%(user.user_id)s</b> via <b>"
 "%(user.user_type)s</b>."
 msgstr ""
-"Trenutno ste prijavljeni kot<br /><b>%(user.user_id)</b> preko <b>%(user."
-"user_type)</b>."
+"Trenutno ste prijavljeni kot<br /><b>%(user.user_id)s</b> preko <b>%(user."
+"user_type)s</b>."
 
 #: helios_auth/templates/index.html:11 server_ui/templates/base.html:95
 msgid "Logout"
@@ -764,6 +764,7 @@ msgstr ""
 "\n"
 "            Ben Adida, Olivier de Marneffe, Olivier Pereira\n"
 "        </div>\n"
+"        "
 
 #: server_ui/templates/base.html:42
 msgid "Menu"
@@ -944,7 +945,7 @@ msgstr "domačo stran volitev</a>."
 #: server_ui/templates/election_tallied.html:6
 #, python-format
 msgid "Election %(election.name)s Already Tallied"
-msgstr "Volitve %{election.name} so že v štetju."
+msgstr "Volitve %(election.name)s so že v štetju."
 
 #: server_ui/templates/election_tallied.html:9
 msgid ""
