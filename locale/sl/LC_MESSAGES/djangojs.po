@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 16:20+0200\n"
+"POT-Creation-Date: 2018-08-29 16:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,29 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 
-#: heliosbooth/templates/election.html:4
+#: heliosbooth/templates/election.html:29
 msgid "To cast a vote, you will be led through the following steps."
 msgstr "V procesu glasovanja boste šli čez naslednje korake."
 
-#: heliosbooth/templates/election.html:5
+#: heliosbooth/templates/election.html:30
 msgid ""
 "If you have not yet logged in, you will be asked to do so at the very end of "
 "the process."
 msgstr "Če niste prijavljeni, se boste morali prijaviti na koncu glasovanja."
 
-#: heliosbooth/templates/election.html:9
+#: heliosbooth/templates/election.html:31
 msgid "<b>Select</b> your preferred options."
 msgstr "<b>Izbira</b> želenega."
 
-#: heliosbooth/templates/election.html:10
+#: heliosbooth/templates/election.html:32
 msgid "You can easily navigate forwards and backwards."
 msgstr "Enostavno se lahko premikate naprej ali nazaj."
 
-#: heliosbooth/templates/election.html:13
+#: heliosbooth/templates/election.html:33
 msgid "<b>Review &amp; Confirm</b> your choices."
 msgstr "<b>Pregled in potrditev</b> vaših izbir."
 
-#: heliosbooth/templates/election.html:15
+#: heliosbooth/templates/election.html:34
 msgid ""
 "Your choices are encrypted safely inside your browser, and you get a smart "
 "ballot tracker."
@@ -49,16 +49,16 @@ msgstr ""
 "Vaše izbire bodo varno šifrirane v brskalniku, prejeli pa boste svoj pametni "
 "sledilec glasovnice."
 
-#: heliosbooth/templates/election.html:20
+#: heliosbooth/templates/election.html:35
 msgid "<b>Submit</b> your encrypted ballot."
 msgstr "<b>Oddaja</b> vaše zašifrirane glasovnice."
 
-#: heliosbooth/templates/election.html:22
+#: heliosbooth/templates/election.html:36
 msgid ""
 "You will be asked to log in to submit your encrypted ballot for tallying."
 msgstr "Pred oddajo se boste morali prijaviti, če se še niste."
 
-#: heliosbooth/templates/election.html:27
+#: heliosbooth/templates/election.html:37
 msgid "Start"
 msgstr "Pričetek"
 
