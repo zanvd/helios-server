@@ -54,22 +54,22 @@
     $("#question_vote_for").append(gettext("vote for"));
 {#if $T.question.min && $T.question.min > 0}
 {#if $T.question.max}
+{#if $T.question.max > $T.question.min}
     $("#question_how_many").append("{$T.question.min} " + gettext("to") + " {$T.question.max}");
 {#else}
+    $("#question_how_many").append("{$T.question.min}");
+{#/if}
+{#else}
+</script>
+<script language="javascript">
     $("#question_how_many").append(gettext("at least") + " {$T.question.min}");
 {#/if}
 {#else}
 </script>
 <script language="javascript">
 {#if $T.question.max}
-{#if $T.question.max > 1}
     $("#question_how_many").append(gettext("up to") + " {$T.question.max}");
 {#else}
-    $("#question_how_many").append("{$T.question.max}");
-{#/if}
-{#else}
-</script>
-<script language="javascript">
     $("#question_how_many").append(gettext("as many as you approve of"));
 {#/if}
 {#/if}

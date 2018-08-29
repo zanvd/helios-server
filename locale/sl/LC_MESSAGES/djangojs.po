@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 17:05+0200\n"
+"POT-Creation-Date: 2018-08-29 19:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,15 +70,15 @@ msgstr "od"
 msgid "vote for"
 msgstr "glasujte za"
 
-#: heliosbooth/templates/question.html:57
+#: heliosbooth/templates/question.html:58
 msgid "to"
 msgstr "do"
 
-#: heliosbooth/templates/question.html:59
+#: heliosbooth/templates/question.html:65
 msgid "at least"
 msgstr "vsaj"
 
-#: heliosbooth/templates/question.html:66
+#: heliosbooth/templates/question.html:71
 msgid "up to"
 msgstr "največ"
 
@@ -123,7 +123,7 @@ msgstr ""
 "Ali ste prepričani, da želite zapustiti to stran in izgubiti podatke o vaši "
 "trenutni glasovnici?"
 
-#: heliosbooth/vote.html:233
+#: heliosbooth/vote.html:234
 #, javascript-format
 msgid "You need to select at least %s answer."
 msgid_plural "You need to select at least %s answers."
@@ -132,7 +132,7 @@ msgstr[1] "Izbrati morate vsaj %s odgovora."
 msgstr[2] "Izbrati morate vsaj %s odgovore."
 msgstr[3] "Izbrati morate vsaj %s odgovorov."
 
-#: heliosbooth/vote.html:349
+#: heliosbooth/vote.html:350
 msgid ""
 "Maximum number of options selected.<br />To change your selection, please de-"
 "select a current selection first."
@@ -140,11 +140,11 @@ msgstr ""
 "Izbrali ste največje možno število odgovorov.<br />Če želite spremeniti "
 "izbiro, prosimo, da najprej odstranite eno od že izbranih."
 
-#: heliosbooth/vote.html:361 heliosbooth/vote.html:628
+#: heliosbooth/vote.html:362 heliosbooth/vote.html:629
 msgid "Processing..."
 msgstr "Procesiranje v teku..."
 
-#: heliosbooth/vote.html:496
+#: heliosbooth/vote.html:497
 msgid ""
 "There appears to be a problem with the encryption process.\n"
 "Please email help@heliosvoting.org and indicate that your encryption process "
@@ -153,42 +153,42 @@ msgstr ""
 "Prišlo je do napake pri šifriranju vaše zahteve.\n"
 "Prosimo kontaktiraje nas in sporočite, da se je vaša enkripcija ustavila pri "
 
-#: heliosbooth/vote.html:565
+#: heliosbooth/vote.html:566
 msgid ""
 "This audited ballot has been posted.\n"
 "Remember, this vote will only be used for auditing and will not be tallied.\n"
 "Click \"back to voting\" and cast a new ballot to make sure your vote counts."
 msgstr ""
 
-#: heliosbooth/vote.html:595
+#: heliosbooth/vote.html:596
 msgid "Your smart ballot tracker for "
 msgstr "Vaš pametni sledilec glasovnice za volitve "
 
-#: heliosbooth/vote.html:606
+#: heliosbooth/vote.html:607
 msgid "Select"
 msgstr "Glasovanje"
 
-#: heliosbooth/vote.html:606
+#: heliosbooth/vote.html:607
 msgid "Review"
 msgstr "Pregled"
 
-#: heliosbooth/vote.html:606
+#: heliosbooth/vote.html:607
 msgid "Submit"
 msgstr "Oddaja"
 
-#: heliosbooth/vote.html:610
+#: heliosbooth/vote.html:611
 msgid "Checking capabilities and loading election booth..."
 msgstr "Preverjamo združjivost in nalagamo glasovnico..."
 
-#: heliosbooth/vote.html:611
+#: heliosbooth/vote.html:612
 msgid "This may take up to 10 seconds"
 msgstr "Ta proces lahko traja do 10 sekund"
 
-#: heliosbooth/vote.html:615
+#: heliosbooth/vote.html:616
 msgid "There's a problem"
 msgstr "Prišlo je do težave"
 
-#: heliosbooth/vote.html:617
+#: heliosbooth/vote.html:618
 msgid ""
 "It appears that your browser does not have Java enabled. Helios needs Java "
 "to perform encryption within the browser."
@@ -196,7 +196,7 @@ msgstr ""
 "Na vašem sistemu nismo zaznali programske opreme Java, ki jo sistem E-"
 "volitve potrebuje za šifriranje v brskalniku."
 
-#: heliosbooth/vote.html:620
+#: heliosbooth/vote.html:621
 msgid ""
 "You may be able to install Java by visiting <a target=\"_new\" href=\"http://"
 "java.com\">java.com</a>."
@@ -204,11 +204,11 @@ msgstr ""
 "Prosimo, da si namestite programsko opremo Java: <a target=\"_new\" href="
 "\"https://java.com\">java.com</a>."
 
-#: heliosbooth/vote.html:632
+#: heliosbooth/vote.html:633
 msgid "Helios is now encrypting your ballot"
 msgstr "Vaša glasovnica je v procesu šifriranja"
 
-#: heliosbooth/vote.html:635
+#: heliosbooth/vote.html:636
 msgid "This may take up to two minutes."
 msgstr "Ta proces lahko traja do 2 minuti"
 

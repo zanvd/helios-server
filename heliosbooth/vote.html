@@ -166,7 +166,8 @@ BOOTH.setup_election = function(raw_json, election_metadata) {
   // FIXME: we shouldn't need to set both, but right now we are doing so
   // because different code uses each one. Bah. Need fixing.
   BOOTH.election.hash = b64_sha256(raw_json);
-  BOOTH.election.election_hash = BOOTH.election.hash
+  BOOTH.election.election_hash = BOOTH.election.hash;
+  BOOTH.election.cast_url = "../helios/elections/" + BOOTH.election.uuid + "/cast";
 
   // async?
   BOOTH.setup_workers(raw_json);
