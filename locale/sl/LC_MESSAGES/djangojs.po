@@ -1,0 +1,285 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-29 14:48+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#: heliosbooth/vote.html:36
+msgid "Exit"
+msgstr "Izhod"
+
+#: heliosbooth/vote.html:37
+msgid "Helios Voting Booth"
+msgstr "Glasovanje"
+
+#: heliosbooth/vote.html:74
+msgid ""
+"If you leave this page with an in-progress ballot, your ballot will be lost."
+msgstr "Če zapustite stran sedaj, bo vaša glasovnica izgubljena."
+
+#: heliosbooth/vote.html:84
+msgid ""
+"Are you sure you want to exit the booth and lose all information about your "
+"current ballot?"
+msgstr ""
+"Ali ste prepričani, da želite zapustiti to stran in izgubiti podatke o vaši "
+"trenutni glasovnici?"
+
+#: heliosbooth/vote.html:233
+#, javascript-format
+msgid "You need to select at least %s answer."
+msgid_plural "You need to select at least %s answers."
+msgstr[0] "Izbrati morate vsaj %s odgovor."
+msgstr[1] "Izbrati morate vsaj %s odgovora."
+msgstr[2] "Izbrati morate vsaj %s odgovore."
+msgstr[3] "Izbrati morate vsaj %s odgovorov."
+
+#: heliosbooth/vote.html:349
+msgid ""
+"Maximum number of options selected.<br />To change your selection, please de-"
+"select a current selection first."
+msgstr ""
+"Izbrali ste največje možno število odgovorov.<br />Če želite spremeniti "
+"izbiro, prosimo, da najprej odstranite eno od že izbranih."
+
+#: heliosbooth/vote.html:361 heliosbooth/vote.html:628
+msgid "Processing..."
+msgstr "Procesiranje v teku..."
+
+#: heliosbooth/vote.html:496
+msgid ""
+"There appears to be a problem with the encryption process.\n"
+"Please email help@heliosvoting.org and indicate that your encryption process "
+"froze at "
+msgstr ""
+"Prišlo je do napake pri šifriranju vaše zahteve.\n"
+"Prosimo kontaktiraje nas in sporočite, da se je vaša enkripcija ustavila pri "
+
+#: heliosbooth/vote.html:565
+msgid ""
+"This audited ballot has been posted.\n"
+"Remember, this vote will only be used for auditing and will not be tallied.\n"
+"Click \"back to voting\" and cast a new ballot to make sure your vote counts."
+msgstr ""
+
+#: heliosbooth/vote.html:595
+msgid "Your smart ballot tracker for "
+msgstr "Vaš pametni sledilec glasovnice za volitve "
+
+#: heliosbooth/vote.html:606
+msgid "Select"
+msgstr "Glasovanje"
+
+#: heliosbooth/vote.html:606
+msgid "Review"
+msgstr "Pregled"
+
+#: heliosbooth/vote.html:606
+msgid "Submit"
+msgstr "Oddaja"
+
+#: heliosbooth/vote.html:610
+msgid "Checking capabilities and loading election booth..."
+msgstr "Preverjamo združjivost in nalagamo glasovnico..."
+
+#: heliosbooth/vote.html:611
+msgid "This may take up to 10 seconds"
+msgstr "Ta proces lahko traja do 10 sekund"
+
+#: heliosbooth/vote.html:615
+msgid "There's a problem"
+msgstr "Prišlo je do težave"
+
+#: heliosbooth/vote.html:617
+msgid ""
+"It appears that your browser does not have Java enabled. Helios needs Java "
+"to perform encryption within the browser."
+msgstr ""
+"Na vašem sistemu nismo zaznali programske opreme Java, ki jo sistem E-"
+"volitve potrebuje za šifriranje v brskalniku."
+
+#: heliosbooth/vote.html:620
+msgid ""
+"You may be able to install Java by visiting <a target=\"_new\" href=\"http://"
+"java.com\">java.com</a>."
+msgstr ""
+"Prosimo, da si namestite programsko opremo Java: <a target=\"_new\" href="
+"\"https://java.com\">java.com</a>."
+
+#: heliosbooth/vote.html:632
+msgid "Helios is now encrypting your ballot"
+msgstr "Vaša glasovnica je v procesu šifriranja"
+
+#: heliosbooth/vote.html:635
+msgid "This may take up to two minutes."
+msgstr "Ta proces lahko traja do 2 minuti"
+
+#: heliosverifier/verify.html:42
+msgid "Sorry, in-browser verification requires Java Support at this time."
+msgstr "Oprostite, preverba potrebuje programsko opremo Java."
+
+#: heliosverifier/verify.html:50 heliosverifier/verify.html:178
+msgid "VERIFIED"
+msgstr "Preverjeno"
+
+#: heliosverifier/verify.html:50
+msgid "FAIL"
+msgstr "Neuspešno"
+
+#: heliosverifier/verify.html:61
+msgid "Loading ballot for voter #"
+msgstr "Nalaganje glasovnice za volivca #"
+
+#: heliosverifier/verify.html:68
+msgid "No ballot for this voter #"
+msgstr "Ni glasovnice za volivca #"
+
+#: heliosverifier/verify.html:70
+msgid "FOUND a ballot for voter #"
+msgstr "Najdena glasovnica za volivca #"
+
+#: heliosverifier/verify.html:99
+msgid "Election"
+msgstr "Volitve"
+
+#: heliosverifier/verify.html:100
+msgid "Loading election..."
+msgstr "Nalaganje volitev..."
+
+#: heliosverifier/verify.html:107
+msgid "Loaded election: "
+msgstr "Volitve naložene: "
+
+#: heliosverifier/verify.html:108
+msgid "Election fingerprint: "
+msgstr "Prstni odtis volitev: "
+
+#: heliosverifier/verify.html:114
+msgid ""
+"PROBLEM: this election is not a straight-forward homomorphic-tally election. "
+"As a result, Helios cannot currently verify it."
+msgstr ""
+"Težava: te volitve niso neposredno homomorfne. Zato jih trenutno ni moč "
+"preveriti."
+
+#: heliosverifier/verify.html:123
+msgid "Loading list of voters..."
+msgstr "Nalaganje seznama volivcev..."
+
+#: heliosverifier/verify.html:127
+msgid "Loaded voter list, now loading ballots for each."
+msgstr "Seznam volivcev je naložen. Sedaj se nalagajo glasovnice za vsakega."
+
+#: heliosverifier/verify.html:132
+msgid "Ballots"
+msgstr "Glasovnice"
+
+#: heliosverifier/verify.html:140
+msgid "Voter #"
+msgstr "Volivec #"
+
+#: heliosverifier/verify.html:142
+msgid "Ballot Tracking Number: "
+msgstr "Sledilec glasovnice:"
+
+#: heliosverifier/verify.html:150 heliosverifier/verify.html:152
+#: heliosverifier/verify.html:202
+msgid "Question #"
+msgstr "Vprašanje #"
+
+#: heliosverifier/verify.html:150
+msgid "Option #"
+msgstr "Izbira #"
+
+#: heliosverifier/verify.html:152
+msgid "OVERALL"
+msgstr "Vse skupaj"
+
+#: heliosverifier/verify.html:173
+msgid "Trustees"
+msgstr "Zaupniki"
+
+#: heliosverifier/verify.html:176
+msgid "Trustee #"
+msgstr "Zaupnik #"
+
+#: heliosverifier/verify.html:178
+msgid "PK "
+msgstr "ZK "
+
+#: heliosverifier/verify.html:182
+msgid "ERROR for PK of trustee "
+msgstr "Napaka pri zasebnem ključu zaupnika "
+
+#: heliosverifier/verify.html:193
+msgid "Election public key CORRECTLY FORMED"
+msgstr "Javni ključ volitev je pravilno sestavljen"
+
+#: heliosverifier/verify.html:195
+msgid "ERROR, election public key doesn't match"
+msgstr "Napaka, javni ključ ne ustreza"
+
+#: heliosverifier/verify.html:199
+msgid "Tally"
+msgstr "Rezultat"
+
+#: heliosverifier/verify.html:207
+msgid "Answer #"
+msgstr "Odgovor #"
+
+#: heliosverifier/verify.html:207
+msgid "COUNT"
+msgstr "Seštevek"
+
+#: heliosverifier/verify.html:215
+#, javascript-format
+msgid "Trustee %s: decryption factor verifies"
+msgstr "Zaupnik %s: pravilen odšifrirni faktor"
+
+#: heliosverifier/verify.html:217
+#, javascript-format
+msgid "ERROR with Trustee %s: decryption factor does not verify"
+msgstr "Napaka pri zaupniku %s: nepravilen odšifrirni faktor"
+
+#: heliosverifier/verify.html:239
+msgid "FINAL RESULT"
+msgstr "Končni rezultat"
+
+#: heliosverifier/verify.html:242
+msgid "ELECTION FULLY VERIFIED -- SUCCESS!"
+msgstr "Volitve so v celoti preverjene!"
+
+#: heliosverifier/verify.html:244
+msgid "VERIFICATION FAILED"
+msgstr "Preverjanje ni uspelo"
+
+#: heliosverifier/verify.html:264
+msgid "Helios Election Verifier"
+msgstr "Preverjanje E-volitev"
+
+#: heliosverifier/verify.html:269
+msgid "Loading verifier ..."
+msgstr "Nalaganje preverjanja ..."
+
+#: heliosverifier/verify.html:273
+msgid "Enter the Election URL:"
+msgstr "Vnesite URL volitev:"
+
+#: heliosverifier/verify.html:279
+msgid "Start verification"
+msgstr "Prični s preverjanjem"
