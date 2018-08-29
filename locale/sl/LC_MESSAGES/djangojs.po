@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 16:34+0200\n"
+"POT-Creation-Date: 2018-08-29 17:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,6 +61,46 @@ msgstr "Pred oddajo se boste morali prijaviti, če se še niste."
 #: heliosbooth/templates/election.html:37
 msgid "Start"
 msgstr "Pričetek"
+
+#: heliosbooth/templates/question.html:53
+msgid "of"
+msgstr "od"
+
+#: heliosbooth/templates/question.html:54
+msgid "vote for"
+msgstr "glasujte za"
+
+#: heliosbooth/templates/question.html:57
+msgid "to"
+msgstr "do"
+
+#: heliosbooth/templates/question.html:59
+msgid "at least"
+msgstr "vsaj"
+
+#: heliosbooth/templates/question.html:66
+msgid "up to"
+msgstr "največ"
+
+#: heliosbooth/templates/question.html:73
+msgid "as many as you approve of"
+msgstr "kolikor želite"
+
+#: heliosbooth/templates/question.html:76
+msgid "More info"
+msgstr "Več informacij"
+
+#: heliosbooth/templates/question.html:78
+msgid "Proceed"
+msgstr "Nadaljuj"
+
+#: heliosbooth/templates/question.html:83
+msgid "Previous"
+msgstr "Prejšnje vprašanje"
+
+#: heliosbooth/templates/question.html:88
+msgid "Next"
+msgstr "Naslednje vprašanje"
 
 #: heliosbooth/vote.html:36
 msgid "Exit"
