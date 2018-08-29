@@ -18,7 +18,7 @@
 {#if $T.question.answer_urls && $T.question.answer_urls[$T.answer_ordering[$T.answer$index]] && $T.question.answer_urls[$T.answer_ordering[$T.answer$index]] != ""}
 &nbsp;&nbsp;
 <span style="font-size: 12pt;">
-[<a id="question_more_info" target="_blank" href="{$T.question.answer_urls[$T.answer_ordering[$T.answer$index]]}" rel="noopener noreferrer"></a>]
+[<a class="question_more_info" target="_blank" href="{$T.question.answer_urls[$T.answer_ordering[$T.answer$index]]}" rel="noopener noreferrer"></a>]
 </span>
 {#/if}
 </div>
@@ -73,7 +73,7 @@
     $("#question_how_many").append(gettext("as many as you approve of"));
 {#/if}
 {#/if}
-    $("#question_more_info").each(function() { $(this).append(gettext("More info")) });
+    $(".question_more_info").append(gettext("More info"));
 {#if $T.show_reviewall}
     $("#question_proceed").val(gettext("Proceed"));
 {#/if}
