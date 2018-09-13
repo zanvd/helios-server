@@ -5,7 +5,9 @@
 
 {% if user %}
 <p style="font-size: 1.4em;">
-    {% blocktrans %}You are currently logged in as<br /><b>{{user.user_id}}</b> via <b>{{user.user_type}}</b>.{% endblocktrans %}
+    {% blocktrans with user_id=user.user_id user_type=user.user_type %}
+        You are currently logged in as<br /><b>{{user_id}}</b> via <b>{{user_type}}</b>.
+    {% endblocktrans %}
 </p>
 <p>
     <a href="{% url "helios_auth.views.logout" %}">{% trans 'Logout' %}</a>

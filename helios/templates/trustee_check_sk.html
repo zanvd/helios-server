@@ -1,7 +1,7 @@
 {% extends "helios/templates/cryptobase.html" %}
-
+{% load i18n %}
 {% block content %}
-<script>
+<script> //TODO
 function reset() {
     $('#processing').hide();
     $('#result').html("");
@@ -43,31 +43,31 @@ function check_sk(sk_value) {
     }
 }
 </script>
-  <h2 class="title">{{election.name}} &mdash; Trustee {{trustee.name}} &mdash; Check Secret Key <span style="font-size:0.7em;">[<a href="./home">back to trustee home</a>]</span></h2>
+  <h2 class="title">{{election.name}} &mdash; {% trans 'Trustee' %} {{trustee.name}} &mdash; {% trans 'Check Secret Key' %} <span style="font-size:0.7em;">[<a href="./home">{% trans 'back to trustee home' %}</a>]</span></h2>
 
 <p>
-Your public key fingerprint is: <b>{{trustee.public_key_hash}}</b>
+    {% trans 'Your public key fingerprint is:' %} <b>{{trustee.public_key_hash}}</b>
 </p>
 
 <div id="loading">
-loading crypto functions...
+    {% trans 'Loading crypto functions...' %}
 </div>
 
 <div id="input" style="display:none;">
 <p>
-To verify that you have the right secret key, paste it here:
+    {% trans 'To verify that you have the right secret key, paste it here:' %}
 <p>
 
 <form onsubmit="check_sk(this.secret_key.value); this.secret_key.value=''; return false;">
 <textarea name="secret_key" cols="60" rows ="5" wrap="soft">
 </textarea>
 <br />
-<input type="submit" value="check" />
+<input type="submit" value="{% trans 'Check' %}" />
 </form>
 </div>
 
 <div id="processing" style="display:none;">
-checking your secret key...
+    {% trans 'Checking your secret key...' %}
 </div>
 
 <div id="result">

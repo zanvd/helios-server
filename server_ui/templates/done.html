@@ -6,13 +6,15 @@
 <h1>{% trans 'Your Vote was Cast' %}</h1>
 
 <p>
-    {% blocktrans %}A vote was successfully cast for <b>{{voter.voter_id}}</b>, with vote fingerprint:{% endblocktrans %}
+    {% blocktrans with voter_id=voter.voter_id%}
+        A vote was successfully cast for <b>{{voter_id}}</b>, with vote fingerprint:
+    {% endblocktrans %}
     <br /><br />
     <tt style="font-size: 2em;">{{voter.vote_hash}}</tt>
 </p>
 
 <p>
-    {% trans 'Visit the' %}<a href="{% url "helios.views.one_election_view" election.uuid %}">{% blocktrans %}election homepage</a>.{% endblocktrans %}
+    {% trans 'Visit the' %}<a href="{% url "helios.views.one_election_view" election.uuid %}">{% trans 'election homepage' %}</a>.
 </p>
 
 {% endblock %}

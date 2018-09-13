@@ -1,23 +1,23 @@
 {% extends TEMPLATE_BASE %}
-
+{% load i18n %}
 {% block content %}
-  <h2 class="title">{{ election.name }} – Register</h2>
+  <h2 class="title">{{ election.name }} – {% trans 'Register' %}</h2>
 
 {% if user %}
 <p>
-    You are currently logged in as {{user.user_id}} [{{user.user_type}}]
+    {% blocktrans with user=user %}You are currently logged in as {{user.user_id}} [{{user.user_type}}]{% endblocktrans %}
 </p>
 {% if voter %}
 <p>
-    You are currently registered for this election.
+    {% trans 'You are currently registered for this election.' %}
 </p>
 {% else %}
 <p>
-    You are <em>not</em> registered for this election.
+    {% trans 'You are <em>not</em> registered for this election.' %}
 </p>
 
 <form method="post" action="{% url "helios.views.one_election_register" election.uuid %}">
-<input type="submit" value="register!" />
+<input type="submit" value="{% trans 'Register' %}" />
 </form>
 {% endif %}
 
