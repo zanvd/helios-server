@@ -1,56 +1,84 @@
-
 {#if $T.election_metadata.use_advanced_audit_features}
-<div style="float: right; background: lightyellow; margin-left: 20px; padding: 0px 10px 10px 10px; border: 1px solid #ddd; width:200px;">
-<h4><a onclick="$('#auditbody').slideToggle(250);" href="#">Audit</a> <span style="font-size: 0.8em; color: #444">[optional]</span></h4>
-<div id="auditbody" style="display:none;">
-<p>
-If you choose, you can audit your ballot and reveal how your choices were encrypted.
-</p>
-<p>
-You will then be guided to re-encrypt your choices for final casting.
-</p>
-<input type="button" value="Verify Encryption" onclick="BOOTH.audit_ballot();" class="pretty" />
-</p>
-</div>
-</div>
+    <div style="float: right; background: lightyellow; margin-left: 20px; padding: 0px 10px 10px 10px; border: 1px solid #ddd; width:200px;">
+        <h4>
+            <a id="seal_audit_link" onclick="$('#auditbody').slideToggle(250);" href="#"></a> <span id="seal_optional" style="font-size: 0.8em; color: #444"></span>
+        </h4>
+        <div id="auditbody" style="display:none;">
+            <p id="seal_audit_instructions1">
+            </p>
+            <p id="seal_audit_instructions2">
+            </p>
+            <input id="seal_verify" type="button" value="" onclick="BOOTH.audit_ballot();" class="pretty"/>
+            </p>
+        </div>
+    </div>
 {#/if}
-
-<h3>Review your Ballot</h3>
-
-
+<h3 id="seal_review_header"></h3>
 <div style="padding: 10px; margin-bottom: 10px; background-color: #eee; border: 1px #ddd solid; max-width: 340px;">
-{#foreach $T.questions as question}
-
-<b>Question #{$T.question$index + 1}: {$T.question.short_name}</b><br>
-{#if $T.choices[$T.question$index].length == 0}
-<div style="margin-left: 15px;">&#x2610; <i>No choice selected</i></div>
-{#/if}
-{#foreach $T.choices[$T.question$index] as choice}
-<div style="margin-left: 15px;">&#x2713; {$T.choice}</div>
-{#/for}
-{#if $T.choices[$T.question$index].length < $T.question.max}
-[you under-voted: you may select up to {$T.question.max}]
-{#/if}
-[<a onclick="BOOTH.show_question({$T.question$index}); return false;" href="#">edit responses</a>]
-{#if !$T.question$last}<br><br>{#/if}
-{#/for}
+    {#foreach $T.questions as question}
+        <b><span id="seal_question_number"></span>{$T.question$index + 1}: {$T.question.short_name}</b><br>
+        {#if $T.choices[$T.question$index].length == 0}
+            <div style="margin-left: 15px;">&#x2610; <i><span id="seal_no_choice"></span></i></div>
+        {#/if}
+        {#foreach $T.choices[$T.question$index] as choice}
+            <div style="margin-left: 15px;">&#x2713; {$T.choice}</div>
+        {#/for}
+        {#if $T.choices[$T.question$index].length < $T.question.max}
+            [<span id="seal_under_vote"></span> {$T.question.max}]
+        {#/if}
+        [<a id="seal_edit_response" onclick="BOOTH.show_question({$T.question$index}); return false;" href="#"></a>]
+        {#if !$T.question$last}
+            <br><br>
+        {#/if}
+    {#/for}
 </div>
-
-
-<p><p>Your ballot tracker is <b><tt style="font-size: 11pt;">{$T.encrypted_vote_hash}</tt></b>, and you can <a onclick="BOOTH.show_receipt(); return false;" href="#">print</a> it.<br /><br /></p>
-
 <p>
-Once you click "Submit", the unencrypted version of your ballot will be destroyed, and only the encrypted version will remain.  The encrypted version will be submitted to the Helios server.</p>
-
-<button id="proceed_button" onclick="BOOTH.cast_ballot();">Submit this Vote!</button><br />
-<div id="loading_div"><img src="loading.gif" id="proceed_loading_img" /></div>
-
-
-
+    <span id="seal_instructions1"></span> <b><tt style="font-size: 11pt;">{$T.encrypted_vote_hash}</tt></b>, <span id="seal_instructions2"></span>
+    <a id="seal_print" onclick="BOOTH.show_receipt(); return false;" href="#"></a> <span id="seal_instructions3"></span><br/><br/>
+</p>
+<p id="seal_instructions4">
+</p>
+<button id="proceed_button" onclick="BOOTH.cast_ballot();"></button><br/>
+<div id="loading_div">
+    <img src="loading.gif" id="proceed_loading_img"/>
+</div>
 <form method="POST" action="{$T.cast_url}" id="send_ballot_form" class="prettyform">
-<input type="hidden" name="election_uuid" value="{$T.election_uuid}" />
-<input type="hidden" name="election_hash" value="{$T.election_hash}" />
-<textarea name="encrypted_vote" style="display: none;">
-{$T.encrypted_vote_json}
-</textarea>
+    <input type="hidden" name="election_uuid" value="{$T.election_uuid}"/>
+    <input type="hidden" name="election_hash" value="{$T.election_hash}"/>
+    <textarea name="encrypted_vote" style="display: none;">
+        {$T.encrypted_vote_json}
+    </textarea>
 </form>
+<script type="application/javascript">
+    {#if $T.election_metadata.use_advanced_audit_features}
+        $('#seal_audit_link').text(gettext('Audit'));
+        $('#seal_optional').text(gettext('[optional]'));
+        $('#seal_audit_instructions1').text(gettext('If you choose, you can audit your ballot and reveal how your choices were encrypted.'));
+        $('#seal_audit_instructions2').text(gettext('You will then be guided to re-encrypt your choices for final casting.'));
+        $('#seal_verify').val(gettext('Verify Encryption'));
+    {#/if}
+</script>
+<!--/-->
+<script type="application/javascript">
+    $('#seal_review_header').text(gettext('Review your Ballot'));
+    $('#seal_question_number').text(gettext('Question #'));
+    {#foreach $T.questions as question}
+        {#if $T.choices[$T.question$index].length == 0}
+            $('#seal_no_choice').text(gettext('No choice selected.'));
+        {#/if}
+</script>
+<!--/-->
+<script type="application/javascript">
+        {#if $T.choices[$T.question$index].length < $T.question.max}
+            $('#seal_under_vote').text(gettext('you under-voted: you may select up to'));
+        {#/if}
+    {#/for}
+    $('#seal_edit_response').text(gettext('edit responses'));
+    $('#seal_instructions1').text(gettext('Your ballot tracker is'));
+    $('#seal_instructions2').text(gettext('and you can'));
+    $('#seal_print').text(gettext('print'));
+    $('#seal_instructions3').text(gettext('it.'));
+    $('#seal_instructions4').text(gettext('Once you click "Submit", the unencrypted version of your ballot will be destroyed, and only the encrypted version ' +
+        'will remain. The encrypted version will be submitted to the Helios server.'));
+    $('#proceed_button').text(gettext('Submit this Vote'));
+</script>

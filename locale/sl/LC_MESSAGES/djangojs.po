@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 19:59+0200\n"
+"POT-Creation-Date: 2018-09-17 21:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,171 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
+
+#: heliosbooth/single-ballot-verify.html:61 heliosverifier/verify.html:100
+msgid "Loading election..."
+msgstr "Nalaganje volitev..."
+
+#: heliosbooth/single-ballot-verify.html:65
+msgid ""
+"\n"
+"\n"
+"It looks like you are trying to verify a cast ballot. That can't be done, "
+"only audited ballots can be verified."
+msgstr ""
+"\n"
+"\n"
+"Izgleda kot da želite verificirati oddano glasovnico, česar ne morete.Le "
+"revidirana glasovnica je lahko verificirana."
+
+#: heliosbooth/single-ballot-verify.html:77
+msgid "SUCCESSFUL VERIFICATION, DONE!"
+msgstr "Končano! Verifikacija je uspela!"
+
+#: heliosbooth/single-ballot-verify.html:79
+#: heliosbooth/single-ballot-verify.html:108
+msgid "PROBLEM - THIS BALLOT DOES NOT VERIFY."
+msgstr "Težava - ta glasovnica ni ustrezna."
+
+#: heliosbooth/single-ballot-verify.html:104
+msgid ""
+"PROBLEM LOADING election. Are you sure you have the right election URL?<br />"
+msgstr ""
+"Težava pri nalaganju vlitev. Ali ste prepričani, da imate pravilen URL "
+"volitev?<br />"
+
+#: heliosbooth/single-ballot-verify.html:118
+msgid "Helios Single-Ballot Verifier"
+msgstr "Sistem za preverjanje glasovnic"
+
+#: heliosbooth/single-ballot-verify.html:123
+msgid "Loading verifier..."
+msgstr "Nalaganje sistema za preverjanje..."
+
+#: heliosbooth/single-ballot-verify.html:127
+msgid "Your browser does not have the Java plugin installed."
+msgstr "Vaš brskalnik nima nameščenega Java vtičnika."
+
+#: heliosbooth/single-ballot-verify.html:128
+msgid ""
+"At this time, the Java plugin is required for browser-based ballot auditing, "
+"although it is not required for ballot preparation."
+msgstr ""
+"Trenutno je Java vtičnik potreben za revidiranje glasovnic v brskalniku, a "
+"ni potreben za njihovo pripravo."
+
+#: heliosbooth/single-ballot-verify.html:133
+msgid ""
+"This single-ballot verifier lets you enter an audited ballot<br />and verify "
+"that it was prepared correctly."
+msgstr ""
+"Sistem za preverjanje glasovnic vam omogoča vnos revidirane glasovnice<br /> "
+"in preverbo, ali je bila pravilno pripravljena."
+
+#: heliosbooth/single-ballot-verify.html:137 heliosverifier/verify.html:273
+msgid "Enter the Election URL:"
+msgstr "Vnesite URL volitev:"
+
+#: heliosbooth/single-ballot-verify.html:141
+msgid "Your Ballot:"
+msgstr "Vaša glasovnica:"
+
+#: heliosbooth/single-ballot-verify.html:149
+msgid "Verify"
+msgstr "Preveri"
+
+#: heliosbooth/templates/audit.html:33
+msgid "Your audited ballot"
+msgstr "Vaša revidirana glasovnica"
+
+#: heliosbooth/templates/audit.html:34
+msgid "IMPORTANT"
+msgstr "Pomembno"
+
+#: heliosbooth/templates/audit.html:35
+msgid ""
+": this ballot, now that it has been audited, <em>will not be tallied</em>."
+"<br/>To cast a ballot, you must click the \"Back to Voting\" button below, "
+"re-encrypt it, and choose \"cast\" instead of \"audit\"."
+msgstr ""
+": sedaj, ko je bila glasovnica revidirana, <em>se ne bo štela k rezultatu</"
+"em>.<br/>Za oddajo glasovnice, morate klikniti na spodnji gumb \"Nazaj na "
+"volitve\", jo ponovno zašifrirati in izbrati \"Oddaj\" namesto \"Revidiraj\"."
+
+#: heliosbooth/templates/audit.html:37
+msgid ""
+"<b>Why?</b> Helios prevents you from auditing and casting the same ballot to "
+"provide you with some protection against coercion."
+msgstr ""
+"<b>Zakaj?</b> E-volitve preprečijo revidiranje in oddajo iste glasovnice "
+"zato, da nudijo nekaj zaščite pred prisilo."
+
+#: heliosbooth/templates/audit.html:38
+msgid "Now what?"
+msgstr "Kaj sedaj?"
+
+#: heliosbooth/templates/audit.html:39
+msgid "Select your ballot audit info"
+msgstr "Izberite podatke o revidiranju glasovnice"
+
+#: heliosbooth/templates/audit.html:40
+msgid "copy it to your clipboard, then use the"
+msgstr "kopirajte jih, nato uporabite"
+
+#: heliosbooth/templates/audit.html:41
+msgid "ballot verifier"
+msgstr "sistem za preverjanje glasovnice"
+
+#: heliosbooth/templates/audit.html:42
+msgid "to verify it."
+msgstr "za njeno preverbo."
+
+#: heliosbooth/templates/audit.html:43
+msgid ""
+"Once you're satisfied, click the \"Back to voting\" button to re-encrypt and "
+"cast your ballot."
+msgstr ""
+"Ko ste zadovoljni, kliknite na gumb \"Nazaj na volitve\", da glasovnico "
+"ponovno zašifrirate in nato tudi oddate."
+
+#: heliosbooth/templates/audit.html:44
+msgid "Before going back to voting,"
+msgstr "Preden odditete nazaj na volitve,"
+
+#: heliosbooth/templates/audit.html:45
+msgid ""
+"you can post this audited ballot to the Helios tracking center so that "
+"others might double-check the verification of this ballot."
+msgstr ""
+"lahko objavite revidirano glasovnico v sistem sledenja, saj bojo lahko na ta "
+"način tudi drugi preverili revidiranje te glasovnice."
+
+#: heliosbooth/templates/audit.html:47
+msgid ""
+"Even if you post your audited ballot, you must go back to voting and choose "
+"\"Cast\" if you want your vote to count."
+msgstr ""
+"Tudi če se odločite za objavo vaše revidirane glasovnice, morate še vedno "
+"nazaj na volitve in izbrati \"Oddaj\", da se bo vaš glas štel."
+
+#: heliosbooth/templates/audit.html:48
+msgid "Back to voting"
+msgstr "Nazaj na volitve"
+
+#: heliosbooth/templates/audit.html:49
+msgid "Post audited ballot to tracking center"
+msgstr "Objava revidirane glasovnice v sistem sledenja"
+
+#: heliosbooth/templates/done.html:5
+msgid "Your Vote is Being Submitted"
+msgstr "Vaš glas se oddaja"
+
+#: heliosbooth/templates/done.html:6
+msgid ""
+"Please wait a few seconds while your vote is submitted to the casting "
+"server..."
+msgstr ""
+"Prosimo, počakajte nekaj sekund, dokler vaš glas ni oddan na strežnik..."
 
 #: heliosbooth/templates/election.html:29
 msgid "To cast a vote, you will be led through the following steps."
@@ -62,45 +227,170 @@ msgstr "Pred oddajo se boste morali prijaviti, če se še niste."
 msgid "Start"
 msgstr "Pričetek"
 
-#: heliosbooth/templates/question.html:53
+#: heliosbooth/templates/footer.html:12
+msgid "Help"
+msgstr "Pomoč"
+
+#: heliosbooth/templates/footer.html:13
+msgid ""
+"The public key for this election is not yet ready. This election is in "
+"preview mode only."
+msgstr ""
+"Javni kluč volitev še ni pripravljen. Te volitve so v načinu predogleda."
+
+#: heliosbooth/templates/footer.html:14
+msgid "Election fingerprint:"
+msgstr "Prstni odtis volitev:"
+
+#: heliosbooth/templates/question.html:52
 msgid "of"
 msgstr "od"
 
-#: heliosbooth/templates/question.html:54
+#: heliosbooth/templates/question.html:53
 msgid "vote for"
 msgstr "glasujte za"
 
-#: heliosbooth/templates/question.html:58
+#: heliosbooth/templates/question.html:56
+msgid "Yes"
+msgstr "Da"
+
+#: heliosbooth/templates/question.html:64
 msgid "to"
 msgstr "do"
 
-#: heliosbooth/templates/question.html:65
+#: heliosbooth/templates/question.html:72
 msgid "at least"
 msgstr "vsaj"
 
-#: heliosbooth/templates/question.html:71
+#: heliosbooth/templates/question.html:79
 msgid "up to"
 msgstr "največ"
 
-#: heliosbooth/templates/question.html:73
+#: heliosbooth/templates/question.html:81
 msgid "as many as you approve of"
 msgstr "kolikor želite"
 
-#: heliosbooth/templates/question.html:76
+#: heliosbooth/templates/question.html:85
 msgid "More info"
 msgstr "Več informacij"
 
-#: heliosbooth/templates/question.html:78
+#: heliosbooth/templates/question.html:88
 msgid "Proceed"
 msgstr "Nadaljuj"
 
-#: heliosbooth/templates/question.html:83
+#: heliosbooth/templates/question.html:94
 msgid "Previous"
 msgstr "Prejšnje vprašanje"
 
-#: heliosbooth/templates/question.html:88
+#: heliosbooth/templates/question.html:100
 msgid "Next"
 msgstr "Naslednje vprašanje"
+
+#: heliosbooth/templates/seal.html:54
+msgid "Audit"
+msgstr "Revidiraj"
+
+#: heliosbooth/templates/seal.html:55
+msgid "[optional]"
+msgstr "[opcijsko]"
+
+#: heliosbooth/templates/seal.html:56
+msgid ""
+"If you choose, you can audit your ballot and reveal how your choices were "
+"encrypted."
+msgstr ""
+"Če želite, lahko revidirate vašo glasovnico in razkrijete, kako je bila vaša "
+"izbira zašifrirana."
+
+#: heliosbooth/templates/seal.html:57
+msgid "You will then be guided to re-encrypt your choices for final casting."
+msgstr ""
+"Nato vas bomo vodili skozi korake ponovnega šifriranja vaše izbire za končno "
+"oddajo."
+
+#: heliosbooth/templates/seal.html:58
+msgid "Verify Encryption"
+msgstr "Preverba šifriranja"
+
+#: heliosbooth/templates/seal.html:63
+msgid "Review your Ballot"
+msgstr "Preglejte vašo glasovnico"
+
+#: heliosbooth/templates/seal.html:64 heliosverifier/verify.html:150
+#: heliosverifier/verify.html:152 heliosverifier/verify.html:202
+msgid "Question #"
+msgstr "Vprašanje #"
+
+#: heliosbooth/templates/seal.html:67
+msgid "No choice selected."
+msgstr "Nobenega odgovora niste izbrali."
+
+#: heliosbooth/templates/seal.html:73
+msgid "you under-voted: you may select up to"
+msgstr "izbrali ste premalo odgovorov: izberete lahko do"
+
+#: heliosbooth/templates/seal.html:76
+msgid "edit responses"
+msgstr "uredite odgovore"
+
+#: heliosbooth/templates/seal.html:77
+msgid "Your ballot tracker is"
+msgstr "Vaš sledilec glasovnice je "
+
+#: heliosbooth/templates/seal.html:78
+msgid "and you can"
+msgstr ", katerega lahko"
+
+#: heliosbooth/templates/seal.html:79
+msgid "print"
+msgstr "natisnete"
+
+#: heliosbooth/templates/seal.html:80
+msgid "it."
+msgstr "."
+
+#: heliosbooth/templates/seal.html:81
+msgid ""
+"Once you click \"Submit\", the unencrypted version of your ballot will be "
+"destroyed, and only the encrypted version will remain. The encrypted version "
+"will be submitted to the Helios server."
+msgstr ""
+"Ko kliknete na \"Oddaja\", bo nešifrirana verzija vaše glasovnice uničena, "
+"in ostala bo zgolj šifrirana. Slednja bo oddana na strežnik E-volitev."
+
+#: heliosbooth/templates/seal.html:83
+msgid "Submit this Vote"
+msgstr "Oddaja glasovnice"
+
+#: heliosbooth/templates/submit.html:30
+msgid "Submit Your Encrypted Ballot"
+msgstr "Oddajte vašo zašifrirano glasovnico."
+
+#: heliosbooth/templates/submit.html:31
+msgid "All information, other than your encrypted ballot,"
+msgstr "Vse informacije razen zašifrirane glasovnice"
+
+#: heliosbooth/templates/submit.html:32
+msgid "has been removed from memory."
+msgstr "so bile odstranjene iz spomina."
+
+#: heliosbooth/templates/submit.html:33
+msgid "As a reminder, your ballot tracking number is:"
+msgstr "Opomnik - vaša sledilna številka glasovnice je:"
+
+#: heliosbooth/templates/submit.html:34
+msgid ""
+"According to the election definition file, this ballot will be submitted to:"
+msgstr "Glede na nastavitve volitev bo ta glasovnica oddana na:"
+
+#: heliosbooth/templates/submit.html:35
+msgid "where you will log in to validate your eligibility to vote."
+msgstr ""
+"kjer se boste prijavili, ter s tem potrdili upravičenost do glasovanja."
+
+#: heliosbooth/templates/submit.html:36
+msgid "Submit Ballot"
+msgstr "Oddaja glasovnice"
 
 #: heliosbooth/vote.html:36
 msgid "Exit"
@@ -159,6 +449,9 @@ msgid ""
 "Remember, this vote will only be used for auditing and will not be tallied.\n"
 "Click \"back to voting\" and cast a new ballot to make sure your vote counts."
 msgstr ""
+"Ta revidirana glasovnica je bila objavljena.\n"
+"Pomnite, ta glas bo uporabljen zgolj za revidiranje in ne bo štel k rezultatu.\n"
+"Kliknite na \"Nazaj na volitve\" in oddajte glasovnico, tako da se bo štel tudi vaš glas."
 
 #: heliosbooth/vote.html:596
 msgid "Your smart ballot tracker for "
@@ -240,10 +533,6 @@ msgstr "Najdena glasovnica za volivca #"
 msgid "Election"
 msgstr "Volitve"
 
-#: heliosverifier/verify.html:100
-msgid "Loading election..."
-msgstr "Nalaganje volitev..."
-
 #: heliosverifier/verify.html:107
 msgid "Loaded election: "
 msgstr "Volitve naložene: "
@@ -279,11 +568,6 @@ msgstr "Volivec #"
 #: heliosverifier/verify.html:142
 msgid "Ballot Tracking Number: "
 msgstr "Sledilec glasovnice:"
-
-#: heliosverifier/verify.html:150 heliosverifier/verify.html:152
-#: heliosverifier/verify.html:202
-msgid "Question #"
-msgstr "Vprašanje #"
 
 #: heliosverifier/verify.html:150
 msgid "Option #"
@@ -358,10 +642,6 @@ msgstr "Preverjanje E-volitev"
 #: heliosverifier/verify.html:269
 msgid "Loading verifier ..."
 msgstr "Nalaganje preverjanja ..."
-
-#: heliosverifier/verify.html:273
-msgid "Enter the Election URL:"
-msgstr "Vnesite URL volitev:"
 
 #: heliosverifier/verify.html:278
 msgid "Start verification"

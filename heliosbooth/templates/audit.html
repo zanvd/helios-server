@@ -1,36 +1,50 @@
-
-<h3>Your audited ballot</h3>
-
+<h3 id="audit_header"></h3>
 <p>
-<b><u>IMPORTANT</u></b>: this ballot, now that it has been audited, <em>will not be tallied</em>.<br />
-To cast a ballot, you must click the "Back to Voting" button below, re-encrypt it, and choose "cast" instead of "audit."
+    <b><u><span id="audit_notice"></span></u></b><span id="audit_instructions1"></span>
 </p>
-
 <p>
-<b>Why?</b> Helios prevents you from auditing and casting the same ballot to provide you with some protection against coercion.
+    <span id="audit_instructions2"></span>
 </p>
-
 <p>
-<b>Now what?</b> <a onclick="$('#audit_trail').select(); return false;" href="#">Select your ballot audit info</a>, copy it to your clipboard, then use the <a target="_blank" href="single-ballot-verify.html?election_url={$T.election_url}">ballot verifier</a> to verify it.<br />
-Once you're satisfied, click the "back to voting" button to re-encrypt and cast your ballot.
+    <b><span id="audit_instructions3"></span></b> <a onclick="$('#audit_trail').select(); return false;" href="#"><span id="audit_instructions4"></span></a>,
+    <span id="audit_instructions5"></span> <a target="_blank"
+                                               href="single-ballot-verify.html?election_url={$T.election_url}">
+    <span id="audit_instructions6"></span></a> <span id="audit_instructions7"></span><br/>
+    <span id="audit_instructions8"></span>
 </p>
-
 <form action="#">
 <textarea name="audit_trail" id="audit_trail" cols="80" rows="10" wrap="soft">
 {$T.audit_trail}
 </textarea>
-<br /><br />
-Before going back to voting,<br />
-you can post this audited ballot to the Helios tracking center so that others might double-check the verification of this ballot.
-<br /><br />
-<b>Even if you post your audited ballot, you must go back to voting and choose "cast" if you want your vote to count.</b>
-<br /><br />
-<input type="button" value="back to voting" onclick="BOOTH.reset_ciphertexts();BOOTH.seal_ballot();" class="pretty" />
-&nbsp; &nbsp;&nbsp;
-<input type="button" value="post audited ballot to tracking center" onclick="$(this).attr('disabled', 'disabled');BOOTH.post_audited_ballot();" id="post_audited_ballot_button" class="pretty" style="font-size:0.8em;"/>
-
+    <br/><br/>
+    <span id="audit_instructions9"></span><br/>
+    <span id="audit_instructions10"></span>
+    <br/><br/>
+    <b><span id="audit_instructions11"></span></b>
+    <br/><br/>
+    <input id="audi_back_to_voting" type="button" value="" onclick="BOOTH.reset_ciphertexts();BOOTH.seal_ballot();"
+           class="pretty"/>
+    &nbsp; &nbsp;&nbsp;
+    <input id="audit_post_ballot" type="button" value=""
+           onclick="$(this).attr('disabled', 'disabled');BOOTH.post_audited_ballot();"
+           class="pretty" style="font-size:0.8em;"/>
 </form>
-
-
-
-
+<script type="application/javascript">
+    $('#audit_header').text(gettext('Your audited ballot'));
+    $('#audit_notice').text(gettext('IMPORTANT'));
+    $('#audit_instructions1').text(gettext(': this ballot, now that it has been audited, <em>will not be tallied</em>.<br/>' +
+        'To cast a ballot, you must click the "Back to Voting" button below, re-encrypt it, and choose "cast" instead of "audit".'));
+    $('#audit_instructions2').text(gettext('<b>Why?</b> Helios prevents you from auditing and casting the same ballot to provide you with some protection against coercion.'));
+    $('#audit_instructions3').text(gettext('Now what?'));
+    $('#audit_instructions4').text(gettext('Select your ballot audit info'));
+    $('#audit_instructions5').text(gettext('copy it to your clipboard, then use the'));
+    $('#audit_instructions6').text(gettext('ballot verifier'));
+    $('#audit_instructions7').text(gettext('to verify it.'));
+    $('#audit_instructions8').text(gettext('Once you\'re satisfied, click the "Back to voting" button to re-encrypt and cast your ballot.'));
+    $('#audit_instructions9').text(gettext('Before going back to voting,'));
+    $('#audit_instructions10').text(gettext('you can post this audited ballot to the Helios tracking center so that others might double-check ' +
+        'the verification of this ballot.'));
+    $('#audit_instructions11').text(gettext('Even if you post your audited ballot, you must go back to voting and choose "Cast" if you want your vote to count.'));
+    $('#audit_back_to_voting').val(gettext('Back to voting'));
+    $('#audit_post_ballot').val(gettext('Post audited ballot to tracking center'));
+</script>

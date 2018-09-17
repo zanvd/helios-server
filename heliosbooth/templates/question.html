@@ -1,90 +1,102 @@
-
 <form onsubmit="return false;" class="prettyform" id="answer_form">
-<input type="hidden" name="question_num" value="{$T.question_num}" />
+    <input type="hidden" name="question_num" value="{$T.question_num}" />
+    <p>
+        <br />
+        <b>{$T.question.question}</b>
+        <br />
+        <span style="font-size: 0.6em;">#{$T.question_num + 1} <span id="question_of"></span> {$T.last_question_num + 1} &mdash;
+            <span id="question_vote_for"></span>
+            <span id="question_how_many"></span>
+        </span>
+    </p>
 
-<p>
-<br /> 
-<b>{$T.question.question}</b>
-<br />
-<span style="font-size: 0.6em;">#{$T.question_num + 1} <span id="question_of"></span> {$T.last_question_num + 1} &mdash;
- <span id="question_vote_for"></span>
- <span id="question_how_many"></span>
-</span>
-</p>
+    {#foreach $T.question.answers as answer}
+        <div id="answer_label_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}">
+            <input type="checkbox" class="ballot_answer" id="answer_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}"
+                   name="answer_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}" value=""
+                   onclick="BOOTH.click_checkbox({$T.question_num}, {$T.answer_ordering[$T.answer$index]}, this.checked);"
+            />
+            {$T.question.answers[$T.answer_ordering[$T.answer$index]]}
+            {#if $T.question.answer_urls && $T.question.answer_urls[$T.answer_ordering[$T.answer$index]] && $T.question.answer_urls[$T.answer_ordering[$T.answer$index]] != ""}
+            &nbsp;&nbsp;
+                <span style="font-size: 12pt;">
+                    [<a class="question_more_info" target="_blank" href="{$T.question.answer_urls[$T.answer_ordering[$T.answer$index]]}" rel="noopener noreferrer"></a>]
+                </span>
+            {#/if}
+        </div>
+    {#/for}
 
-{#foreach $T.question.answers as answer}
-<div id="answer_label_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}"><input type="checkbox" class="ballot_answer" id="answer_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}" name="answer_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}" value="yes" onclick="BOOTH.click_checkbox({$T.question_num}, {$T.answer_ordering[$T.answer$index]}, this.checked);" /> {$T.question.answers[$T.answer_ordering[$T.answer$index]]}
-
-{#if $T.question.answer_urls && $T.question.answer_urls[$T.answer_ordering[$T.answer$index]] && $T.question.answer_urls[$T.answer_ordering[$T.answer$index]] != ""}
-&nbsp;&nbsp;
-<span style="font-size: 12pt;">
-[<a class="question_more_info" target="_blank" href="{$T.question.answer_urls[$T.answer_ordering[$T.answer$index]]}" rel="noopener noreferrer"></a>]
-</span>
-{#/if}
-</div>
-{#/for}
-
-<div id="warning_box" style="color: green; text-align:center; font-size: 0.8em; padding-top:10px; padding-bottom: 10px; height:50px;">
-</div>
+    <div id="warning_box" style="color: green; text-align:center; font-size: 0.8em; padding-top:10px; padding-bottom: 10px; height:50px;">
+    </div>
 
 
-{#if $T.show_reviewall}
-<div style="float: right;">
-<input id="question_proceed" type="button" onclick="BOOTH.validate_and_confirm({$T.question_num});" />
-</div>
-{#/if}
+    {#if $T.show_reviewall}
+        <div style="float: right;">
+            <input id="question_proceed" type="button" onclick="BOOTH.validate_and_confirm({$T.question_num});" />
+        </div>
+    {#/if}
 
-{#if $T.question_num != 0}
-<input id="question_previous" type="button" onclick="BOOTH.previous({$T.question_num})" />
-&nbsp;
-{#/if}
+    {#if $T.question_num != 0}
+        <input id="question_previous" type="button" onclick="BOOTH.previous({$T.question_num})" />
+    &nbsp;
+    {#/if}
 
-{#if $T.question_num < $T.last_question_num}
-<input id="question_next" type="button" onclick="BOOTH.next({$T.question_num})" />
-&nbsp;
-{#/if}
-
-<br clear="both" />
-
+    {#if $T.question_num < $T.last_question_num}
+        <input id="question_next" type="button" onclick="BOOTH.next({$T.question_num})" />
+    &nbsp;
+    {#/if}
+    <br clear="both" />
 </form>
-
 <!--/-->
 <script language="javascript">
     $("#question_of").append(gettext("of"));
     $("#question_vote_for").append(gettext("vote for"));
-{#if $T.question.min && $T.question.min > 0}
-{#if $T.question.max}
-{#if $T.question.max > $T.question.min}
-    $("#question_how_many").append("{$T.question.min} " + gettext("to") + " {$T.question.max}");
-{#else}
-    $("#question_how_many").append("{$T.question.min}");
-{#/if}
-{#else}
+
+    {#foreach $T.question.answers as answer}
+        $('#answer_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}').val(gettext('Yes'));
+    {#/for}
 </script>
-<script language="javascript">
-    $("#question_how_many").append(gettext("at least") + " {$T.question.min}");
-{#/if}
-{#else}
+<!--/-->
+<script type="application/javascript">
+    {#if $T.question.min && $T.question.min > 0}
+        {#if $T.question.max}
+            {#if $T.question.max > $T.question.min}
+                $("#question_how_many").append("{$T.question.min} " + gettext("to") + " {$T.question.max}");
+            {#else}
+                $("#question_how_many").append("{$T.question.min}");
+            {#/if}
+        {#else}
 </script>
-<script language="javascript">
-{#if $T.question.max}
-    $("#question_how_many").append(gettext("up to") + " {$T.question.max}");
-{#else}
-    $("#question_how_many").append(gettext("as many as you approve of"));
-{#/if}
-{#/if}
+<!--/-->
+<script type="application/javascript">
+            $("#question_how_many").append(gettext("at least") + " {$T.question.min}");
+        {#/if}
+</script>
+<!--/-->
+<script type="application/javascript">
+    {#else}
+        {#if $T.question.max}
+            $("#question_how_many").append(gettext("up to") + " {$T.question.max}");
+        {#else}
+            $("#question_how_many").append(gettext("as many as you approve of"));
+        {#/if}
+    {#/if}
+
     $(".question_more_info").append(gettext("More info"));
-{#if $T.show_reviewall}
-    $("#question_proceed").val(gettext("Proceed"));
-{#/if}
-{#if $T.question_num != 0}
+
+    {#if $T.show_reviewall}
+        $("#question_proceed").val(gettext("Proceed"));
+    {#/if}
 </script>
-<script language="javascript">
-    $("#question_previous").val(gettext("Previous"));
-{#/if}
-{#if $T.question_num < $T.last_question_num}
+<!--/-->
+<script type="application/javascript">
+    {#if $T.question_num != 0}
+        $("#question_previous").val(gettext("Previous"));
+    {#/if}
 </script>
-<script language="javascript">
-    $("#question_next").val(gettext("Next"));
-{#/if}
+<!--/-->
+<script type="application/javascript">
+    {#if $T.question_num < $T.last_question_num}
+        $("#question_next").val(gettext("Next"));
+    {#/if}
 </script>
