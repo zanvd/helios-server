@@ -32,12 +32,12 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Izgleda kot da želite verificirati oddano glasovnico, česar ne morete.Le "
-"revidirana glasovnica je lahko verificirana."
+"Izgleda, kot da želite preveriti oddano glasovnico. Tega ni mogoče storiti - "
+"preverite lahko le revidirane glasovnice."
 
 #: heliosbooth/single-ballot-verify.html:77
 msgid "SUCCESSFUL VERIFICATION, DONE!"
-msgstr "Končano! Verifikacija je uspela!"
+msgstr "Končano! Preverjanje je uspelo!"
 
 #: heliosbooth/single-ballot-verify.html:79
 #: heliosbooth/single-ballot-verify.html:108
@@ -61,15 +61,15 @@ msgstr "Nalaganje sistema za preverjanje..."
 
 #: heliosbooth/single-ballot-verify.html:127
 msgid "Your browser does not have the Java plugin installed."
-msgstr "Vaš brskalnik nima nameščenega Java vtičnika."
+msgstr "Vaš brskalnik nima nameščenega vtičnika za Javo."
 
 #: heliosbooth/single-ballot-verify.html:128
 msgid ""
 "At this time, the Java plugin is required for browser-based ballot auditing, "
 "although it is not required for ballot preparation."
 msgstr ""
-"Trenutno je Java vtičnik potreben za revidiranje glasovnic v brskalniku, a "
-"ni potreben za njihovo pripravo."
+"Trenutno je vtičnik za Javo potreben za revidiranje glasovnic v brskalniku, "
+"četudi ni potreben za njihovo pripravo."
 
 #: heliosbooth/single-ballot-verify.html:133
 msgid ""
@@ -106,7 +106,7 @@ msgid ""
 "re-encrypt it, and choose \"cast\" instead of \"audit\"."
 msgstr ""
 ": sedaj, ko je bila glasovnica revidirana, <em>se ne bo štela k rezultatu</"
-"em>.<br/>Za oddajo glasovnice, morate klikniti na spodnji gumb \"Nazaj na "
+"em>.<br/>Za oddajo glasovnice morate klikniti na spodnji gumb \"Nazaj na "
 "volitve\", jo ponovno zašifrirati in izbrati \"Oddaj\" namesto \"Revidiraj\"."
 
 #: heliosbooth/templates/audit.html:37
@@ -114,8 +114,8 @@ msgid ""
 "<b>Why?</b> Helios prevents you from auditing and casting the same ballot to "
 "provide you with some protection against coercion."
 msgstr ""
-"<b>Zakaj?</b> E-volitve preprečijo revidiranje in oddajo iste glasovnice "
-"zato, da nudijo nekaj zaščite pred prisilo."
+"<b>Zakaj?</b> E-volitve preprečujejo revidiranje in oddajo iste glasovnice "
+"zato, da ponudijo nekaj zaščite pred prisilnim glasovanjem."
 
 #: heliosbooth/templates/audit.html:38
 msgid "Now what?"
@@ -131,7 +131,7 @@ msgstr "kopirajte jih, nato uporabite"
 
 #: heliosbooth/templates/audit.html:41
 msgid "ballot verifier"
-msgstr "sistem za preverjanje glasovnice"
+msgstr "sistem za preverjanje glasovnic"
 
 #: heliosbooth/templates/audit.html:42
 msgid "to verify it."
@@ -143,7 +143,7 @@ msgid ""
 "cast your ballot."
 msgstr ""
 "Ko ste zadovoljni, kliknite na gumb \"Nazaj na volitve\", da glasovnico "
-"ponovno zašifrirate in nato tudi oddate."
+"ponovno zašifrirate in nato tudi oddaste."
 
 #: heliosbooth/templates/audit.html:44
 msgid "Before going back to voting,"
@@ -154,7 +154,7 @@ msgid ""
 "you can post this audited ballot to the Helios tracking center so that "
 "others might double-check the verification of this ballot."
 msgstr ""
-"lahko objavite revidirano glasovnico v sistem sledenja, saj bojo lahko na ta "
+"lahko objavite revidirano glasovnico v sistem sledenja, saj bodo lahko na ta "
 "način tudi drugi preverili revidiranje te glasovnice."
 
 #: heliosbooth/templates/audit.html:47
@@ -162,7 +162,7 @@ msgid ""
 "Even if you post your audited ballot, you must go back to voting and choose "
 "\"Cast\" if you want your vote to count."
 msgstr ""
-"Tudi če se odločite za objavo vaše revidirane glasovnice, morate še vedno "
+"Tudi, če se odločite za objavo vaše revidirane glasovnice, morate še vedno "
 "nazaj na volitve in izbrati \"Oddaj\", da se bo vaš glas štel."
 
 #: heliosbooth/templates/audit.html:48
@@ -292,7 +292,7 @@ msgstr "Revidiraj"
 
 #: heliosbooth/templates/seal.html:55
 msgid "[optional]"
-msgstr "[opcijsko]"
+msgstr "[neobvezno]"
 
 #: heliosbooth/templates/seal.html:56
 msgid ""
@@ -339,7 +339,7 @@ msgstr "Vaš sledilec glasovnice je "
 
 #: heliosbooth/templates/seal.html:78
 msgid "and you can"
-msgstr ", katerega lahko"
+msgstr "in ga lahko"
 
 #: heliosbooth/templates/seal.html:79
 msgid "print"
@@ -441,7 +441,8 @@ msgid ""
 "froze at "
 msgstr ""
 "Prišlo je do napake pri šifriranju vaše zahteve.\n"
-"Prosimo kontaktiraje nas in sporočite, da se je vaša enkripcija ustavila pri "
+"Prosimo, da nas kontaktirate in sporočite, da se je vaš proces šifriranja "
+"ustavil pri "
 
 #: heliosbooth/vote.html:566
 msgid ""
@@ -546,7 +547,7 @@ msgid ""
 "PROBLEM: this election is not a straight-forward homomorphic-tally election. "
 "As a result, Helios cannot currently verify it."
 msgstr ""
-"Težava: te volitve niso neposredno homomorfne. Zato jih trenutno ni moč "
+"Težava: te volitve niso neposredno homomorfne. Zato jih trenutno ni mogoče "
 "preveriti."
 
 #: heliosverifier/verify.html:123
