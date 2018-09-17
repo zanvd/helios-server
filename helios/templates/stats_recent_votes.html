@@ -8,9 +8,18 @@
 {% trans 'Last 24 hours' %}
 
 {% for election in elections %}
-<p>
-<b><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></b> -- {{election.last_cast_vote}} {{election.num_recent_cast_votes}} {% trans 'recently cast votes' %}
-</p>
+    <p>
+        <b>
+            <a href="{% url "helios.views.one_election_view" election.uuid %}">
+                {{election.name}}
+            </a>
+        </b>&nbsp;
+        {% blocktrans with last_cast_vote=election.last_cast_vote count num_recent_cast_votes=election.num_recent_cast_votes %}
+            -- {{last_cast_vote}} {{num_recent_cast_votes}} recently cast vote
+        {% plural %}
+            -- {{last_cast_vote}} {{num_recent_cast_votes}} recently cast votes
+        {% endblocktrans %}
+    </p>
 {% endfor %}
 
 {% endblock %}

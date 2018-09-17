@@ -8,9 +8,18 @@
 {% trans 'Unfrozen for more than a day.' %}
 
 {% for election in elections %}
-<p>
-<b><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></b> -- {{election.num_voters}} {% trans 'voters' %}
-</p>
+    <p>
+        <b>
+            <a href="{% url "helios.views.one_election_view" election.uuid %}">
+                {{election.name}}
+            </a>
+        </b>&nbsp;
+        {% blocktrans count num_voters=election.num_voters %}
+            -- {{num_voters}} voter
+            {% plural %}
+            -- {{num_voters}} voters
+        {% endblocktrans %}
+    </p>
 {% endfor %}
 
 {% endblock %}

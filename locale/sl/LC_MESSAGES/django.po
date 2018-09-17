@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 20:31+0200\n"
+"POT-Creation-Date: 2018-09-17 22:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,7 +103,7 @@ msgstr "oddajte v"
 msgid "Fingerprint:"
 msgstr "Prstni odtis:"
 
-#: helios/templates/castvote.html:8 helios/templates/stats_elections.html:30
+#: helios/templates/castvote.html:8 helios/templates/stats_elections.html:35
 msgid "by"
 msgstr "od"
 
@@ -128,8 +128,8 @@ msgid ""
 "You are about to compute the tally for this election. You only will then see "
 "the results."
 msgstr ""
-"Sedaj boste izračunali rezultate teh volitev. Po končanem štetju boste zgolj vi "
-"videli rezultate."
+"Sedaj boste izračunali rezultate teh volitev. Po končanem štetju boste zgolj "
+"vi videli rezultate."
 
 #: helios/templates/combine_decryptions.html:15
 msgid "Compute the tally!"
@@ -171,11 +171,11 @@ msgid ""
 msgstr ""
 "Ko pripravite glasovnico, takoj dobite pametni sledilec glasovnic. Preden se "
 "odločite za oddajo glasu, lahko glasovnico odprete in s sistemom preverite, "
-"če je bila vaša glasovnica pravilno šifrirana. Nato lahko svojo "
-"odšifrirano glasovnico objavite na seznam revidiranih glasovnic, kjer jo "
-"lahko preverijo vsi (vaša identiteta ni vključena). Po pregledu morate "
-"glasovnico ponovno zašifrirati in pridobiti drug pametni sledilec. S tem se "
-"zmanjša možnost prisiljenega glasovanja."
+"če je bila vaša glasovnica pravilno šifrirana. Nato lahko svojo odšifrirano "
+"glasovnico objavite na seznam revidiranih glasovnic, kjer jo lahko preverijo "
+"vsi (vaša identiteta ni vključena). Po pregledu morate glasovnico ponovno "
+"zašifrirati in pridobiti drug pametni sledilec. S tem se zmanjša možnost "
+"prisiljenega glasovanja."
 
 #: helios/templates/election_audited_ballots.html:13
 msgid ""
@@ -183,9 +183,8 @@ msgid ""
 "just here for auditing purposes, to spot-check that Helios is properly "
 "encrypting voter's choices."
 msgstr ""
-"Te glasovnice <em>niso oddane</em> in ne bodo štele pri rezultatu. "
-"Namenjene so zgolj preverjanju, da sistem resnično pravilno zašifrira "
-"volivčevo izbiro."
+"Te glasovnice <em>niso oddane</em> in ne bodo štele pri rezultatu. Namenjene "
+"so zgolj preverjanju, da sistem resnično pravilno zašifrira volivčevo izbiro."
 
 #: helios/templates/election_audited_ballots.html:17
 msgid ""
@@ -227,7 +226,6 @@ msgstr "ni revidiranih glasovnic"
 #: helios/templates/election_badge.html:3
 #: helios/templates/election_bboard.html:15
 #: helios/templates/elections_administered.html:8
-#: helios/templates/stats_elections.html:30
 msgid "cast votes"
 msgstr "Oddajte glas"
 
@@ -236,10 +234,8 @@ msgid "vote"
 msgstr "glasuj"
 
 #: helios/templates/election_badge.html:4
-#, fuzzy
-#| msgid "Powered by "
 msgid "powered by"
-msgstr "Izdelano z"
+msgstr "izdelano z"
 
 #: helios/templates/election_bboard.html:5
 msgid "Ballot Tracking Center for"
@@ -284,6 +280,14 @@ msgstr "Pametni sledilec glasovnice"
 msgid "Questions"
 msgstr "Vprašanja"
 
+#: helios/templates/election_cast_confirm.html:29
+msgid ""
+"You have not yet cast your ballot! Make sure to complete the voting process "
+"if you want your vote to count."
+msgstr ""
+"Niste še oddali glasovnice! Prepričajte se, da ste končali volilni proces, "
+"če želite, da vas glas šteje."
+
 #: helios/templates/election_cast_confirm.html:40
 msgid "Submitting your vote for"
 msgstr "Oddaja glasu za"
@@ -299,13 +303,13 @@ msgid "Wait!"
 msgstr "Počakajte!"
 
 #: helios/templates/election_cast_confirm.html:60
+#, python-format
 msgid ""
 " You are logged in as <u>%(display_html_small)s</u>, but this election<br /"
 ">\n"
 "    requires election-specific credentials."
 msgstr ""
-" Prijavljeni ste kot <u>%(display_html_small)s</u>, vendar te volitve<br /"
-">\n"
+" Prijavljeni ste kot <u>%(display_html_small)s</u>, vendar te volitve<br />\n"
 "    zahtevajo posebne poverilnice."
 
 #: helios/templates/election_cast_confirm.html:71
@@ -322,7 +326,9 @@ msgstr "<u>niste upravičeni</u></em> za sodelovanje na teh volitvah."
 
 #: helios/templates/election_cast_confirm.html:76
 msgid "not registered</em> for this election, and registration is closed."
-msgstr "niste registrirani za sodelovanje na teh volitvah. Registracija je zaključena."
+msgstr ""
+"niste registrirani za sodelovanje na teh volitvah. Registracija je "
+"zaključena."
 
 #: helios/templates/election_cast_confirm.html:80
 msgid "return to the main election page"
@@ -344,7 +350,8 @@ msgid ""
 "This election is only open to <em>registered voters</em>, so log in with\n"
 "  the same account you registered with."
 msgstr ""
-"Te volitve so odprte zgolj za <em>registrirane volivce</em>, zato se prijavite\n"
+"Te volitve so odprte zgolj za <em>registrirane volivce</em>, zato se "
+"prijavite\n"
 "  z istim računom, kot ste se registrirali."
 
 #: helios/templates/election_cast_confirm.html:101
@@ -410,8 +417,8 @@ msgid ""
 "Registration for your election is currently <b>open</b>, which means anyone "
 "can vote, even after you freeze the ballot."
 msgstr ""
-"Registracija za vaše volitve je trenutno <b>odprta</b>, kar pomeni, "
-"da lahko voli vsak - tudi, ko zamrznete glasovnico."
+"Registracija za vaše volitve je trenutno <b>odprta</b>, kar pomeni, da lahko "
+"voli vsak - tudi, ko zamrznete glasovnico."
 
 #: helios/templates/election_freeze.html:14
 msgid ""
@@ -420,9 +427,9 @@ msgid ""
 "administrator, you will still be able to modify that voter list as the "
 "election progresses."
 msgstr ""
-"Registracija za volitve je trenutno <b>zaprta</b>, kar pomeni, "
-"da lahko volivci, ki jih določite, oddajo glasovnico. Kot administrator "
-"boste lahko spremenili seznam volivcev tekom volitev."
+"Registracija za volitve je trenutno <b>zaprta</b>, kar pomeni, da lahko "
+"volivci, ki jih določite, oddajo glasovnico. Kot administrator boste lahko "
+"spremenili seznam volivcev tekom volitev."
 
 #: helios/templates/election_freeze.html:20
 msgid "You must freeze the ballot before you can contact voters."
@@ -527,15 +534,16 @@ msgid ""
 "You may want to save this to confirm that your public key was properly "
 "stored by the server."
 msgstr ""
-"Predlagamo, da si shranite, saj boste lahko tako preverili, če je bil "
-"javni ključ ustrezno shranjen na strežnik."
+"Predlagamo, da si shranite, saj boste lahko tako preverili, če je bil javni "
+"ključ ustrezno shranjen na strežnik."
 
 #: helios/templates/election_keygenerator.html:146
 msgid ""
 "(Your public key is not currently being displayed because you do not need to "
 "save it, the fingerprint is sufficient.)"
 msgstr ""
-"(Vaš javni ključ trenutno ni prikazan, ker vam ga ni potrebno shraniti - zadostuje že prstni odtis.)"
+"(Vaš javni ključ trenutno ni prikazan, ker vam ga ni potrebno shraniti - "
+"zadostuje že prstni odtis.)"
 
 #: helios/templates/election_keygenerator.html:150
 msgid "Upload your public key"
@@ -586,6 +594,7 @@ msgstr ""
 "sicer ne boste mogli izračunati rezultatov volitev.)"
 
 #: helios/templates/election_not_started.html:5
+#, python-format
 msgid "Election %(name)s Not Yet Open"
 msgstr "Volitve %(name)s niso še odprte."
 
@@ -593,7 +602,8 @@ msgstr "Volitve %(name)s niso še odprte."
 msgid ""
 "This election is not yet open. You probably got here from the Ballot Preview."
 msgstr ""
-"Te volitve še niso odprte. Najverjetneje ste do sem prišli iz predogleda glasovnice."
+"Te volitve še niso odprte. Najverjetneje ste do sem prišli iz predogleda "
+"glasovnice."
 
 #: helios/templates/election_not_started.html:12
 msgid "back to the election"
@@ -609,8 +619,9 @@ msgid "Register"
 msgstr "Registracija"
 
 #: helios/templates/election_register.html:8
-msgid "You are currently logged in as %(user.user_id)s [%(user.user_type)s]"
-msgstr "Trenutno ste prijavljeni kot %(user.user_id)s [%(user.user_type)s]"
+#, python-format
+msgid "You are currently logged in as %(user_id)s [%(user_type)s]"
+msgstr "Trenutno ste prijavljeni kot %(user_id)s [%(user_type)s]"
 
 #: helios/templates/election_register.html:12
 msgid "You are currently registered for this election."
@@ -622,12 +633,15 @@ msgstr "<em>Niste</em> registrirani za te volitve."
 
 #: helios/templates/election_tallied.html:5
 #: server_ui/templates/election_tallied.html:6
+#, python-format
 msgid "Election %(name)s Already Tallied"
 msgstr "Za volitve %(name)s so rezultati že izračunani."
 
 #: helios/templates/election_tallied.html:8
 msgid "This election has already been tallied, you can no longer cast a vote."
-msgstr "Za volitve so že bili rezultati že izračunani, zato glasu ni več možno oddati."
+msgstr ""
+"Za volitve so že bili rezultati že izračunani, zato glasu ni več možno "
+"oddati."
 
 #: helios/templates/election_tallied.html:12
 msgid "view the election tally"
@@ -658,6 +672,7 @@ msgid "archive it"
 msgstr "arhiviraj"
 
 #: helios/templates/election_view.html:25
+#, python-format
 msgid "this %(election_type)s is featured on the front page."
 msgstr "%(election_type)s je na domači strani."
 
@@ -667,10 +682,8 @@ msgstr "odstrani iz domače strani"
 
 #: helios/templates/election_view.html:30
 #, python-format
-msgid ""
-"this %(election.election_type)s is <u>not</u> featured on the front page."
-msgstr ""
-"%(election.election_type)s <u>ni</u> na domači strani."
+msgid "this %(election_type)s is <u>not</u> featured on the front page."
+msgstr "%(election_type)s <u>ni</u> na domači strani."
 
 #: helios/templates/election_view.html:32
 msgid "feature it"
@@ -709,6 +722,8 @@ msgid "Next Step:"
 msgstr "Naslednji korak:"
 
 #: helios/templates/election_view.html:88
+#: venv3-6/lib/python3.6/site-packages/django/db/models/base.py:1207
+#: venv3-6/lib/python3.6/site-packages/django/forms/models.py:732
 msgid "and"
 msgstr "in"
 
@@ -720,8 +735,7 @@ msgstr "zamrzni glasovnice in odpri"
 msgid ""
 "once you do this, the election will be ready for voting and will open "
 "automatically"
-msgstr ""
-"ko to storite, bodo volitve pripravljene in se bodo samodejno odprle"
+msgstr "ko to storite, bodo volitve pripravljene in se bodo samodejno odprle"
 
 #: helios/templates/election_view.html:95
 msgid "at"
@@ -792,8 +806,7 @@ msgstr ""
 #: helios/templates/election_view.html:132
 msgid ""
 "Once you do this, the tally will visible to you, the administrator, only."
-msgstr ""
-"Ko to storite, bodo rezultati vidni zgolj vam (administratorju)."
+msgstr "Ko to storite, bodo rezultati vidni zgolj vam (administratorju)."
 
 #: helios/templates/election_view.html:135
 msgid "trustees (for decryption)"
@@ -820,26 +833,26 @@ msgid "Vote in this"
 msgstr "Volite na"
 
 #: helios/templates/election_view.html:183
+#, python-format
 msgid ""
-"This %(election.election_type)s was initially scheduled to end at "
-"%(election.voting_ends_at)s (UTC),<br />\n"
-"but has been extended until %(election.voting_extended_until)s (UTC)."
+"This %(election_type)s was initially scheduled to end at %(voting_ends_at)s "
+"(UTC),<br />\n"
+"but has been extended until %(voting_extended_until)s (UTC)."
 msgstr ""
-"Volitve %(election.election_type)s so bile prvotno do "
-"%(election.voting_ends_at)s (UTC),<br />\n"
-"vendar so bile podaljšane do %(election.voting_extended_until)s (UTC)."
+"Volitve %(election_type)s so bile prvotno do %(voting_ends_at)s (UTC),<br /"
+">\n"
+"vendar so bile podaljšane do %(voting_extended_until)s (UTC)."
 
 #: helios/templates/election_view.html:188
-msgid ""
-"This %(election.election_type)s is scheduled to end at "
-"%(election.voting_ends_at)s (UTC)."
+#, python-format
+msgid "This %(election_type)s is scheduled to end at %(voting_ends_at)s (UTC)."
 msgstr ""
-"Volitve %(election.election_type)s se zaključijo ob "
-"%(election.voting_ends_at)s (UTC)."
+"Volitve %(election_type)s se zaključijo ob %(election.voting_ends_at)s (UTC)."
 
 #: helios/templates/election_view.html:190
-msgid "This %(election.election_type)s ends at the administrator's discretion."
-msgstr "Volitve %(election.election_type)s se zaključijo po presoji administratorja."
+#, python-format
+msgid "This %(election_type)s ends at the administrator's discretion."
+msgstr "Volitve %(election_type)s se zaključijo po presoji administratorja."
 
 #: helios/templates/election_view.html:197
 msgid "This election is <em>private</em>. You are signed in as eligible voter"
@@ -850,8 +863,8 @@ msgid ""
 "You do not have Java installed in your browser.<br />At this time, Helios "
 "requires Java."
 msgstr ""
-"V brskalniku nimate nameščene programske opreme Java.<br />E-volitve trenutno "
-"potrebujejo Javo."
+"V brskalniku nimate nameščene programske opreme Java.<br />E-volitve "
+"trenutno potrebujejo Javo."
 
 #: helios/templates/election_view.html:202
 msgid "Visit"
@@ -886,8 +899,7 @@ msgstr "<em>Niste upravičeni</em> do glasovanja na teh volitvah"
 msgid "This election is open to:"
 msgstr "Te volitve so odprte do:"
 
-#: helios/templates/election_view.html:240
-#: server_ui/templates/base.html:104
+#: helios/templates/election_view.html:240 server_ui/templates/base.html:104
 msgid "Log in"
 msgstr "Prijava"
 
@@ -945,8 +957,6 @@ msgid "back to home"
 msgstr "nazaj na domačo stran"
 
 #: helios/templates/elections_administered.html:8
-#: helios/templates/stats_elections.html:30
-#: helios/templates/stats_problem_elections.html:12
 msgid "voters"
 msgstr "volivci"
 
@@ -975,8 +985,7 @@ msgstr ""
 #: helios/templates/list_trustees.html:11
 msgid ""
 "When it's time to decrypt, each trustee needs to provide their secret key."
-msgstr ""
-"Ko je čas za dekripcijo, mora vsak zaupnik podati svoj skrivni ključ."
+msgstr "Ko je čas za dekripcijo, mora vsak zaupnik podati svoj skrivni ključ."
 
 #: helios/templates/list_trustees.html:17
 msgid ""
@@ -997,8 +1006,7 @@ msgstr ""
 msgid ""
 "However, we recommend you do this only if you have a solid understanding of "
 "the trustee's role."
-msgstr ""
-"Vendar to predlagamo le v primeru, če dobro razumete vlogo zaupnika."
+msgstr "Vendar to predlagamo le v primeru, če dobro razumete vlogo zaupnika."
 
 #: helios/templates/list_trustees.html:24
 msgid ""
@@ -1007,10 +1015,11 @@ msgid ""
 "secret key.\\n\\nIf you are not sure what that means, we strongly recommend"
 "\\nclicking Cancel and letting Helios tally the election for you."
 msgstr ""
-"Ob dodajanju svojega zaupnika je potrebno nekoliko več dela za izračun rezultata volitev."
-"\\nZaupniki bodo morali generirati svoj par ključev in varno hraniti svoj "
-"privatni ključ.\\n\\nČe niste prepričani, kaj to pomeni, vam priporočamo,"
-"\\nda pritisnete Prekliči in izračun rezultatov prepustite E-volitvam."
+"Ob dodajanju svojega zaupnika je potrebno nekoliko več dela za izračun "
+"rezultata volitev.\\nZaupniki bodo morali generirati svoj par ključev in "
+"varno hraniti svoj privatni ključ.\\n\\nČe niste prepričani, kaj to pomeni, "
+"vam priporočamo,\\nda pritisnete Prekliči in izračun rezultatov prepustite E-"
+"volitvam."
 
 #: helios/templates/list_trustees.html:24
 msgid "add a trustee"
@@ -1022,7 +1031,8 @@ msgstr "dodaj E-volitve za zaupnika"
 
 #: helios/templates/list_trustees.html:42
 msgid "Are you sure you want to remove Helios as a trustee?"
-msgstr "Ali ste prepričani, da želite odstraniti E-volitve iz seznama zaupnikov?"
+msgstr ""
+"Ali ste prepričani, da želite odstraniti E-volitve iz seznama zaupnikov?"
 
 #: helios/templates/list_trustees.html:45
 msgid "Are you sure you want to remove this Trustee?"
@@ -1030,7 +1040,9 @@ msgstr "Ali ste prepričani, da želite odstraniti tega zaupnika?"
 
 #: helios/templates/list_trustees.html:46
 msgid "Are you sure you want to send this trustee his/her admin URL?"
-msgstr "Ali ste prepričani, da želite temu zaupniku poslati njegov URL za administracijo?"
+msgstr ""
+"Ali ste prepričani, da želite temu zaupniku poslati njegov URL za "
+"administracijo?"
 
 #: helios/templates/list_trustees.html:46
 msgid "send login"
@@ -1082,9 +1094,9 @@ msgid ""
 "cookies from this site. Helios needs to set a session cookie so that it can "
 "save your vote, let you log in, etc. Enable cookies and then"
 msgstr ""
-"Kot kaže, vaš brskalnik ne podpira piškotkov, ali pa je nastavljen, da blokira "
-"piškotke te strani. E-volitve potrebujejo piškotke zato, da v seji hranijo "
-"vaš glas, vam pustijo prijavo, itn. Omogočite piškotke in nato"
+"Kot kaže, vaš brskalnik ne podpira piškotkov, ali pa je nastavljen, da "
+"blokira piškotke te strani. E-volitve potrebujejo piškotke zato, da v seji "
+"hranijo vaš glas, vam pustijo prijavo, itn. Omogočite piškotke in nato"
 
 #: helios/templates/nocookies.html:9
 msgid "proceed to preparing your ballot"
@@ -1095,8 +1107,8 @@ msgid ""
 "If you keep getting sent back to this page, it's probably because you "
 "haven't enabled cookies successfully."
 msgstr ""
-"Če se vračate na to stran, je to najverjetneje zato, ker še niste "
-"uspešno omogočili piškotkov."
+"Če se vračate na to stran, je to najverjetneje zato, ker še niste uspešno "
+"omogočili piškotkov."
 
 #: helios/templates/password_voter_login.html:3
 msgid "Log In to View Election"
@@ -1195,6 +1207,60 @@ msgstr "prejšnje"
 msgid "of"
 msgstr "od"
 
+#: helios/templates/stats_elections.html:39
+#, python-format
+msgid ""
+"\n"
+"        -- %(num_voters)s voter\n"
+"        "
+msgid_plural ""
+"\n"
+"        -- %(num_voters)s voters\n"
+"    "
+msgstr[0] ""
+"\n"
+"        -- %(num_voters)s glas\n"
+"        "
+msgstr[1] ""
+"\n"
+"        -- %(num_voters)s glas\n"
+"        "
+msgstr[2] ""
+"\n"
+"        -- %(num_voters)s glasova\n"
+"        "
+msgstr[3] ""
+"\n"
+"        -- %(num_voters)s glasovi\n"
+"        "
+
+#: helios/templates/stats_elections.html:44
+#, python-format
+msgid ""
+"\n"
+"        / %(num_cast_votes)s cast vote\n"
+"        "
+msgid_plural ""
+"\n"
+"        / %(num_cast_votes)s cast votes\n"
+"    "
+msgstr[0] ""
+"\n"
+"        / %(num_cast_votes)s oddan glas\n"
+"        "
+msgstr[1] ""
+"\n"
+"        / %(num_cast_votes)s oddan glas\n"
+"        "
+msgstr[2] ""
+"\n"
+"        / %(num_cast_votes)s oddana glasova\n"
+"        "
+msgstr[3] ""
+"\n"
+"        / %(num_cast_votes)s oddani glasovi\n"
+"        "
+
 #: helios/templates/stats_problem_elections.html:6
 msgid "Problematic Elections"
 msgstr "Problematične volitve"
@@ -1202,6 +1268,33 @@ msgstr "Problematične volitve"
 #: helios/templates/stats_problem_elections.html:8
 msgid "Unfrozen for more than a day."
 msgstr "Odmrznjeno za več kot en dan."
+
+#: helios/templates/stats_problem_elections.html:17
+#, python-format
+msgid ""
+"\n"
+"            -- %(num_voters)s voter\n"
+"            "
+msgid_plural ""
+"\n"
+"            -- %(num_voters)s voters\n"
+"        "
+msgstr[0] ""
+"\n"
+"            -- %(num_voters)s volivec\n"
+"            "
+msgstr[1] ""
+"\n"
+"            -- %(num_voters)s volivec\n"
+"            "
+msgstr[2] ""
+"\n"
+"            -- %(num_voters)s volivca\n"
+"            "
+msgstr[3] ""
+"\n"
+"            -- %(num_voters)s volivci\n"
+"            "
 
 #: helios/templates/stats_recent_votes.html:6 server_ui/templates/index.html:86
 msgid "Recent Votes"
@@ -1211,9 +1304,34 @@ msgstr "Nedavni glasovi"
 msgid "Last 24 hours"
 msgstr "Zadnjih 24 ur"
 
-#: helios/templates/stats_recent_votes.html:12
-msgid "recently cast votes"
-msgstr "Nedavno oddani glasovi"
+#: helios/templates/stats_recent_votes.html:17
+#, python-format
+msgid ""
+"\n"
+"            -- %(last_cast_vote)s %(num_recent_cast_votes)s recently cast "
+"vote\n"
+"        "
+msgid_plural ""
+"\n"
+"            -- %(last_cast_vote)s %(num_recent_cast_votes)s recently cast "
+"votes\n"
+"        "
+msgstr[0] ""
+"\n"
+"            -- %(last_cast_vote)s %(num_recent_cast_votes)s zadnji oddani glas\n"
+"        "
+msgstr[1] ""
+"\n"
+"            -- %(last_cast_vote)s %(num_recent_cast_votes)s zadnji oddani glas\n"
+"        "
+msgstr[2] ""
+"\n"
+"            -- %(last_cast_vote)s %(num_recent_cast_votes)s zadnja oddana glasova\n"
+"        "
+msgstr[3] ""
+"\n"
+"            -- %(last_cast_vote)s %(num_recent_cast_votes)s zadnjih oddanih glasov\n"
+"        "
 
 #: helios/templates/trustee_check_sk.html:46
 msgid "Check Secret Key"
@@ -1233,8 +1351,8 @@ msgstr "Nalaganje šifrirnih funkcij..."
 
 #: helios/templates/trustee_check_sk.html:58
 msgid "To verify that you have the right secret key, paste it here:"
-msgstr "Če želite preveriti pravilnost vašega skrivnega ključa, "
-"ga prilepite sem:"
+msgstr ""
+"Če želite preveriti pravilnost vašega skrivnega ključa, ga prilepite sem:"
 
 #: helios/templates/trustee_check_sk.html:65
 msgid "Check"
@@ -1283,15 +1401,15 @@ msgid ""
 msgstr ""
 "<u>Najprej</u> se vaš skrivni ključ uporabi za odšifriranje rezultatov "
 "<em>znotraj</em> vašega brskalnika brez povezovanja na internet.<br />\n"
-"      Če želite, je lahko vaš brskalnik v tem koraku brez povezave."
-"<br /><br />\n"
-"      <u>Nato</u>, ko bodo vaši odšifrirni faktorji izračunani, "
-"bo vaš brskalnik moral imeti povezavo, saj bo moral rezultate poslati "
-"na strežnik.<br />\n"
+"      Če želite, je lahko vaš brskalnik v tem koraku brez povezave.<br /"
+"><br />\n"
+"      <u>Nato</u>, ko bodo vaši odšifrirni faktorji izračunani, bo vaš "
+"brskalnik moral imeti povezavo, saj bo moral rezultate poslati na strežnik."
+"<br />\n"
 "      Če želite, lahko izračunate dekripcijske faktorje, jih skopirate, "
 "ponovno zaženete brskalnik in<br />\n"
-"      preskočite na drugi korak, tako da vaš brskalnik ni povezan "
-"na internet med vnosom vašega skrivnega ključa."
+"      preskočite na drugi korak, tako da vaš brskalnik ni povezan na "
+"internet med vnosom vašega skrivnega ključa."
 
 #: helios/templates/trustee_decrypt_and_prove.html:161
 msgid "FIRST STEP: enter your secret key"
@@ -1323,8 +1441,9 @@ msgstr "DRUGI KORAK: naložite vaše delno odšifriranje"
 
 #: helios/templates/trustee_decrypt_and_prove.html:187
 msgid "Your partial decryption factors and proofs have been generated below."
-msgstr "Vaši delni odšifrirni faktorji in dokazi so se generirali "
-"in so na voljo spodaj."
+msgstr ""
+"Vaši delni odšifrirni faktorji in dokazi so se generirali in so na voljo "
+"spodaj."
 
 #: helios/templates/trustee_decrypt_and_prove.html:188
 msgid "Your secret key has been cleared from memory."
@@ -1359,6 +1478,8 @@ msgid "Error: your secret key was likely incorrect."
 msgstr "Napaka: vaš skrivni ključ je bil najverjetneje napačen."
 
 #: helios/templates/trustee_home.html:4
+#: venv3-6/lib/python3.6/site-packages/djcelery/templates/admin/djcelery/change_list.html:6
+#: venv3-6/lib/python3.6/site-packages/djcelery/templates/djcelery/confirm_rate_limit.html:6
 msgid "Home"
 msgstr "Domov"
 
@@ -1371,11 +1492,13 @@ msgid "Your public key fingerprint is"
 msgstr "Podpis vašega javnega ključa je"
 
 #: helios/templates/trustee_home.html:11
+#, python-format
 msgid ""
 "You can <a href=\"%(check_url)s\">verify that you have the right secret key</"
 "a>."
 msgstr ""
-"Lahko <a href=\"%(check_url)s\">preverite</a>, da imate pravilen skrivni ključ."
+"Lahko <a href=\"%(check_url)s\">preverite</a>, da imate pravilen skrivni "
+"ključ."
 
 #: helios/templates/trustee_home.html:13
 msgid "setup your key"
@@ -1424,8 +1547,7 @@ msgstr "nazaj na volivce"
 #: helios/templates/voters_eligibility.html:12
 msgid ""
 "You may limit eligibility of voters to one of these categories, as defined by"
-msgstr ""
-"Lahko omejite upravičenost na eno izmed teh kategorij, definiranih z"
+msgstr "Lahko omejite upravičenost na eno izmed teh kategorij, definiranih z"
 
 #: helios/templates/voters_eligibility.html:18
 msgid "(no constraint)"
@@ -1468,15 +1590,16 @@ msgstr "Pošlji"
 #: helios/templates/voters_email.html:56
 #, python-format
 msgid "Done, go <a href=\"%(election_view_url)s\">back to election</a>."
-msgstr "Končano, <a href=\"%(election_view_url)s\">pojdite nazaj na volitve</a>."
+msgstr ""
+"Končano, <a href=\"%(election_view_url)s\">pojdite nazaj na volitve</a>."
 
 #: helios/templates/voters_email.html:60
 msgid ""
 "Error emailing participants. Check server settings, make sure there's an "
 "SMTP server."
 msgstr ""
-"Napaka pri pošiljanju e-pošte sodelujočim. Preverite nastavitve strežnika "
-"in se prepričajte, da strežnik SMTP deluje."
+"Napaka pri pošiljanju e-pošte sodelujočim. Preverite nastavitve strežnika in "
+"se prepričajte, da strežnik SMTP deluje."
 
 #: helios/templates/voters_list.html:5
 msgid "Voters & Ballot Tracking Center for"
@@ -1613,13 +1736,13 @@ msgid ""
 "<br />\n"
 "    you can bulk upload a list of such voters here.<br /><br />"
 msgstr ""
-"Če želite določiti seznam volivcev z imeni in e-poštnimi naslovi,"
-"<br />\n"
+"Če želite določiti seznam volivcev z imeni in e-poštnimi naslovi,<br />\n"
 "    lahko tovrstven seznam volivcev naložite tukaj.<br /><br />"
 
 #: helios/templates/voters_upload.html:11
 msgid "Please prepare a text file of comma-separated values with the fields:"
-msgstr "Prosimo, pripravite datoteko z vrednostmi, ločenimi z vejicami, s polji:"
+msgstr ""
+"Prosimo, pripravite datoteko z vrednostmi, ločenimi z vejicami, s polji:"
 
 #: helios/templates/voters_upload.html:18
 msgid "For example:"
@@ -1630,8 +1753,8 @@ msgid ""
 "The easiest way to prepare such a file is to use a spreadsheet program and "
 "to export as \"CSV\"."
 msgstr ""
-"Najlažji način priprave tovrstne datoteke je z uporabo programa za razpredelnice "
-"in izvoza kot datoteka \"CSV\"."
+"Najlažji način priprave tovrstne datoteke je z uporabo programa za "
+"razpredelnice in izvoza kot datoteka \"CSV\"."
 
 #: helios/templates/voters_upload.html:35
 msgid "Go"
@@ -1652,8 +1775,7 @@ msgstr "Potrdi"
 #: helios/templates/voters_upload_confirm.html:7
 msgid ""
 "You have uploaded a file of voters. The first few rows of this file are:"
-msgstr ""
-"Naložili ste datoteko z volivci. Prvih nekaj vrstic je:"
+msgstr "Naložili ste datoteko z volivci. Prvih nekaj vrstic je:"
 
 #: helios/templates/voters_upload_confirm.html:11
 msgid "Voter Login"
@@ -1688,6 +1810,7 @@ msgid "Authentication"
 msgstr "Avtentikacija"
 
 #: helios_auth/templates/index.html:8
+#, python-format
 msgid ""
 "\n"
 "        You are currently logged in as<br /><b>%(user_id)s</b> via <b>"
@@ -1695,8 +1818,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"        Trenutno ste prijavljeni kot<br /><b>%(user_id)s</b> preko <b>%(user_type)s</"
-"b>.\n"
+"        Trenutno ste prijavljeni kot<br /><b>%(user_id)s</b> preko <b>"
+"%(user_type)s</b>.\n"
 "    "
 
 #: helios_auth/templates/index.html:13 server_ui/templates/base.html:95
@@ -1997,7 +2120,8 @@ msgid ""
 "Louvain.</li>"
 msgstr ""
 "<a href=\"http://www.uclouvain.be/crypto/electionmonitor/default/about"
-"\">Helios Election Monitor</a>, narejen na Universite catholique de Louvain.</li>"
+"\">Helios Election Monitor</a>, narejen na Universite catholique de Louvain."
+"</li>"
 
 #: server_ui/templates/docs.html:31
 msgid "Helios has been covered in the press:"
@@ -2020,6 +2144,7 @@ msgid "Your Vote was Cast"
 msgstr "Vaš glas je bil oddan."
 
 #: server_ui/templates/done.html:9
+#, python-format
 msgid ""
 "\n"
 "        A vote was successfully cast for <b>%(voter_id)s</b>, with vote "
@@ -2042,8 +2167,8 @@ msgstr "domačo stran volitev"
 msgid ""
 "This election has already been tallied (or at least the tally has begun), so "
 "you can no longer cast a vote."
-msgstr "Rezultati teh volitev so že bili izračunani, "
-"zato glasu ni več možno oddati."
+msgstr ""
+"Rezultati teh volitev so že bili izračunani, zato glasu ni več možno oddati."
 
 #: server_ui/templates/election_tallied.html:13
 msgid "View the election"
@@ -2170,12 +2295,12 @@ msgid ""
 "with Helios itself: we just don’t trust that people’s home computers are "
 "secure enough to withstand significant attacks."
 msgstr ""
-"Ne. Volitve preko spleta so primerne zgolj takrat, ko ni "
-"pričakovati večjih poskusov poneverb glasov. Državne volitve so prevelika "
-"odgovornost, zato odsvetujemo zbiranje glasov preko spletnih volitev. To "
-"sicer ni neposredno povezano s samim sistemom E-voltev, pač pa z napadi na "
-"uporabnika in povezavo, saj se lahko zelo hitro pojavijo vdori, onemogočanje "
-"oddaje glasu in podobno."
+"Ne. Volitve preko spleta so primerne zgolj takrat, ko ni pričakovati večjih "
+"poskusov poneverb glasov. Državne volitve so prevelika odgovornost, zato "
+"odsvetujemo zbiranje glasov preko spletnih volitev. To sicer ni neposredno "
+"povezano s samim sistemom E-voltev, pač pa z napadi na uporabnika in "
+"povezavo, saj se lahko zelo hitro pojavijo vdori, onemogočanje oddaje glasu "
+"in podobno."
 
 #: server_ui/templates/faq.html:64
 msgid ""

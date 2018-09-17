@@ -26,7 +26,7 @@ window.onbeforeunload = function(evt) {
     evt = window.event;
   }
   
-  var message = "You have not yet cast your ballot! Make sure to complete the voting process if you want your vote to count.";// TODO
+  var message = {% trans 'You have not yet cast your ballot! Make sure to complete the voting process if you want your vote to count.' %};
 
   if (evt) {
     evt.returnValue = message;
