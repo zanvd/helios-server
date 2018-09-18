@@ -59,6 +59,8 @@ class Election(HeliosModel):
     'election': (
         pgettext('nominative', 'election'),
         pgettext('locative', 'election'),
+        pgettext('election', 'private'),
+        pgettext('election', 'public'),
         pgettext('election', 'is'),
         pgettext('election', 'is <u>not</u>'),
         pgettext('election', 'was initially scheduled to end'),
@@ -71,6 +73,8 @@ class Election(HeliosModel):
     'referendum': (
         pgettext('nominative', 'referendum'),
         pgettext('locative', 'referendum'),
+        pgettext('referendum', 'private'),
+        pgettext('referendum', 'public'),
         pgettext('referendum', 'is'),
         pgettext('referendum', 'is <u>not</u>'),
         pgettext('referendum', 'was initially scheduled to end'),

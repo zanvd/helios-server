@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 00:59+0200\n"
+"POT-Creation-Date: 2018-09-19 01:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,90 +39,110 @@ msgstr "volitvah"
 
 #: helios/models.py:62
 msgctxt "election"
+msgid "private"
+msgstr "zasebne"
+
+#: helios/models.py:63
+msgctxt "election"
+msgid "public"
+msgstr "javne"
+
+#: helios/models.py:64
+msgctxt "election"
 msgid "is"
 msgstr "so"
 
-#: helios/models.py:63
+#: helios/models.py:65
 msgctxt "election"
 msgid "is <u>not</u>"
 msgstr "<u>niso</u>"
 
-#: helios/models.py:64
+#: helios/models.py:66
 msgctxt "election"
 msgid "was initially scheduled to end"
 msgstr "so bile"
 
-#: helios/models.py:65
+#: helios/models.py:67
 msgctxt "election"
 msgid "but has been extended"
 msgstr "vendar so bile podaljšane"
 
-#: helios/models.py:66
+#: helios/models.py:68
 msgctxt "election"
 msgid "is scheduled to end"
 msgstr "se bodo zaključile"
 
-#: helios/models.py:67
+#: helios/models.py:69
 msgctxt "election"
 msgid "ends"
 msgstr "se zaključijo"
 
-#: helios/models.py:68
+#: helios/models.py:70
 msgctxt "election"
 msgid "this"
 msgstr "teh"
 
-#: helios/models.py:69
+#: helios/models.py:71
 msgctxt "election"
 msgid "This"
 msgstr "Te"
 
-#: helios/models.py:72
+#: helios/models.py:74
 msgctxt "nominative"
 msgid "referendum"
 msgstr "referendum"
 
-#: helios/models.py:73
+#: helios/models.py:75
 msgctxt "locative"
 msgid "referendum"
 msgstr "referendumu"
 
-#: helios/models.py:74
+#: helios/models.py:76
+msgctxt "referendum"
+msgid "private"
+msgstr "zaseben"
+
+#: helios/models.py:77
+msgctxt "referendum"
+msgid "public"
+msgstr "javen"
+
+#: helios/models.py:78
 msgctxt "referendum"
 msgid "is"
 msgstr "je"
 
-#: helios/models.py:75
+#: helios/models.py:79
 msgctxt "referendum"
 msgid "is <u>not</u>"
 msgstr "<u>ni</u>"
 
-#: helios/models.py:76
+#: helios/models.py:80
 msgctxt "referendum"
 msgid "was initially scheduled to end"
 msgstr "je bil"
 
-#: helios/models.py:77
+#: helios/models.py:81
 msgctxt "referendum"
 msgid "but has been extended"
 msgstr "vendar je bil podaljšan"
 
-#: helios/models.py:78
+#: helios/models.py:82
 msgctxt "referendum"
 msgid "is scheduled to end"
 msgstr "se bo zaključil"
 
-#: helios/models.py:79
+#: helios/models.py:83
 msgctxt "referendum"
 msgid "ends"
 msgstr "se zaključi"
 
-#: helios/models.py:80
+#: helios/models.py:84
 msgctxt "referendum"
 msgid "this"
 msgstr "tem"
 
-#: helios/models.py:81
+#: helios/models.py:85
 msgctxt "referendum"
 msgid "This"
 msgstr "Ta"
@@ -1059,6 +1079,10 @@ msgstr "Informacije glede revizije"
 #: helios/templates/election_view.html:283
 msgid "Election URL:"
 msgstr "URL volitev:"
+
+#: helios/templates/election_view.html:288
+msgid "Election Fingerprint:"
+msgstr "Prstni odtis volitev:"
 
 #: helios/templates/election_view.html:293
 msgid "Your smart ballot tracker:"
