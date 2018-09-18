@@ -10,6 +10,7 @@ from django.db import models, transaction
 import json
 from django.conf import settings
 from django.core.mail import send_mail
+from django.utils.translation import ugettext, pgettext
 
 import datetime, logging, uuid, random, io
 import bleach
@@ -49,9 +50,37 @@ class Election(HeliosModel):
   name = models.CharField(max_length=250)
   
   ELECTION_TYPES = (
-    ('election', 'Election'),
-    ('referendum', 'Referendum')
+    ('election', ugettext('Election')),
+    ('referendum', ugettext('Referendum'))
     )
+
+  # dummy dictionary with translations
+  ELECTION_TYPES_FORMS = {
+    'election': (
+        pgettext('nominative', 'election'),
+        pgettext('locative', 'election'),
+        pgettext('election', 'is'),
+        pgettext('election', 'is <u>not</u>'),
+        pgettext('election', 'was initially scheduled to end'),
+        pgettext('election', 'but has been extended'),
+        pgettext('election', 'is scheduled to end'),
+        pgettext('election', 'ends'),
+        pgettext('election', 'this'),
+        pgettext('election', 'This'),
+    ),
+    'referendum': (
+        pgettext('nominative', 'referendum'),
+        pgettext('locative', 'referendum'),
+        pgettext('referendum', 'is'),
+        pgettext('referendum', 'is <u>not</u>'),
+        pgettext('referendum', 'was initially scheduled to end'),
+        pgettext('referendum', 'but has been extended'),
+        pgettext('referendum', 'is scheduled to end'),
+        pgettext('referendum', 'ends'),
+        pgettext('referendum', 'this'),
+        pgettext('referendum', 'This'),
+    )
+  }
 
   election_type = models.CharField(max_length=250, null=False, default='election', choices = ELECTION_TYPES)
   private_p = models.BooleanField(default=False, null=False)

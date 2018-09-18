@@ -10,7 +10,7 @@
 {% endif %}
 {% endif %}</h3>
 <p style="padding-top:0px; margin-top:0px">
-<em>{% if election.private_p %}{% trans 'private' %}{%else%}{% trans 'public' %}{% endif %}</em> {{ election.election_type }}{% if settings.SHOW_USER_INFO %} {% trans 'created by' %} <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
+<em>{% if election.private_p %}{% trans 'private' %}{%else%}{% trans 'public' %}{% endif %}</em> {% trans election.election_type context 'nominative' %}{% if settings.SHOW_USER_INFO %} {% trans 'created by' %} <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
 {% if election.is_archived %}
 [{% trans 'archived' %}]
 {% endif %}
@@ -22,12 +22,18 @@
 {% if admin_p %}
 {% if not election.private_p %}
 {% if election.featured_p %}
-{% blocktrans with election_type=election.election_type %}this {{election_type}} is featured on the front page.{% endblocktrans %}
+{% trans 'This' context election.election_type %}
+{% trans election.election_type context 'nominative' %}
+{% trans 'is' context election.election_type %}
+{% trans 'featured on the front page.' %}
 {% if can_feature_p %}
 [<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=0">{% trans 'unfeature it' %}</a>]
 {% endif %}
 {% else %}
-{% blocktrans with election_type=election.election_type %}this {{election_type}} is <u>not</u> featured on the front page.{% endblocktrans %}
+{% trans 'This' context election.election_type %}
+{% trans election.election_type context 'nominative' %}
+{% trans 'is <u>not</u>' context election.election_type as isnot %}{{isnot|safe}}
+{% trans 'featured on the front page.' %}
 {% if can_feature_p %}
 [<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=1">{% trans 'feature it' %}</a>]
 {% endif %}
@@ -176,18 +182,30 @@
 {% else %}
 
 {% if election.voting_has_started %}
-<a class="button" href="{{test_cookie_url}}">{% trans 'Vote in this' %} {{election.election_type}} </a>
+<a class="button" href="{{test_cookie_url}}">{% trans 'Vote in' %}
+{% trans 'this' context election.election_type %}
+{% trans election.election_type context 'locative' %} </a>
 <br />
 <br />
 {% if election.voting_extended_until %}
-{% blocktrans with election_type=election.election_type voting_ends=election.voting_ends_at voting_extended_until=election.voting_extended_until%}This {{election_type}} was initially scheduled to end at {{voting_ends_at}} (UTC),<br />
-but has been extended until {{ voting_extended_until }} (UTC).{% endblocktrans %}
+{% trans 'This' context election.election_type %}
+{% trans election.election_type context 'nominative' %}
+{% trans 'was initially scheduled to end' context election.election_type %}
+{% blocktrans with voting_ends=election.voting_ends_at %} at {{voting_ends_at}} (UTC){% endblocktrans %},<br />
+{% trans 'but has been extended' context election.election_type %}
+{% blocktrans with voting_extended_until=election.voting_extended_until %}until {{ voting_extended_until }} (UTC).{% endblocktrans %}
 {% else %}
 {% if election.voting_ends_at %}
 <br />
-{% blocktrans with election_type=election.election_type voting_ends_at=election.voting_ends_at %}This {{election_type}} is scheduled to end at {{voting_ends_at}} (UTC).{% endblocktrans %}
+{% trans 'This' context election.election_type %}
+{% trans election.election_type context 'nominative' %}
+{% trans 'is scheduled to end' context election.election_type %}
+{% blocktrans with voting_ends_at=election.voting_ends_at %}at {{voting_ends_at}} (UTC).{% endblocktrans %}
 {% else %}
-{% blocktrans with election_type=election.election_type %}This {{election_type}} ends at the administrator's discretion.{% endblocktrans %}
+{% trans 'This' context election.election_type %}
+{% trans election.election_type context 'nominative' %}
+{% trans 'ends' context election.election_type %}
+{% trans "at the administrator's discretion." %}
 {% endif %}
 <br />
 {% endif %}
@@ -211,7 +229,9 @@ but has been extended until {{ voting_extended_until }} (UTC).{% endblocktrans %
 {% if user %}
 {% if voter %}
 <p style="padding-top:1px;">
-  {% trans 'You are registered to vote in this' %} {{election.election_type}}.
+  {% trans 'You are registered to vote in' %}
+{% trans 'this' context election.election_type %}
+{% trans election.election_type context 'locative' %}.
 {% if election.use_voter_aliases %}
 {% trans 'Your voter alias is' %} {{voter.alias}}.
 {% endif %}
@@ -222,12 +242,16 @@ but has been extended until {{ voting_extended_until }} (UTC).{% endblocktrans %
 {% else %}
 {% if election.openreg %}
 {% if eligible_p %}
-{% trans 'You are eligible to vote in this election.' %}
+{% trans 'You are eligible to vote in' %}
 {% else %}
-{% trans 'You are <em>not eligible</em> to vote in this' %} {{election.election_type}}.
+{% trans 'You are <em>not eligible</em> to vote in' %}
 {% endif %}
+{% trans 'this' context election.election_type %}
+{% trans election.election_type context 'locative' %}.
 {% else %}
-{% trans 'You are <em>not eligible</em> to vote in this' %} {{election.election_type}}.
+{% trans 'You are <em>not eligible</em> to vote in' %}
+{% trans 'this' context election.election_type %}
+{% trans election.election_type context 'locative' %}.
 <br />
 {% endif %}
 {% endif %}
