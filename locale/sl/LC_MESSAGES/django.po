@@ -386,10 +386,9 @@ msgstr "Seštevki so bili združeni ob"
 msgid "Result released at"
 msgstr "Rezultati so bili objavljeni ob"
 
-# TODO
 #: helios/models.py:282
 msgid "Voters hash"
-msgstr ""
+msgstr "Zgostitev volivca"
 
 #: helios/models.py:290
 msgid "Encrypted tally"
@@ -501,10 +500,9 @@ msgstr "Vzdevek"
 msgid "Vote"
 msgstr "Glas"
 
-# TODO
 #: helios/models.py:1055 helios/models.py:1245
 msgid "Vote hash"
-msgstr ""
+msgstr "Zgostitev glasu"
 
 #: helios/models.py:1060 helios/models.py:1258
 msgid "Cast at"
@@ -514,10 +512,9 @@ msgstr "Oddano ob"
 msgid "Voter"
 msgstr "Volivec"
 
-# TODO
 #: helios/models.py:1251
 msgid "Vote tiny hash"
-msgstr ""
+msgstr "Kratka zgostitev glasu"
 
 #: helios/models.py:1264
 msgid "Quarantined"
@@ -559,10 +556,9 @@ msgstr "E-pošta"
 msgid "Secret"
 msgstr "Skrivnost"
 
-# TODO
 #: helios/models.py:1428
 msgid "Public key hash"
-msgstr ""
+msgstr "Zgostitev javnega ključa"
 
 #: helios/models.py:1436
 msgid "Secret key"
