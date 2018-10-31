@@ -1154,7 +1154,7 @@ class Voter(HeliosModel):
 
     @property
     def datatype(self):
-        return self.election.datatype.replace(ugettext_lazy('Election'), ugettext_lazy('Voter'))
+        return self.election.datatype.replace('Election', 'Voter')
 
     @property
     def vote_tinyhash(self):
@@ -1289,7 +1289,7 @@ class CastVote(HeliosModel):
 
     @property
     def datatype(self):
-        return self.voter.datatype.replace(ugettext_lazy('Voter'), ugettext_lazy('Cast Vote'))
+        return self.voter.datatype.replace('Voter', 'CastVote')
 
     @property
     def voter_uuid(self):
@@ -1493,7 +1493,7 @@ class Trustee(HeliosModel):
 
     @property
     def datatype(self):
-        return self.election.datatype.replace(ugettext_lazy('Election'), ugettext_lazy('Trustee'))
+        return self.election.datatype.replace('Election', 'Trustee')
 
     def verify_decryption_proofs(self):
         """
