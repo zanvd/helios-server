@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 18:58+0100\n"
+"POT-Creation-Date: 2018-11-10 23:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -342,8 +342,9 @@ msgstr "Preverba šifriranja"
 msgid "Review your Ballot"
 msgstr "Preglejte vašo glasovnico"
 
-#: heliosbooth/templates/seal.html:64 heliosverifier/verify.html:150
-#: heliosverifier/verify.html:152 heliosverifier/verify.html:202
+#: heliosbooth/templates/seal.html:64 heliosbooth/verifier.js:33
+#: heliosverifier/verify.html:150 heliosverifier/verify.html:152
+#: heliosverifier/verify.html:202
 msgid "Question #"
 msgstr "Vprašanje #"
 
@@ -360,10 +361,8 @@ msgid "edit responses"
 msgstr "uredite odgovore"
 
 #: heliosbooth/templates/seal.html:77
-#, fuzzy
-#| msgid "Your ballot tracker is"
 msgid "Your ballot tracker is"
-msgstr "Vaš sledilec glasovnice je "
+msgstr "Vaš sledilec glasovnice je"
 
 #: heliosbooth/templates/seal.html:78
 msgid "and you can"
@@ -419,6 +418,56 @@ msgstr ""
 #: heliosbooth/templates/submit.html:36
 msgid "Submit Ballot"
 msgstr "Oddaja glasovnice"
+
+#: heliosbooth/verifier.js:9
+msgid "Election fingerprint is "
+msgstr "Prstni odtis volitev je:"
+
+#: heliosbooth/verifier.js:13
+msgid "Smart ballot tracker is "
+msgstr "Sledilec glasovnice je "
+
+#: heliosbooth/verifier.js:17
+msgid "Election fingerprint matches ballot"
+msgstr "Prstni odtis volitev se ujema z glasovnico."
+
+#: heliosbooth/verifier.js:20
+msgid "Problem = election fingerprint does not match"
+msgstr "Težava: Podpis volitev se ne ujema."
+
+#: heliosbooth/verifier.js:24
+msgid "Ballot Contents:"
+msgstr "Vsebina glasovnice:"
+
+#: heliosbooth/verifier.js:27
+msgid ""
+"Warning: the tally type for this question is not homomorphic. Verification "
+"may fail because this verifier is only set up to handle homomorphic ballots."
+msgstr ""
+"Opozorilo: tip glasovnice za to vprašanje ni homomorfni. Verifikacija "
+"morda ne bo uspela, saj je ta verifikator nastavljen za preverbo "
+"homomorfnih glasovnic."
+
+#: heliosbooth/verifier.js:38
+msgid "Encryption Verified"
+msgstr "Šifriranje verificirano"
+
+#: heliosbooth/verifier.js:41
+msgid "Problem = Encryption doesn't match."
+msgstr "Težava: Enkripcija se ne ujema."
+
+#: heliosbooth/verifier.js:47
+msgid "Proofs ok."
+msgstr "Dokazi so v redu."
+
+#: heliosbooth/verifier.js:50
+msgid "Problem = Proofs don't work."
+msgstr "Težava: Dokazi ne delujejo."
+
+#: heliosbooth/verifier.js:53
+msgid "Problem parsing election or ballot data structures, malformed inputs: "
+msgstr "Težava pri razčlenjevanju podatkovne strukture volitev ali glasovnice. "
+"Napačno zgrajeni vnosi: "
 
 #: heliosbooth/vote.html:36
 msgid "Exit"
@@ -569,10 +618,8 @@ msgid "Loaded election: "
 msgstr "Volitve naložene: "
 
 #: heliosverifier/verify.html:108
-#, fuzzy
-#| msgid "Election fingerprint:"
 msgid "Election fingerprint: "
-msgstr "Prstni odtis volitev:"
+msgstr "Prstni odtis volitev: "
 
 #: heliosverifier/verify.html:114
 msgid ""
@@ -591,10 +638,8 @@ msgid "Loaded voter list, now loading ballots for each."
 msgstr "Seznam volivcev je naložen. Sedaj se nalagajo glasovnice za vsakega."
 
 #: heliosverifier/verify.html:132
-#, fuzzy
-#| msgid "Your Ballot:"
 msgid "Ballots"
-msgstr "Vaša glasovnica:"
+msgstr "Glasovnice"
 
 #: heliosverifier/verify.html:140
 msgid "Voter #"
@@ -667,8 +712,6 @@ msgid "VERIFICATION FAILED"
 msgstr "Preverjanje ni uspelo"
 
 #: heliosverifier/verify.html:264
-#, fuzzy
-#| msgid "Helios Single-Ballot Verifier"
 msgid "Helios Election Verifier"
 msgstr "Sistem za preverjanje glasovnic"
 

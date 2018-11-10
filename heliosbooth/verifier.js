@@ -6,15 +6,15 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
     try {
 	election = HELIOS.Election.fromJSONString(election_raw_json);
 	var election_hash = election.get_hash();
-	status_cb(gettext("election fingerprint is ") + election_hash);
+	status_cb(gettext("Election fingerprint is ") + election_hash);
 	
 	// display ballot fingerprint
 	encrypted_vote = HELIOS.EncryptedVote.fromJSONObject(encrypted_vote_json, election);
-	status_cb(gettext("smart ballot tracker is ") + encrypted_vote.get_hash());
+	status_cb(gettext("Smart ballot tracker is ") + encrypted_vote.get_hash());
 	
       // check the hash
       if (election_hash == encrypted_vote.election_hash) {
-          status_cb(gettext("election fingerprint matches ballot"));
+          status_cb(gettext("Election fingerprint matches ballot"));
       } else {
           overall_result = false;
           status_cb(gettext("Problem = election fingerprint does not match"));
@@ -50,7 +50,7 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
           status_cb(gettext("Problem = Proofs don't work."));
       }
     } catch (e) {
-      status_cb(gettext('problem parsing election or ballot data structures, malformed inputs: ') + e.toString());
+      status_cb(gettext('Problem parsing election or ballot data structures, malformed inputs: ') + e.toString());
       overall_result=false;
     }
 
