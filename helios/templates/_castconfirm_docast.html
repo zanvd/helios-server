@@ -19,7 +19,7 @@
 
 {% trans 'You are logged in as' %} <u>{{voter.display_html_big|safe}}</u><br /><br />
 
-    <button type="submit" class="large">CAST this ballot</button>
+    <button type="submit" class="large">{% trans 'Cast this ballot' %}</button>
     <span style="font-size:0.8em;">
         <br />
         {% trans 'You can cast as many ballots as you want.' %}
@@ -29,7 +29,7 @@
 </form>
 
 <p>
-    <button class="tiny" onclick="document.location='./view';">cancel</button><br />
+    <button class="tiny" onclick="document.location='./view';">{% trans 'Cancel' %}</button><br />
     <span style="font-size:0.8em;">
         {% trans 'If you cancel now, your ballot will <em>NOT</em> be recorded.' %}
         <br />

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 11:53+0100\n"
+"POT-Creation-Date: 2018-11-10 19:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -428,6 +428,7 @@ msgid "Add at least one truestee"
 msgstr "Dodajte vsag enega zaupnika"
 
 #: helios/models.py:551
+#, python-format
 msgid "have trustee %s generate a keypair"
 msgstr "naj zaupnik %s ustvari par ključev"
 
@@ -536,9 +537,9 @@ msgstr "Razveljavljeno ob"
 msgid "Cast IP"
 msgstr "IP oddaje"
 
-#: helios/models.py:1292
+#: helios/models.py:1292 helios/templates/castvote.html:5
 msgid "Cast Vote"
-msgstr "Oddan glas"
+msgstr "Oddajte glas"
 
 #: helios/models.py:1366
 msgid ""
@@ -589,6 +590,11 @@ msgstr "Zaupnik"
 msgid "You are logged in as"
 msgstr "Prijavljeni ste kot "
 
+#: helios/templates/_castconfirm_docast.html:22
+#: server_ui/templates/confirm.html:39
+msgid "Cast this ballot"
+msgstr "Oddajte glasovnico"
+
 #: helios/templates/_castconfirm_docast.html:25
 msgid "You can cast as many ballots as you want."
 msgstr "Lahko oddaste poljubno število glasovnic."
@@ -596,6 +602,14 @@ msgstr "Lahko oddaste poljubno število glasovnic."
 #: helios/templates/_castconfirm_docast.html:27
 msgid "Only the last one counts."
 msgstr "Zgolj zadnja šteje."
+
+#: helios/templates/_castconfirm_docast.html:32
+#: helios/templates/combine_decryptions.html:7
+#: helios/templates/election_edit.html:5
+#: helios/templates/election_extend.html:5 helios/templates/new_trustee.html:4
+#: helios/templates/release_result.html:5
+msgid "Cancel"
+msgstr "Prekliči"
 
 #: helios/templates/_castconfirm_docast.html:34
 msgid "If you cancel now, your ballot will <em>NOT</em> be recorded."
@@ -657,10 +671,6 @@ msgstr "Zaradi vaše varnosti smo vas odjavili."
 msgid "return to election info"
 msgstr "vrnite se nazaj na informacije o volitvah"
 
-#: helios/templates/castvote.html:5
-msgid "Cast Vote"
-msgstr "Oddajte glas"
-
 #: helios/templates/castvote.html:6
 msgid "cast in"
 msgstr "oddajte v"
@@ -681,13 +691,6 @@ msgstr "podrobno"
 #: helios/templates/combine_decryptions.html:6
 msgid "Compute Tally"
 msgstr "Preštej"
-
-#: helios/templates/combine_decryptions.html:7
-#: helios/templates/election_edit.html:5
-#: helios/templates/election_extend.html:5 helios/templates/new_trustee.html:4
-#: helios/templates/release_result.html:5
-msgid "Cancel"
-msgstr "Prekliči"
 
 #: helios/templates/combine_decryptions.html:10
 msgid ""
@@ -929,10 +932,18 @@ msgstr "Sedaj boste izračunali zašifrirane rezultate za volitve"
 msgid "Once you do this, voters will no longer be able to cast a ballot."
 msgstr "Ko to storite, volivci ne bodo več mogli oddati glasu."
 
+#: helios/templates/election_compute_tally.html:18
+msgid "Tally has begun."
+msgstr "Štetje se je pričelo."
+
+#: helios/templates/election_compute_tally.html:21
+msgid "Compute encrypted tally"
+msgstr "Izračunajte šifrirane rezultate"
+
 #: helios/templates/election_compute_tally.html:22
 #: helios/templates/election_freeze.html:39
 msgid "never mind"
-msgstr "pozabi"
+msgstr "Pozabi"
 
 #: helios/templates/election_compute_tally.html:26
 msgid ""
@@ -1314,7 +1325,7 @@ msgstr "Ponovno naložite stran čez nekaj minut."
 
 #: helios/templates/election_view.html:114
 msgid "compute encrypted tally"
-msgstr "izračunaj šifrirane rezultate"
+msgstr "izračunajte šifrirane rezultate"
 
 #: helios/templates/election_view.html:115
 msgid ""
@@ -1329,11 +1340,11 @@ msgstr "bodo zaupniki morali prispevati svoj delež k odšifriranju."
 
 #: helios/templates/election_view.html:121
 msgid "release result"
-msgstr "objavi rezultat"
+msgstr "Objavite rezultate"
 
 #: helios/templates/election_view.html:122
 msgid "The result displayed below is visible only to you."
-msgstr "Spodaj prikazan rezultat je viden zgolj vam."
+msgstr "Spodaj prikazani rezultati so vidni zgolj vam."
 
 #: helios/templates/election_view.html:123
 msgid "Once you release the result, it will be visible to everyone."
@@ -1341,7 +1352,7 @@ msgstr "Ko objavite rezultate, bodo vidni vsem."
 
 #: helios/templates/election_view.html:129
 msgid "compute results"
-msgstr "izračunaj rezultate"
+msgstr "Izračunajte rezultate"
 
 #: helios/templates/election_view.html:131
 msgid "combine trustee decryptions and compute results"
@@ -1704,7 +1715,7 @@ msgstr "so zasebne. Vidijo jih lahko le upravičeni volivci."
 #: helios/templates/release_result.html:3
 #: helios/templates/release_result.html:5
 msgid "Release Result"
-msgstr "Objavi rezultate"
+msgstr "Objavite rezultate"
 
 #: helios/templates/release_result.html:8
 msgid "You are about to release the result for this election."
@@ -1712,11 +1723,11 @@ msgstr "Ste pred tem, da objavite rezultate teh volitev."
 
 #: helios/templates/release_result.html:14
 msgid "Send email to voters reporting release of result."
-msgstr "Pošlji e-pošto volivcem z obvestilom o objavi rezultatov."
+msgstr "Pošljite e-pošto volivcem z obvestilom o objavi rezultatov."
 
 #: helios/templates/release_result.html:16
 msgid "Release result"
-msgstr "Objavi rezultate"
+msgstr "Objavite rezultate"
 
 #: helios/templates/socialbuttons.html:3
 msgid "Share"
@@ -2220,7 +2231,7 @@ msgstr "le volivci, ki so člani"
 
 #: helios/templates/voters_list.html:42
 msgid "email voters"
-msgstr "pošlji e-pošto volivcem"
+msgstr "Pošljite e-pošto volivcem"
 
 #: helios/templates/voters_list.html:48
 msgid "searching for"
@@ -2292,7 +2303,7 @@ msgstr "Volivec najden"
 
 #: helios/templates/voters_search.html:9
 msgid "email this voter"
-msgstr "pošlji e-pošto volivcu"
+msgstr "Pošljite e-pošto volivcu"
 
 #: helios/templates/voters_search.html:11
 msgid "once this election is frozen, you'll be able to email this voter."
@@ -2381,6 +2392,65 @@ msgstr "Da, naprej"
 #: helios/templates/voters_upload_confirm.html:37
 msgid "no, let me upload a different file"
 msgstr "ne, želim naložiti drugo datoteko"
+
+#: helios/views.py:214
+#, python-format
+msgid "An election with short name %s already exists"
+msgstr "Volitve s kratkim imenom %s že obstjajo."
+
+#: helios/views.py:216
+msgid "No special characters allowed in the short name."
+msgstr "Posebni znaki niso dovoljeni v kratkem imenu"
+
+#: helios/views.py:1011
+msgid "Registration is closed for this election"
+msgstr "Registracija je zaprta za te volitve"
+
+#: helios/views.py:1110
+#, python-format
+msgid "%s - trustee partial decryption"
+msgstr "%s - delno dešifriranje zaupnika"
+
+#: helios/views.py:1111
+#, python-format
+msgid "Trustee %s (%s) did their partial decryption."
+msgstr "Zaupnik %s (%s) je izvedel svoje delno dešifriranje."
+
+#: helios/views.py:1311
+msgid ""
+"your CSV file could not be processed. Please check that it is a proper CSV "
+"file."
+msgstr ""
+"Vaše CSV datoteke nismo mogli sprocesirati. Prosimo, preverite, če je "
+"pravilna CSV datoteka."
+
+#: helios/views.py:1315
+msgid ""
+"Those don't look like correct email addresses. Are you sure you uploaded a "
+"file with email address as second field?"
+msgstr ""
+"Podani e-poštni naslovi ne izgledajo pravilno. Ali ste prepričani, da ste "
+"naložili datoteko z e-poštnimi naslovi v drugem polju?"
+
+#: helios/views.py:1321
+msgid "No voter file specified, try again"
+msgstr "Nobena datoteka volivcev ni bila določena. Poizkusite znova."
+
+#: helios/views.py:1341
+msgid "Time to Vote"
+msgstr "Čas za glasovanje"
+
+#: helios/views.py:1342
+msgid "Simple"
+msgstr "Preprosto"
+
+#: helios/views.py:1343
+msgid "Additional Info"
+msgstr "Dodatne informacije"
+
+#: helios/views.py:1344
+msgid "Election Result"
+msgstr "Rezultat volitev"
 
 #: helios_auth/templates/index.html:4
 msgid "Authentication"
@@ -2639,10 +2709,6 @@ msgstr "Vaša glasovnica"
 #: server_ui/templates/confirm.html:30
 msgid "Cast Your Ballot with your Credentials"
 msgstr "Oddajte glasovnico z vašimi podatki"
-
-#: server_ui/templates/confirm.html:39
-msgid "Cast this ballot"
-msgstr "Oddaj glasovnico"
 
 #: server_ui/templates/confirm.html:43
 msgid "Forgot your password?"

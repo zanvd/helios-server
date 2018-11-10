@@ -55,6 +55,7 @@ ELGAMAL_PARAMS_LD_OBJECT = datatypes.LDObject.instantiate(ELGAMAL_PARAMS, dataty
 
 # single election server? Load the single electionfrom models import Election
 from django.conf import settings
+from django.utils.translation import ugettext_lazy
 
 def get_election_url(election):
   return settings.URL_HOST + reverse(election_shortcut, args=[election.short_name])  
@@ -210,9 +211,9 @@ def election_new(request):
           election.generate_trustee(ELGAMAL_PARAMS)
           return HttpResponseRedirect(settings.SECURE_URL_HOST + reverse(one_election_view, args=[election.uuid]))
         except IntegrityError:
-          error = "An election with short name %s already exists" % election_params['short_name']
+          error = ugettext_lazy("An election with short name %s already exists" % election_params['short_name'])
       else:
-        error = "No special characters allowed in the short name."
+        error = ugettext_lazy("No special characters allowed in the short name.")
     
   return render_template(request, "election_new", {'election_form': election_form, 'error': error})
   
@@ -1007,7 +1008,7 @@ def _register_voter(election, user):
 @election_view()
 def one_election_register(request, election):
   if not election.openreg:
-    return HttpResponseForbidden('registration is closed for this election')
+    return HttpResponseForbidden(ugettext_lazy('Registration is closed for this election'))
     
   check_csrf(request)
     
@@ -1106,7 +1107,9 @@ def trustee_upload_decryption(request, election, trustee_uuid):
     
     try:
       # send a note to admin
-      election.admin.send_message("%s - trustee partial decryption" % election.name, "trustee %s (%s) did their partial decryption." % (trustee.name, trustee.email))
+      election.admin.send_message(ugettext_lazy("%s - trustee partial decryption") % election.name,
+                                  ugettext_lazy("Trustee %s (%s) did their partial decryption.") % (trustee.name, trustee.email)
+                                  )
     except:
       # ah well
       pass
@@ -1305,15 +1308,17 @@ def voters_upload(request, election):
           voters = [v for v in voter_file_obj.itervoters()][:5]
         except:
           voters = []
-          problems.append("your CSV file could not be processed. Please check that it is a proper CSV file.")
+          problems.append(ugettext_lazy("your CSV file could not be processed. Please check that it is a proper CSV file."))
 
         # check if voter emails look like emails
         if False in [validate_email(v['email']) for v in voters]:
-          problems.append("those don't look like correct email addresses. Are you sure you uploaded a file with email address as second field?")
+          problems.append(ugettext_lazy("Those don't look like correct email addresses. Are you sure you uploaded a file with email address as second field?"))
 
         return render_template(request, 'voters_upload_confirm', {'election': election, 'voters': voters, 'problems': problems})
       else:
-        return HttpResponseRedirect("%s?%s" % (settings.SECURE_URL_HOST + reverse(voters_upload, args=[election.uuid]), urllib.parse.urlencode({'e':'no voter file specified, try again'})))
+        return HttpResponseRedirect("%s?%s" % (settings.SECURE_URL_HOST
+                                               + reverse(voters_upload, args=[election.uuid]),
+                                               urllib.parse.urlencode({'e': ugettext_lazy('No voter file specified, try again')})))
 
 @election_admin()
 def voters_upload_cancel(request, election):
@@ -1333,10 +1338,10 @@ def voters_email(request, election):
   if not helios.VOTERS_EMAIL:
     return HttpResponseRedirect(settings.SECURE_URL_HOST + reverse(one_election_view, args=[election.uuid]))
   TEMPLATES = [
-    ('vote', 'Time to Vote'),
-    ('simple', 'Simple'),
-    ('info', 'Additional Info'),
-    ('result', 'Election Result')
+    ('vote', ugettext_lazy('Time to Vote')),
+    ('simple', ugettext_lazy('Simple')),
+    ('info', ugettext_lazy('Additional Info')),
+    ('result', ugettext_lazy('Election Result'))
     ]
 
   template = request.POST.get('template', request.GET.get('template', 'vote'))

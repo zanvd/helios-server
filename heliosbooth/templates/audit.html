@@ -32,9 +32,13 @@
 <script type="application/javascript">
     $('#audit_header').text(gettext('Your audited ballot'));
     $('#audit_notice').text(gettext('IMPORTANT'));
-    $('#audit_instructions1').text(gettext(': this ballot, now that it has been audited, <em>will not be tallied</em>.<br/>' +
-        'To cast a ballot, you must click the "Back to Voting" button below, re-encrypt it, and choose "cast" instead of "audit".'));
-    $('#audit_instructions2').text(gettext('<b>Why?</b> Helios prevents you from auditing and casting the same ballot to provide you with some protection against coercion.'));
+    $('#audit_instructions1').text(gettext(': this ballot, now that it has been audited, ')
+        + '<em>' + gettext('will not be tallied') + '</em>.<br/>'
+        + gettext('To cast a ballot, you must click the "Back to Voting" button below, re-encrypt it, and choose "cast" instead of "audit".')
+    );
+    $('#audit_instructions2').text('<b>' + gettext('Why?') + '</b>'
+        + gettext('Helios prevents you from auditing and casting the same ballot to provide you with some protection against coercion.')
+    );
     $('#audit_instructions3').text(gettext('Now what?'));
     $('#audit_instructions4').text(gettext('Select your ballot audit info'));
     $('#audit_instructions5').text(gettext('copy it to your clipboard, then use the'));

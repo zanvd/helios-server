@@ -15,10 +15,10 @@
     {% trans 'Once you do this, voters will no longer be able to cast a ballot.' %}
 </p>
 
-<form method="post" action="" onsubmit="alert('ok, tally has begun')" class="pretty">
+<form method="post" action="" onsubmit="alert({% trans 'Tally has begun.' %})" class="pretty">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
     
-<input class="button" type="submit" value="compute encrypted tally!" />
+<input class="button" type="submit" value="{% trans 'Compute encrypted tally' %}" />
 <button onclick="document.location='./view'; return false;">{% trans 'never mind' %}</button>
 </form>
 {% else %}
