@@ -88,34 +88,28 @@ class Election(HeliosModel):
     }
 
     election_type = models.CharField(
-        label=ugettext_lazy('Type'),
         max_length=250,
         null=False,
         default='election',
         choices=ELECTION_TYPES
     )
     private_p = models.BooleanField(
-        label=ugettext_lazy('Private'),
         default=False,
         null=False
     )
 
     description = models.TextField(
-        label=ugettext_lazy('Description')
     )
     public_key = LDObjectField(
-        label=ugettext_lazy('Public key'),
         type_hint='legacy/EGPublicKey',
         null=True
     )
     private_key = LDObjectField(
-        label=ugettext_lazy('Private key'),
         type_hint='legacy/EGSecretKey',
         null=True
     )
 
     questions = LDObjectField(
-        label=ugettext_lazy('Question'),
         type_hint='legacy/Questions',
         null=True
     )
@@ -123,7 +117,6 @@ class Election(HeliosModel):
     # eligibility is a JSON field, which lists auth_systems and eligibility details for that auth_system, e.g.
     # [{'auth_system': 'cas', 'constraint': [{'year': 'u12'}, {'year':'u13'}]}, {'auth_system' : 'password'}, {'auth_system' : 'openid', 'constraint': [{'host':'http://myopenid.com'}]}]
     eligibility = LDObjectField(
-        label=ugettext_lazy('Eligibility'),
         type_hint='legacy/Eligibility',
         null=True
     )
@@ -132,61 +125,51 @@ class Election(HeliosModel):
     # this is now used to indicate the state of registration,
     # whether or not the election is frozen
     openreg = models.BooleanField(
-        label=ugettext_lazy('Open registration'),
         default=False
     )
 
     # featured election?
     featured_p = models.BooleanField(
-        label=ugettext_lazy('Featured election'),
         default=False
     )
 
     # voter aliases?
     use_voter_aliases = models.BooleanField(
-        label=ugettext_lazy('Use voter aliases'),
         default=False
     )
 
     # auditing is not for everyone
     use_advanced_audit_features = models.BooleanField(
-        label=ugettext_lazy('Use advanced audit features'),
         default=True,
         null=False
     )
 
     # randomize candidate order?
     randomize_answer_order = models.BooleanField(
-        label=ugettext_lazy('Randomize answer order'),
         default=False,
         null=False
     )
 
     # where votes should be cast
     cast_url = models.CharField(
-        label=ugettext_lazy('Cast URL'),
         max_length=500
     )
 
     # dates at which this was touched
     created_at = models.DateTimeField(
-        label=ugettext_lazy('Created at'),
         auto_now_add=True
     )
     modified_at = models.DateTimeField(
-        label=ugettext_lazy('Modified at'),
         auto_now_add=True
     )
 
     # dates at which things happen for the election
     frozen_at = models.DateTimeField(
-        label=ugettext_lazy('Frozen at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     archived_at = models.DateTimeField(
-        label=ugettext_lazy('Archived at'),
         auto_now_add=False,
         default=None,
         null=True
@@ -195,19 +178,16 @@ class Election(HeliosModel):
     # dates for the election steps, as scheduled
     # these are always UTC
     registration_starts_at = models.DateTimeField(
-        label=ugettext_lazy('Registration starts at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     voting_starts_at = models.DateTimeField(
-        label=ugettext_lazy('Voting starts at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     voting_ends_at = models.DateTimeField(
-        label=ugettext_lazy('Voting ends at'),
         auto_now_add=False,
         default=None,
         null=True
@@ -218,14 +198,12 @@ class Election(HeliosModel):
     # been qualified. We may eventually add this, but it can't be in the same CastVote table, which
     # is tied to a voter.
     complaint_period_ends_at = models.DateTimeField(
-        label=ugettext_lazy('Complaint period ends at'),
         auto_now_add=False,
         default=None,
         null=True
     )
 
     tallying_starts_at = models.DateTimeField(
-        label=ugettext_lazy('Tally starts at'),
         auto_now_add=False,
         default=None,
         null=True
@@ -233,37 +211,31 @@ class Election(HeliosModel):
 
     # dates when things were forced to be performed
     voting_started_at = models.DateTimeField(
-        label=ugettext_lazy('Voting started at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     voting_extended_until = models.DateTimeField(
-        lable=ugettext_lazy('Voting extended until'),
         auto_now_add=False,
         default=None,
         null=True
     )
     voting_ended_at = models.DateTimeField(
-        label=ugettext_lazy('Voting ended at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     tallying_started_at = models.DateTimeField(
-        label=ugettext_lazy('Tallying started at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     tallying_finished_at = models.DateTimeField(
-        label=ugettext_lazy('Tallying finished at'),
         auto_now_add=False,
         default=None,
         null=True
     )
     tallies_combined_at = models.DateTimeField(
-        label=ugettext_lazy('Tallies combined at'),
         auto_now_add=False,
         default=None,
         null=True
@@ -271,7 +243,6 @@ class Election(HeliosModel):
 
     # we want to explicitly release results
     result_released_at = models.DateTimeField(
-        label=ugettext_lazy('Result released at'),
         auto_now_add=False,
         default=None,
         null=True
@@ -279,7 +250,6 @@ class Election(HeliosModel):
 
     # the hash of all voters (stored for large numbers)
     voters_hash = models.CharField(
-        label=ugettext_lazy('Voters hash'),
         max_length=100,
         null=True
     )
@@ -287,14 +257,12 @@ class Election(HeliosModel):
     # encrypted tally, each a JSON string
     # used only for homomorphic tallies
     encrypted_tally = LDObjectField(
-        label=ugettext_lazy('Encrypted tally'),
         type_hint='legacy/Tally',
         null=True
     )
 
     # results of the election
     result = LDObjectField(
-        label=ugettext_lazy('Result'),
         type_hint='legacy/Result',
         null=True
     )
@@ -302,19 +270,16 @@ class Election(HeliosModel):
     # decryption proof, a JSON object
     # no longer needed since it's all trustees
     result_proof = JSONField(
-        label=ugettext_lazy('Result proof'),
         null=True
     )
 
     # help email
     help_email = models.EmailField(
-        label=ugettext_lazy('Help email'),
         null=True
     )
 
     # downloadable election info
     election_info_url = models.CharField(
-        label=ugettext_lazy('Election info URL'),
         max_length=300,
         null=True
     )
@@ -888,32 +853,26 @@ class VoterFile(models.Model):
 
     # we move to storing the content in the DB
     voter_file = models.FileField(
-        label=ugettext_lazy('Voter file'),
         upload_to=PATH,
         max_length=250,
         null=True
     )
     voter_file_content = models.TextField(
-        label=ugettext_lazy('Voter file content'),
         null=True
     )
 
     uploaded_at = models.DateTimeField(
-        label=ugettext_lazy('Uploaded at'),
         auto_now_add=True
     )
     processing_started_at = models.DateTimeField(
-        label=ugettext_lazy('Processing started at'),
         auto_now_add=False,
         null=True
     )
     processing_finished_at = models.DateTimeField(
-        label=ugettext_lazy('Processing finished at'),
         auto_now_add=False,
         null=True
     )
     num_voters = models.IntegerField(
-        label=ugettext_lazy('Number of voters'),
         null=True
     )
 
@@ -1008,7 +967,6 @@ class Voter(HeliosModel):
     # voter_id = models.CharField(max_length = 100)
 
     uuid = models.CharField(
-        label=ugettext_lazy('UUID'),
         max_length=50
     )
 
@@ -1018,46 +976,38 @@ class Voter(HeliosModel):
 
     # if user is null, then you need a voter login ID and password
     voter_login_id = models.CharField(
-        label=ugettext_lazy('Voter login ID'),
         max_length=100,
         null=True
     )
     voter_password = models.CharField(
-        label=ugettext_lazy('Voter password'),
         max_length=100,
         null=True
     )
     voter_name = models.CharField(
-        label=ugettext_lazy('Voter name'),
         max_length=200,
         null=True
     )
     voter_email = models.CharField(
-        label=ugettext_lazy('Voter email'),
-        max_legth=250,
+        max_length=250,
         null=True
     )
 
     # if election uses aliases
     alias = models.CharField(
-        label=ugettext_lazy('Alias'),
         max_length=100,
         null=True
     )
 
     # we keep a copy here for easy tallying
     vote = LDObjectField(
-        label=ugettext_lazy('Vote'),
         type_hint='legacy/EncryptedVote',
         null=True
     )
     vote_hash = models.CharField(
-        label=ugettext_lazy('Vote hash'),
         max_length=100,
         null=True
     )
     cast_at = models.DateTimeField(
-        label=ugettext_lazy('Cast at'),
         auto_now_add=False,
         null=True
     )
@@ -1154,7 +1104,7 @@ class Voter(HeliosModel):
 
     @property
     def datatype(self):
-        return self.election.datatype.replace(ugettext_lazy('Election'), ugettext_lazy('Voter'))
+        return self.election.datatype.replace('Election', 'Voter')
 
     @property
     def vote_tinyhash(self):
@@ -1236,60 +1186,51 @@ class CastVote(HeliosModel):
 
     # the actual encrypted vote
     vote = LDObjectField(
-        label=ugettext_lazy('Vote'),
         type_hint='legacy/EncryptedVote'
     )
 
     # cache the hash of the vote
     vote_hash = models.CharField(
-        label=ugettext_lazy('Vote hash'),
         max_length=100
     )
 
     # a tiny version of the hash to enable short URLs
     vote_tinyhash = models.CharField(
-        label=ugettext_lazy('Vote tiny hash'),
         max_length=50,
         null=True,
         unique=True
     )
 
     cast_at = models.DateTimeField(
-        label=ugettext_lazy('Cast at'),
         auto_now_add=True
     )
 
     # some ballots can be quarantined (this is not the same thing as provisional)
     quarantined_p = models.BooleanField(
-        label=ugettext_lazy('Quarantined'),
         default=False,
         null=False
     )
     released_from_quarantine_at = models.DateTimeField(
-        label=ugettext_lazy('Released from quarantine at'),
         auto_now_add=False,
         null=True
     )
 
     # when is the vote verified?
     verified_at = models.DateTimeField(
-        label=ugettext_lazy('Verified at'),
         null=True
     )
     invalidated_at = models.DateTimeField(
-        label=ugettext_lazy('Invalidated at'),
         null=True
     )
 
     # auditing purposes, like too many votes from the same IP, if it isn't expected
     cast_ip = models.GenericIPAddressField(
-        label=ugettext_lazy('Cast IP'),
         null=True
     )
 
     @property
     def datatype(self):
-        return self.voter.datatype.replace(ugettext_lazy('Voter'), ugettext_lazy('Cast Vote'))
+        return self.voter.datatype.replace('Voter', 'CastVote')
 
     @property
     def voter_uuid(self):
@@ -1403,29 +1344,23 @@ class Trustee(HeliosModel):
     election = models.ForeignKey(Election)
 
     uuid = models.CharField(
-        label=ugettext_lazy('UUID'),
         max_length=50
     )
     name = models.CharField(
-        label=ugettext_lazy('Name'),
         max_length=200
     )
     email = models.EmailField(
-        label=ugettext_lazy('Email')
     )
     secret = models.CharField(
-        label=ugettext_lazy('Secret'),
         max_length=100
     )
 
     # public key
     public_key = LDObjectField(
-        label=ugettext_lazy('Public key'),
         type_hint='legacy/EGPublicKey',
         null=True
     )
     public_key_hash = models.CharField(
-        label=ugettext_lazy('Public key hash'),
         max_length=100
     )
 
@@ -1433,26 +1368,22 @@ class Trustee(HeliosModel):
     # if the secret key is present, this means
     # Helios is playing the role of the trustee.
     secret_key = LDObjectField(
-        label=ugettext_lazy('Secret key'),
         type_hint='legacy/EGSecretKey',
         null=True
     )
 
     # proof of knowledge of secret key
     pok = LDObjectField(
-        label=ugettext_lazy('Proof of knowledge'),
         type_hint='legacy/DLogProof',
         null=True)
 
     # decryption factors
     decryption_factors = LDObjectField(
-        label=ugettext_lazy('Decryption factor'),
         type_hint='core/BigInteger[][]',
         null=True
     )
 
     decryption_proofs = LDObjectField(
-        label=ugettext_lazy('Decryption proofs'),
         type_hint='legacy/EGZKProof[][]',
         null=True
     )
@@ -1493,7 +1424,7 @@ class Trustee(HeliosModel):
 
     @property
     def datatype(self):
-        return self.election.datatype.replace(ugettext_lazy('Election'), ugettext_lazy('Trustee'))
+        return self.election.datatype.replace('Election', 'Trustee')
 
     def verify_decryption_proofs(self):
         """

@@ -17,7 +17,7 @@ class ElectionForm(forms.Form):
         help_text=_('No spaces allowed. It will be part of the URL for your election, e.g. my-club-2010.')
     )
     name = forms.CharField(
-        lable=_('Name'),
+        label=_('Name'),
         max_length=100,
         widget=forms.TextInput(
             attrs={'size': 60}

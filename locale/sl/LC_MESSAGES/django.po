@@ -30,8 +30,7 @@ msgid ""
 msgstr ""
 "Presledki niso dovoljeni. Kratko ime bo del URL-ja volitev (npr. moj-klub)."
 
-#: helios/forms.py:20 helios/models.py:1410
-#: helios/templates/election_bboard.html:36
+#: helios/forms.py:20 helios/templates/election_bboard.html:36
 #: helios/templates/voters_list.html:117 helios/templates/voters_manage.html:27
 #: helios/templates/voters_upload_confirm.html:11
 msgid "Name"
@@ -41,26 +40,27 @@ msgstr "Ime"
 msgid "The pretty name for your election, e.g. My Club 2010 Election."
 msgstr "Ime volitev (npr. Volitve Mojega kluba)."
 
-#: helios/forms.py:28 helios/models.py:104
+#: helios/forms.py:28
 msgid "Description"
 msgstr "Opis"
 
-#: helios/forms.py:36 helios/models.py:91
+#: helios/forms.py:36
 msgid "Type"
 msgstr "Tip"
 
-#: helios/forms.py:40 helios/models.py:147
+#: helios/forms.py:40
 msgid "Use voter aliases"
-msgstr "Uporabite alias volivcec"
+msgstr "Uporabite vzdevke volivcev"
 
 #: helios/forms.py:43
 msgid ""
 "If selected, voter identities will be replaced with aliases, e.g. \"V12\", "
 "in the ballot tracking center."
 msgstr ""
-"Identitete volivcev bojo v sledilcu glasovnic zamenjane z aliasi (npr. V12)."
+"Identitete volivcev bodo v sledilcu glasovnic zamenjane z vzdevki (npr. "
+"\"V12\")."
 
-#: helios/forms.py:48 helios/models.py:160
+#: helios/forms.py:48
 msgid "Randomize answer order"
 msgstr "Naključni vrstni red odgovorov"
 
@@ -69,8 +69,8 @@ msgid ""
 "Enable this if you want the answers to questions to appear in random order "
 "for each voter."
 msgstr ""
-"Omogočite to, če želite, da se odgovori pojavijo v naključnem vrstnem redu "
-"za vsakega volivca."
+"Omogočite, če želite, da se vsakemu volivcu odgovori pojavijo v naključnem "
+"vrstnem redu."
 
 #: helios/forms.py:54
 msgid "Private?"
@@ -86,43 +86,43 @@ msgstr "E-pošta za pomoč"
 
 #: helios/forms.py:63
 msgid "An email address voters should contact if they need help."
-msgstr "E-pošta katero naj volivci naslovijo, če potrebujejo pomoč."
+msgstr "E-poštni naslov, kamor naj volivci pišejo za pomoč."
 
 #: helios/forms.py:68
 msgid "Election info download URL"
-msgstr "URL naslov prenosa informacij volitev"
+msgstr "Naslov URL za prenos informacij o volitvah"
 
 #: helios/forms.py:71
 msgid ""
 "The URL of a PDF document that contains extra election information, e.g. "
 "candidate bios and statements."
 msgstr ""
-"URL naslov PDF dokumenta v katerem so dodatne informacije volitev (npr. "
-"biografije kandidatov in njihove izjave)."
+"Naslov URL dokumenta PDF z dodatne informacijami o volitvah (npr. biografije "
+"kandidatov in njihove izjave)."
 
-#: helios/forms.py:77 helios/models.py:204
+#: helios/forms.py:77
 msgid "Voting starts at"
-msgstr "Začetek volitev"
+msgstr "Volitve se začnejo ob"
 
 #: helios/forms.py:78
 msgid "UTC date and time when voting begins."
 msgstr "Datum in čas začetka volitev v UTC."
 
-#: helios/forms.py:83 helios/models.py:210
+#: helios/forms.py:83
 msgid "Voting ends at"
-msgstr "Konec volitev"
+msgstr "Volitve se končajo ob"
 
 #: helios/forms.py:84
 msgid "UTC date and time when voting ends."
 msgstr "Datum in čas konca volitev v UTC."
 
-#: helios/forms.py:92 helios/models.py:242
+#: helios/forms.py:92
 msgid "Voting extended until"
 msgstr "Volitve podaljšane do"
 
 #: helios/forms.py:93
 msgid "UTC date and time voting extended to."
-msgstr "Datum in čas v UTC do katerega so podaljšanje volitve."
+msgstr "Datum in čas v UTC, do katerega so podaljšane volitve."
 
 #: helios/forms.py:108
 msgid "Send To"
@@ -130,15 +130,15 @@ msgstr "Pošlji"
 
 #: helios/forms.py:111 helios/forms.py:132
 msgid "All voters"
-msgstr "Vsi volivci"
+msgstr "Vsem volivcem"
 
 #: helios/forms.py:112
 msgid "Voters who have cast a ballot"
-msgstr "Volivci, ki so oddali glas"
+msgstr "Volivcem, ki so oddali glas"
 
 #: helios/forms.py:113
 msgid "Voters who have not yet cast a ballot"
-msgstr "Volivci, ki še niso oddali glasu"
+msgstr "Volivcem, ki še niso oddali glasu"
 
 #: helios/forms.py:120
 msgctxt "Email subject label"
@@ -160,7 +160,7 @@ msgstr "Zgolj volivcem, ki so oddali glasovnico"
 
 #: helios/forms.py:134
 msgid "No one -- are you sure about this?"
-msgstr "Nikomur - ali ste prepričani?"
+msgstr "Nikomur -- ali ste prepričani?"
 
 #: helios/forms.py:141
 msgid "Voter ID"
@@ -170,7 +170,7 @@ msgstr "ID volivca"
 msgid "Password"
 msgstr "Geslo"
 
-#: helios/models.py:54 helios/models.py:1157 helios/models.py:1496
+#: helios/models.py:54
 msgid "Election"
 msgstr "Volitve"
 
@@ -211,7 +211,7 @@ msgstr "<u>niso</u>"
 #: helios/models.py:67
 msgctxt "election"
 msgid "was initially scheduled to end"
-msgstr "so bile"
+msgstr "bi se prvotno morale zaključiti"
 
 #: helios/models.py:68
 msgctxt "election"
@@ -271,7 +271,7 @@ msgstr "<u>ni</u>"
 #: helios/models.py:81
 msgctxt "referendum"
 msgid "was initially scheduled to end"
-msgstr "je bil"
+msgstr "bi se prvotno moral zaključiti"
 
 #: helios/models.py:82
 msgctxt "referendum"
@@ -298,153 +298,41 @@ msgctxt "referendum"
 msgid "This"
 msgstr "Ta"
 
-#: helios/models.py:98
-msgid "Private"
-msgstr "Zasebno"
-
-#: helios/models.py:107 helios/models.py:1423
-msgid "Public key"
-msgstr "Javni ključ"
-
-#: helios/models.py:112
-msgid "Private key"
-msgstr "Zasebni ključ"
-
-#: helios/models.py:118 helios/templates/election_view.html:168
-msgid "Question"
-msgstr "Vprašanje"
-
-#: helios/models.py:126
-msgid "Eligibility"
-msgstr "Upravičenost"
-
-#: helios/models.py:135
-msgid "Open registration"
-msgstr "Odprite registracijo"
-
-#: helios/models.py:141
-msgid "Featured election"
-msgstr "Predstavljene volitve"
-
-#: helios/models.py:153
-msgid "Use advanced audit features"
-msgstr "Uporabite napredne nastavitve revidiranja"
-
-#: helios/models.py:167
-msgid "Cast URL"
-msgstr "Oddajte URL"
-
-#: helios/models.py:173
-msgid "Created at"
-msgstr "Ustvarjeno"
-
-#: helios/models.py:177
-msgid "Modified at"
-msgstr "Spremenjeno"
-
-#: helios/models.py:183
-msgid "Frozen at"
-msgstr "Zamrznjeno"
-
-#: helios/models.py:189
-msgid "Archived at"
-msgstr "Arhivirano"
-
-#: helios/models.py:198
-msgid "Registration starts at"
-msgstr "Registracija se odpre ob"
-
-#: helios/models.py:221
-msgid "Complaint period ends at"
-msgstr "Možnost pritožbe se zaključi ob"
-
-#: helios/models.py:228
-msgid "Tally starts at"
-msgstr "Štetje se začne ob"
-
-#: helios/models.py:236
-msgid "Voting started at"
-msgstr "Volitve se začnejo ob"
-
-#: helios/models.py:248
-msgid "Voting ended at"
-msgstr "Volitve se zaključijo ob"
-
-#: helios/models.py:254
-msgid "Tallying started at"
-msgstr "Štetje se je pričelo ob"
-
-#: helios/models.py:260
-msgid "Tallying finished at"
-msgstr "Štetje se zaključilo ob"
-
-#: helios/models.py:266
-msgid "Tallies combined at"
-msgstr "Seštevki so bili združeni ob"
-
-#: helios/models.py:274
-msgid "Result released at"
-msgstr "Rezultati so bili objavljeni ob"
-
-#: helios/models.py:282
-msgid "Voters hash"
-msgstr "Zgostitev volivca"
-
-#: helios/models.py:290
-msgid "Encrypted tally"
-msgstr "Zašifrirani rezultati"
-
-#: helios/models.py:297
-msgid "Result"
-msgstr "Rezultat"
-
-#: helios/models.py:305
-msgid "Result proof"
-msgstr "Dokaz rezultata"
-
-#: helios/models.py:311
-msgid "Help email"
-msgstr "E-pošta za pomoč"
-
-#: helios/models.py:317
-msgid "Election info URL"
-msgstr "URL informacij o volitvah"
-
-#: helios/models.py:500
+#: helios/models.py:465
 msgid "Anyone can vote."
 msgstr "Kdorkoli lahko voli."
 
-#: helios/models.py:510
+#: helios/models.py:475
 #, python-format
 msgid "any %s user"
 msgstr "katerikoli %s uporabnik"
 
-#: helios/models.py:535
+#: helios/models.py:500
 msgid "Add question to the ballot"
 msgstr "Dodajte vprašanja h glasovnici"
 
-#: helios/models.py:543
+#: helios/models.py:508
 msgid "Add at least one truestee"
-msgstr "Dodajte vsag enega zaupnika"
+msgstr "Dodajte vsaj enega zaupnika"
 
-#: helios/models.py:551
+#: helios/models.py:516
 #, python-format
 msgid "have trustee %s generate a keypair"
-msgstr "naj zaupnik %s ustvari par ključev"
+msgstr "zaupnik %s naj ustvari par ključev"
 
-#: helios/models.py:558
+#: helios/models.py:523
 msgid "enter your voter list (or open registration to the public)"
 msgstr "vpišite seznam volivcev (ali nastavite registracijo javno)"
 
-#: helios/models.py:845
+#: helios/models.py:810
 msgid "frozen"
 msgstr "zamrznjeno"
 
-#: helios/models.py:846
+#: helios/models.py:811
 msgid "voter file added"
 msgstr "datoteka volivcev naložena"
 
-#: helios/models.py:847
+#: helios/models.py:812
 msgid "decryptions combined"
 msgstr "dešifriranja združena"
 
@@ -546,45 +434,8 @@ msgid ""
 "the vote's election UUID does not match the election for which this vote is "
 "being cast"
 msgstr ""
-"UUID volitev oddanega glasu se ne ujema s tem od volitev, za katere je bil "
-"glas oddan"
-
-#: helios/models.py:1414
-msgid "Email"
-msgstr "E-pošta"
-
-#: helios/models.py:1417
-msgid "Secret"
-msgstr "Skrivnost"
-
-#: helios/models.py:1428
-msgid "Public key hash"
-msgstr "Zgostitev javnega ključa"
-
-#: helios/models.py:1436
-msgid "Secret key"
-msgstr "Skrivni ključ"
-
-#: helios/models.py:1443
-msgid "Proof of knowledge"
-msgstr "Dokaz znanja"
-
-#: helios/models.py:1449
-msgid "Decryption factor"
-msgstr "Dešifrirni faktor"
-
-#: helios/models.py:1455
-msgid "Decryption proofs"
-msgstr "Dešifrirni dokaz"
-
-#: helios/models.py:1496 helios/templates/election_keygenerator.html:91
-#: helios/templates/list_trustees.html:39
-#: helios/templates/trustee_check_sk.html:46
-#: helios/templates/trustee_decrypt_and_prove.html:136
-#: helios/templates/trustee_decrypt_and_prove.html:139
-#: helios/templates/trustee_home.html:4
-msgid "Trustee"
-msgstr "Zaupnik"
+"UUID volitev oddanega glasu se ne ujema z volitvami, za katere je bil glas "
+"oddan"
 
 #: helios/templates/_castconfirm_docast.html:20
 msgid "You are logged in as"
@@ -828,6 +679,11 @@ msgstr ""
 msgid "Voters"
 msgstr "Volivci"
 
+#: helios/templates/election_bboard.html:34
+#: helios/templates/voters_list.html:121 helios/templates/voters_manage.html:27
+msgid "Alias"
+msgstr "Vzdevek"
+
 #: helios/templates/election_bboard.html:38
 #: helios/templates/voters_list.html:123
 msgid "Smart Ballot Tracker"
@@ -1012,6 +868,15 @@ msgstr "pojdi nazaj na volitve"
 #: helios/templates/election_freeze.html:38
 msgid "Freeze the ballot"
 msgstr "Zamrzni glasovnico"
+
+#: helios/templates/election_keygenerator.html:91
+#: helios/templates/list_trustees.html:39
+#: helios/templates/trustee_check_sk.html:46
+#: helios/templates/trustee_decrypt_and_prove.html:136
+#: helios/templates/trustee_decrypt_and_prove.html:139
+#: helios/templates/trustee_home.html:4
+msgid "Trustee"
+msgstr "Zaupnik"
 
 #: helios/templates/election_keygenerator.html:91
 msgid "Key Setup"
@@ -1386,6 +1251,10 @@ msgstr "Te volitve so končane."
 msgid "Tally"
 msgstr "Rezultati"
 
+#: helios/templates/election_view.html:168
+msgid "Question"
+msgstr "Vprašanje"
+
 #: helios/templates/election_view.html:180
 msgid "Election closed. Results will be released soon."
 msgstr "Volitve so končane. Rezultati bodo kmalu objavljeni."
@@ -1403,16 +1272,17 @@ msgstr "te"
 
 #: helios/templates/election_view.html:193
 msgid "was initially scheduled to end"
-msgstr "so bile prvotno zaključene"
+msgstr "bi se prvotno morale zaključiti"
 
 #: helios/templates/election_view.html:194
+#: helios/templates/election_view.html:203
 #, python-format
-msgid " at %(voting_ends_at)s (UTC)"
-msgstr " ob %(voting_ends_at)s (UTC)"
+msgid "at %(voting_ends_at)s (UTC)"
+msgstr "ob %(voting_ends_at)s (UTC)"
 
 #: helios/templates/election_view.html:195
 msgid "but has been extended"
-msgstr ", vendar so bile podaljšane"
+msgstr "vendar so bile podaljšane"
 
 #: helios/templates/election_view.html:196
 #, python-format
@@ -1423,18 +1293,13 @@ msgstr "do %(voting_extended_until)s (UTC)."
 msgid "is scheduled to end"
 msgstr "se zaključijo"
 
-#: helios/templates/election_view.html:203
-#, python-format
-msgid "at %(voting_ends_at)s (UTC)."
-msgstr "ob %(voting_ends_at)s (UTC)."
-
 #: helios/templates/election_view.html:207
 msgid "ends"
-msgstr "končajo"
+msgstr "se zaključijo"
 
 #: helios/templates/election_view.html:208
 msgid "at the administrator's discretion."
-msgstr "po presoji administratorja"
+msgstr "po presoji administratorja."
 
 #: helios/templates/election_view.html:215
 msgid "This election is <em>private</em>. You are signed in as eligible voter"
@@ -2963,9 +2828,9 @@ msgid ""
 "teacher association, student government, workers’ union, or state. So we’ve "
 "made truly verifiable elections as easy as everything else on the Web."
 msgstr ""
-"Verjamemo, da je demokracija zelo pomembna, pa najsi bo to za književni klub,"
-"študentski svet, sindikat ali državo. Zato je naš sistem narejen tako, da je "
-"kar se da enostaven za uporabo."
+"Verjamemo, da je demokracija zelo pomembna, pa najsi bo to za književni "
+"klub, študentski svet, sindikat ali državo. Zato je naš sistem narejen tako, "
+"da je kar se da enostaven za uporabo."
 
 #: server_ui/templates/index.html:22
 msgid "Helios elections are:"

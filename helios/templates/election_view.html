@@ -191,7 +191,7 @@
 {% trans 'This' context election.election_type %}
 {% trans election.election_type context 'nominative' %}
 {% trans 'was initially scheduled to end' context election.election_type %}
-{% blocktrans with voting_ends=election.voting_ends_at %} at {{voting_ends_at}} (UTC){% endblocktrans %},<br />
+{% blocktrans with voting_ends=election.voting_ends_at %}at {{voting_ends_at}} (UTC){% endblocktrans %},<br />
 {% trans 'but has been extended' context election.election_type %}
 {% blocktrans with voting_extended_until=election.voting_extended_until %}until {{ voting_extended_until }} (UTC).{% endblocktrans %}
 {% else %}
@@ -200,7 +200,7 @@
 {% trans 'This' context election.election_type %}
 {% trans election.election_type context 'nominative' %}
 {% trans 'is scheduled to end' context election.election_type %}
-{% blocktrans with voting_ends_at=election.voting_ends_at %}at {{voting_ends_at}} (UTC).{% endblocktrans %}
+{% blocktrans with voting_ends_at=election.voting_ends_at %}at {{voting_ends_at}} (UTC){% endblocktrans %}.
 {% else %}
 {% trans 'This' context election.election_type %}
 {% trans election.election_type context 'nominative' %}
