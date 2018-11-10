@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 19:29+0100\n"
+"POT-Creation-Date: 2018-11-10 19:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -336,100 +336,7 @@ msgstr "datoteka volivcev naložena"
 msgid "decryptions combined"
 msgstr "dešifriranja združena"
 
-#: helios/models.py:891
-msgid "Voter file"
-msgstr "Datoteka volivcev"
-
-#: helios/models.py:897
-msgid "Voter file content"
-msgstr "Vsebina datoteke volivcev"
-
-#: helios/models.py:902
-msgid "Uploaded at"
-msgstr "Naloženo ob"
-
-#: helios/models.py:906
-msgid "Processing started at"
-msgstr "Procesiranje je pričelo ob"
-
-#: helios/models.py:911
-msgid "Processing finished at"
-msgstr "Procesiranje je končalo ob"
-
-#: helios/models.py:916
-msgid "Number of voters"
-msgstr "Število volivcev"
-
-#: helios/models.py:1011 helios/models.py:1406
-msgid "UUID"
-msgstr "UUID"
-
-#: helios/models.py:1021
-msgid "Voter login ID"
-msgstr "Prijavni ID volivca"
-
-#: helios/models.py:1026
-msgid "Voter password"
-msgstr "Geslo volivca"
-
-#: helios/models.py:1031
-msgid "Voter name"
-msgstr "Ime volivca"
-
-#: helios/models.py:1036
-msgid "Voter email"
-msgstr "E-pošta volivca"
-
-#: helios/models.py:1043 helios/templates/election_bboard.html:34
-#: helios/templates/voters_list.html:121 helios/templates/voters_manage.html:27
-msgid "Alias"
-msgstr "Vzdevek"
-
-#: helios/models.py:1050 helios/models.py:1239
-msgid "Vote"
-msgstr "Glas"
-
-#: helios/models.py:1055 helios/models.py:1245
-msgid "Vote hash"
-msgstr "Zgostitev glasu"
-
-#: helios/models.py:1060 helios/models.py:1258
-msgid "Cast at"
-msgstr "Oddano ob"
-
-#: helios/models.py:1157 helios/models.py:1292
-msgid "Voter"
-msgstr "Volivec"
-
-#: helios/models.py:1251
-msgid "Vote tiny hash"
-msgstr "Kratka zgostitev glasu"
-
-#: helios/models.py:1264
-msgid "Quarantined"
-msgstr "V karanteni"
-
-#: helios/models.py:1269
-msgid "Released from quarantine at"
-msgstr "Izpuščeno iz karantene ob"
-
-#: helios/models.py:1276
-msgid "Verified at"
-msgstr "Verificirano ob"
-
-#: helios/models.py:1280
-msgid "Invalidated at"
-msgstr "Razveljavljeno ob"
-
-#: helios/models.py:1286
-msgid "Cast IP"
-msgstr "IP oddaje"
-
-#: helios/models.py:1292 helios/templates/castvote.html:5
-msgid "Cast Vote"
-msgstr "Oddajte glas"
-
-#: helios/models.py:1366
+#: helios/models.py:1307
 msgid ""
 "the vote's election UUID does not match the election for which this vote is "
 "being cast"
@@ -521,6 +428,10 @@ msgstr "Zaradi vaše varnosti smo vas odjavili."
 #: helios/templates/cast_done.html:26
 msgid "return to election info"
 msgstr "vrnite se nazaj na informacije o volitvah"
+
+#: helios/templates/castvote.html:5
+msgid "Cast Vote"
+msgstr "Oddajte glas"
 
 #: helios/templates/castvote.html:6
 msgid "cast in"
