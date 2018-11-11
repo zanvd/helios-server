@@ -1,132 +1,217 @@
-
 {#foreach $T.questions as question}
-<div id="q_view_{$T.question$index}">
-<h4>
-{#if $T.admin_p}[
-{#if $T.question$index > 0}<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;[{#/if}
-<a onclick="return confirm('Are you sure you want to remove this question?');" href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>] {#/if}{$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type}, select between {$T.question.min} and {#if $T.question.max != null}{$T.question.max}{#else}unlimited{#/if} answers, result type {$T.question.result_type}.)</h4>
-<ul>
-{#foreach $T.question.answers as answer}
-<li> {$T.answer}
-{#if $T.question.answer_urls[$T.answer$index]}
-  [<a target="_new" href="{$T.question.answer_urls[$T.answer$index]}">more</a>]
-{#/if}
-</li>
-{#/for}
-</ul>
-</div>
-<div id="q_edit_{$T.question$index}" style="display:none;">
-<form id="question_edit_{$T.question$index}_form" onsubmit="question_update({$T.question$index}, this); return false;" action="#">
-<p>
-<!--
-  Type of Question:
-  <select name="choice_type">
-    <option selected>approval</option>
-  </select>
--->
-<input type="hidden" name="choice_type" value="approval" />
-<b>{$T.question$index + 1}.</b> &nbsp;&nbsp;&nbsp;Select between &nbsp;&nbsp;
-<select name="min">
-    <option selected>0</option>
-{#for option_index = 1 to 20}
-    <option>{$T.option_index}</option>
-{#/for}
-</select>
-
-&nbsp;&nbsp; and  &nbsp;&nbsp;
-
-<select name="max">
-    <option>0</option>
-    <option selected>1</option>
-{#for option_index = 2 to 50}
-    <option>{$T.option_index}</option>
-{#/for}
-    <option value="">- (approval)</option>
-</select>
-
-&nbsp;&nbsp;
-answers.
-
-&nbsp;&nbsp;
-&nbsp;&nbsp;
-Result Type:&nbsp;
-<select name="result_type">
-    <option selected>absolute</option>
-    <option>relative</option>
-</select>
-
-</p>
-
-<table id="answer_table_{$T.question$index}">
-  <tbody>
-    <tr><th colspan="2">Question:</th><td><input type="text" name="question" size="70" /></td></tr>
-    <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
-  </tbody>
-  <tfoot>
-    <tr><th colspan="2"></th><th><a href="javascript:add_answers($('#answer_table_{$T.question$index}'),5)">add 5 more answers</a></th></tr>
-    <tr><td colspan="3"><input type="submit" value="update question" /> &nbsp; <input type="reset" value="cancel" onclick="question_edit_cancel({$T.question$index});" /></td></tr>
-  </tfoot>
-
-</table>
-</form>
-</div>
+    <div id="q_view_{$T.question$index}">
+        <h4>
+            {#if $T.admin_p}
+                {#if $T.question$index > 0}
+                    [<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;
+                {#/if}
+                [<a onclick="//TODO String not getting to .po.
+                             return confirm(gettext('Are you sure you want to remove this question?'));"
+                   href="javascript:question_remove({$T.question$index})">x</a>]
+                [<a href="javascript:question_edit({$T.question$index})"><span id="media_question_edit_{$T.question$index}"></span></a>]
+                <script type="application/javascript">
+                    $('#media_question_edit_{$T.question$index}').append(gettext('Edit'));
+                </script>
+            {#/if}
+            {$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type},
+            <span id="media_question_between_1_{$T.question$index}"></span>{$T.question.min}
+            <span id="media_question_between_2_{$T.question$index}"></span>
+            {#if $T.question.max != null}
+                {$T.question.max}
+            {#else}
+                <span id="media_question_between_3_{$T.question$index}"></span>
+                <script type="application/javascript">
+                    $('#media_question_between_3_{$T.question$index}').append(gettext('unlimited'));
+                </script>
+            {#/if}
+            <span id="media_question_between_4_{$T.question$index}"></span>
+            <span id="media_question_result_type_1_{$T.question$index}"></span>{$T.question.result_type}.)
+        </h4>
+        <ul>
+            {#foreach $T.question.answers as answer}
+            <li> {$T.answer}
+                {#if $T.question.answer_urls[$T.answer$index]}
+                    [<a target="_new" href="{$T.question.answer_urls[$T.answer$index]}"><span id="media_question_more_{$T.answer$index}"></span></a>]
+                    <script type="application/javascript">
+                        $('#media_question_more_{$T.answer$index}').append(gettext('More'));
+                    </script>
+                {#/if}
+            </li>
+            {#/for}
+        </ul>
+    </div>
+    <div id="q_edit_{$T.question$index}" style="display:none;">
+        <form id="question_edit_{$T.question$index}_form"
+              onsubmit="question_update({$T.question$index}, this); return false;" action="#">
+            <p>
+                <!--
+                  Type of Question:
+                  <select name="choice_type">
+                    <option selected>approval</option>
+                  </select>
+                -->
+                <input id="media_question_approval_1_{$T.question$index}" type="hidden" name="choice_type" />
+                <b>{$T.question$index + 1}.</b> &nbsp;&nbsp;&nbsp;<span id="media_quantity_between_5_{$T.question$index}"></span>&nbsp;&nbsp;
+                <select name="min">
+                    <option selected>0</option>
+                    {#for option_index = 1 to 20}
+                        <option>{$T.option_index}</option>
+                    {#/for}
+                </select>
+                &nbsp;&nbsp;<span id="media_question_and_1_{$T.question$index}"></span>&nbsp;&nbsp;
+                <select name="max">
+                    <option>0</option>
+                    <option selected>1</option>
+                    {#for option_index = 2 to 50}
+                        <option>{$T.option_index}</option>
+                    {#/for}
+                    <option id="media_question_approval_2_{$T.question$index}" value=""></option>
+                </select>
+                &nbsp;&nbsp;
+                <span id="media_question_answers_1_{$T.question$index}"></span>.
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <span id="media_question_result_type_2_{$T.question$index}"></span>:&nbsp;
+                <select name="result_type">
+                    <option id="media_question_absolute_1_{$T.question$index}" selected></option>
+                    <option id="media_question_relative_1_{$T.question$index}"></option>
+                </select>
+            </p>
+            <table id="answer_table_{$T.question$index}">
+                <tbody>
+                <tr>
+                    <th colspan="2"><span id="media_question_question_1_{$T.question$index}"></span>:</th>
+                    <td><input type="text" name="question" size="70"/></td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="2"></th>
+                    <th>
+                        <a href="javascript:add_answers($('#answer_table_{$T.question$index}'),5)">
+                            <span id="media_question_add_answers_1_{$T.question$index}"></span>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input id="media_question_update_question_{$T.question$index}" type="submit"/> &nbsp;
+                        <input id="media_question_cancel_{$T.question$index}" type="reset"
+                               onclick="question_edit_cancel({$T.question$index});"/>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+    <script type="application/javascript">
+        $('#media_question_between_1_{$T.question$index}').append(gettext(' select between '));
+        $('#media_question_between_2_{$T.question$index}').append(gettext(' and '));
+        $('#media_question_between_4_{$T.question$index}').append(gettext(' answers'));
+        $('#media_question_result_type_1_{$T.question$index}').append(gettext(', result type '));
+        $('#media_question_approval_1_{$T.question$index}').value(gettext('Approval'));
+        $('#media_quantity_between_5_{$T.question$index}').append(gettext('Select between'));
+        $('#media_question_and_1_{$T.question$index}').append(gettext('and'));
+        $('#media_question_approval_2_{$T.question$index}').text(gettext('- (approval)'));
+        $('#media_question_answers_1__{$T.question$index}').append(gettext('answers'));
+        $('#media_question_result_type_2_{$T.question$index}').append(gettext('Result Type'));
+        $('#media_question_absolute_1_{$T.question$index}').text(gettext('absolute'));
+        $('#media_question_relative_1_{$T.question$index}').text(gettext('relative'));
+        $('#media_question_question_1_{$T.question$index}').append(gettext('Question'));
+        $('#media_question_add_answers_1_{$T.question$index}').append(gettext('Add 5 more answers'));
+        $('#media_question_update_question_{$T.question$index}').value(gettext('Update question'));
+        $('#media_question_cancel_{$T.question$index}').value(gettext('Cancel'));
+    </script>
 {#else}
-no questions yet
+    <span id="media_question_no_questions"></span>
+    <script type="application/javascript">
+        $('#media_question_no_questions').append(gettext('No questions yet.'));
+    </script>
 {#/for}
-
 {#if $T.admin_p}
-<h4>Add a Question:</h4>
-<form id="question_form" onsubmit="question_add(this); return false;" action="#">
-<p>
-<!--
-  Type of Question:
-  <select name="choice_type">
-    <option selected>approval</option>
-  </select>
--->
-<input type="hidden" name="choice_type" value="approval" />
-&nbsp;&nbsp;&nbsp;Select between &nbsp;&nbsp;
-<select name="min">
-    <option selected>0</option>
-{#for option_index = 1 to 20}
-    <option>{$T.option_index}</option>
-{#/for}
-</select>
+    <h4 id="media_question_add_question_1"></h4>
+    <form id="question_form" onsubmit="question_add(this); return false;" action="#">
+        <p>
+            <!--
+              Type of Question:
+              <select name="choice_type">
+                <option selected>approval</option>
+              </select>
+            -->
+            <input id="media_question_approval_3" type="hidden" name="choice_type" />
+            &nbsp;&nbsp;&nbsp;<span id="media_question_between_6">Select between</span>&nbsp;&nbsp;
+            <select name="min">
+                <option selected>0</option>
+                {#for option_index = 1 to 20}
+                    <option>{$T.option_index}</option>
+                {#/for}
+            </select>
+            &nbsp;&nbsp;<span id="media_question_and_2"></span>&nbsp;&nbsp;
+            <select name="max">
+                <option>0</option>
+                <option selected>1</option>
+                {#for option_index = 2 to 50}
+                    <option>{$T.option_index}</option>
+                {#/for}
+                <option id="media_question_approval_4" value=""></option>
+            </select>
+            &nbsp;&nbsp;
+            <span id="media_question_answers_2"></span>.
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+            <span id="media_question_result_type_3"></span>:&nbsp;
+            <select name="result_type">
+                <option id="media_question_absolute_2" selected></option>
+                <option id="media_question_relative_1"></option>
+            </select>
 
-&nbsp;&nbsp; and  &nbsp;&nbsp;
-
-<select name="max">
-    <option>0</option>
-    <option selected>1</option>
-{#for option_index = 2 to 50}
-    <option>{$T.option_index}</option>
-{#/for}
-    <option value="">- (approval)</option>
-</select>
-
-&nbsp;&nbsp;
-answers.
-
-&nbsp;&nbsp;
-&nbsp;&nbsp;
-Result Type:&nbsp;
-<select name="result_type">
-    <option selected>absolute</option>
-    <option>relative</option>
-</select>
-
-</p>
-
-<table id="answer_table" style="width:100%;">
-  <tbody>
-    <tr><th colspan="2">Question:</th><td><input type="text" name="question" size="70" /></td></tr>
-    <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
-  </tbody>
-  <tfoot>
-    <tr><th colspan="2"></th><th><a href="javascript:add_answers($('#answer_table'), 5)">add 5 more answers</a></th></tr>
-    <tr><td colspan="2"><input type="submit" value="add question" /></td></tr>
-  </tfoot>
-
-</table>
+        </p>
+        <table id="answer_table" style="width:100%;">
+            <tbody>
+            <tr>
+                <th colspan="2"><span id="media_question_question_2"></span>:</th>
+                <td><input type="text" name="question" size="70"/></td>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="2"></th>
+                <th>
+                    <a href="javascript:add_answers($('#answer_table'), 5)">
+                        <span id="media_question_add_answers_2"></span>
+                    </a>
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input id="media_question_add_question_2" type="submit" />
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+    <script type="application/javascript">
+        $('#media_question_add_question_1').text(gettext('Add a Question:'));
+        $('#media_question_approval_3').value(gettext('Approval'));
+        $('#media_question_between_6').append(gettext('Select between'));
+        $('#media_question_and_2').append(gettext(' and '));
+        $('#media_question_approval_4').text(gettext('- (approval)'));
+        $('#media_question_answers_2').append(gettext('answers'));
+        $('#media_question_result_type_3').append(gettext('Result Type'));
+        $('#media_question_absolute_2').text(gettext('absolute'));
+        $('#media_question_relative_1').text(gettext('relative'));
+        $('#media_question_question_2').append(gettext('Question'));
+        $('#media_question_add_answers_2').append(gettext('Add 5 more answers'));
+        $('#media_question_add_question_2').append(gettext('Add question'));
+    </script>
 {#/if}
-</form>

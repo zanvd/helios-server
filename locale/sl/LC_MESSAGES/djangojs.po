@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 23:39+0100\n"
+"POT-Creation-Date: 2018-11-11 13:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,104 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
+
+#: helios/media/static_templates/question.html:13
+msgid "Edit"
+msgstr "Uredi"
+
+#: helios/media/static_templates/question.html:24
+msgid "unlimited"
+msgstr "neomjeno"
+
+#: helios/media/static_templates/question.html:36
+msgid "More"
+msgstr "Več"
+
+#: helios/media/static_templates/question.html:113
+msgid " select between "
+msgstr " izbira med "
+
+#: helios/media/static_templates/question.html:114
+#: helios/media/static_templates/question.html:207
+msgid " and "
+msgstr " in "
+
+#: helios/media/static_templates/question.html:115
+msgid " answers"
+msgstr "odgovori"
+
+#: helios/media/static_templates/question.html:116
+msgid ", result type "
+msgstr ", tip rezultata "
+
+#: helios/media/static_templates/question.html:117
+#: helios/media/static_templates/question.html:205
+msgid "Approval"
+msgstr "Oddobritev"
+
+#: helios/media/static_templates/question.html:118
+#: helios/media/static_templates/question.html:206
+msgid "Select between"
+msgstr "Izbira med"
+
+#: helios/media/static_templates/question.html:119
+msgid "and"
+msgstr "in"
+
+#: helios/media/static_templates/question.html:120
+#: helios/media/static_templates/question.html:208
+msgid "- (approval)"
+msgstr "- (oddobritev)"
+
+#: helios/media/static_templates/question.html:121
+#: helios/media/static_templates/question.html:209
+msgid "answers"
+msgstr "odgovorov"
+
+#: helios/media/static_templates/question.html:122
+#: helios/media/static_templates/question.html:210
+msgid "Result Type"
+msgstr "Tip rezultata"
+
+#: helios/media/static_templates/question.html:123
+#: helios/media/static_templates/question.html:211
+msgid "absolute"
+msgstr "absoluten"
+
+#: helios/media/static_templates/question.html:124
+#: helios/media/static_templates/question.html:212
+msgid "relative"
+msgstr "relativen"
+
+#: helios/media/static_templates/question.html:125
+#: helios/media/static_templates/question.html:213
+msgid "Question"
+msgstr "Vprašanje"
+
+#: helios/media/static_templates/question.html:126
+#: helios/media/static_templates/question.html:214
+msgid "Add 5 more answers"
+msgstr "Dodaj 5 odgovorov"
+
+#: helios/media/static_templates/question.html:127
+msgid "Update question"
+msgstr "Posodobi vprašanje"
+
+#: helios/media/static_templates/question.html:128
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: helios/media/static_templates/question.html:133
+msgid "No questions yet."
+msgstr "Trenutno še ni vprašanj."
+
+#: helios/media/static_templates/question.html:204
+msgid "Add a Question:"
+msgstr "Dodaj vprašanje:"
+
+#: helios/media/static_templates/question.html:215
+msgid "Add question"
+msgstr "Dodaj vprašanje"
 
 #: helios/templates/election_questions.html:32
 msgid ""
@@ -444,9 +542,9 @@ msgid ""
 "Warning: the tally type for this question is not homomorphic. Verification "
 "may fail because this verifier is only set up to handle homomorphic ballots."
 msgstr ""
-"Opozorilo: tip glasovnice za to vprašanje ni homomorfni. Verifikacija "
-"morda ne bo uspela, saj je ta verifikator nastavljen za preverbo "
-"homomorfnih glasovnic."
+"Opozorilo: tip glasovnice za to vprašanje ni homomorfni. Verifikacija morda "
+"ne bo uspela, saj je ta verifikator nastavljen za preverbo homomorfnih "
+"glasovnic."
 
 #: heliosbooth/verifier.js:38
 msgid "Encryption Verified"
@@ -466,7 +564,8 @@ msgstr "Težava: Dokazi ne delujejo."
 
 #: heliosbooth/verifier.js:53
 msgid "Problem parsing election or ballot data structures, malformed inputs: "
-msgstr "Težava pri razčlenjevanju podatkovne strukture volitev ali glasovnice. "
+msgstr ""
+"Težava pri razčlenjevanju podatkovne strukture volitev ali glasovnice. "
 "Napačno zgrajeni vnosi: "
 
 #: heliosbooth/vote.html:36
