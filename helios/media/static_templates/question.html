@@ -5,11 +5,12 @@
                 {#if $T.question$index > 0}
                     [<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;
                 {#/if}
-                [<a onclick="//TODO String not getting to .po.
-                             return confirm(gettext('Are you sure you want to remove this question?'));"
-                   href="javascript:question_remove({$T.question$index})">x</a>]
+                [<a id="media_question_confirm_{$T.question$index}" href="javascript:question_remove({$T.question$index})">x</a>]
                 [<a href="javascript:question_edit({$T.question$index})"><span id="media_question_edit_{$T.question$index}"></span></a>]
                 <script type="application/javascript">
+                    $('#media_question_confirm_{$T.question$index}').click(function() {
+                        confirm(gettext('Are you sure you want to remove this question?'));
+                    });
                     $('#media_question_edit_{$T.question$index}').append(gettext('Edit'));
                 </script>
             {#/if}
