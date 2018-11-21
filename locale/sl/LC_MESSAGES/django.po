@@ -1273,7 +1273,8 @@ msgstr "<em>Niste upravičeni</em> do glasovanja na"
 msgid "This election is open to:"
 msgstr "Te volitve so odprte do:"
 
-#: helios/templates/election_view.html:264 server_ui/templates/base.html:104
+#: helios/templates/election_view.html:264
+#: helios_auth/templates/login_box.html:6 server_ui/templates/base.html:104
 msgid "Log in"
 msgstr "Prijava"
 
@@ -2244,7 +2245,7 @@ msgstr "Dodatne informacije"
 msgid "Election Result"
 msgstr "Rezultat volitev"
 
-#: helios_auth/templates/index.html:4
+#: helios_auth/templates/base.html:13 helios_auth/templates/index.html:4
 msgid "Authentication"
 msgstr "Avtentikacija"
 
@@ -2264,6 +2265,51 @@ msgstr ""
 #: helios_auth/templates/index.html:13 server_ui/templates/base.html:95
 msgid "Logout"
 msgstr "Odjava"
+
+#: helios_auth/templates/password/forgot.html:5
+msgid "Password Forgotten"
+msgstr "Pozabljeno geslo"
+
+#: helios_auth/templates/password/forgot.html:19
+msgid "Your Username"
+msgstr "Vaše uporabniško ime"
+
+#: helios_auth/templates/password/forgot.html:19
+msgid "Send Reminder"
+msgstr "Pošlji opomnik"
+
+#: helios_auth/templates/password/login.html:5
+msgctxt "title"
+msgid "Login"
+msgstr "Prijava"
+
+#: helios_auth/templates/password/login.html:24
+msgctxt "button"
+msgid "Login"
+msgstr "Prijavi se"
+
+#: helios_auth/templates/twitter/follow.html:5
+msgid "Twitter Follow?"
+msgstr "Sledenje na Twitterju?"
+
+#: helios_auth/templates/twitter/follow.html:12
+#, python-format
+msgid ""
+"\n"
+"We recommend that you follow <b>@%(user_to_follow)s</b>.<br /><br />\n"
+"That way, %(reason_to_follow)s. We will not abuse of this friendship: only "
+"messages pertinent to you will be sent to you directly, and general updates "
+"happen only sporadically.\n"
+msgstr ""
+"\n"
+"Priporočamo, da sledite <b>@%(user_to_follow)s</b>.<br /><br />\n"
+"Tako %(reason_to_follow)s. Tega prijateljstva ne bomo zlorabili: neposredno "
+"vam bomo pošiljali le sporočila, ki se tičejo vas, splošne posodobitve "
+"pa se zgodijo le občasno.\n"
+
+#: helios_auth/templates/twitter/follow.html:22
+msgid "follow"
+msgstr "sledi"
 
 #: server_ui/templates/about.html:12
 msgid "About Helios Voting"

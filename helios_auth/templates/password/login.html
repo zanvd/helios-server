@@ -1,7 +1,8 @@
 {% extends TEMPLATE_BASE %}
+{% load i18n %}
 
 {% block header %}
-<h2>{{ settings.SITE_TITLE }} &mdash; Login</h2>
+<h2>{{ settings.SITE_TITLE }} &mdash; {% trans 'Login' context 'title' %}</h2>
 {% endblock %}
 
 
@@ -20,8 +21,9 @@
     {{form.as_table}}
 </table>
 <div>
-<label for="">&nbsp;</label><input type="submit" value="Login" />
+<label for="">&nbsp;</label><input type="submit" value="{% trans 'Login' context 'button' %}" />
 </div>
 </form>
 </p>
+<!--/-->
 {% endblock %}

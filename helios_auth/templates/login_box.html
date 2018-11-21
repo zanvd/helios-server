@@ -1,8 +1,9 @@
 {% load static %}
+{% load i18n %}
 {% if default_auth_system %}
 
 <p>
-<a class="small button" href="{% url "helios_auth.views.start" system_name=default_auth_system %}?return_url={{return_url}}">Log in</a></p>
+<a class="small button" href="{% url "helios_auth.views.start" system_name=default_auth_system %}?return_url={{return_url}}">{% trans 'Log in' %}</a></p>
 {% else %}
 {% for auth_system in enabled_auth_systems %}
 {% ifequal auth_system "password" %}
@@ -13,5 +14,6 @@
 {% endifequal %}
 </a>
 </p>
+<!--/-->
 {% endfor %}
 {% endif %}
