@@ -56,7 +56,6 @@
         $('#answer_{$T.question_num}_{$T.answer_ordering[$T.answer$index]}').val(gettext('Yes'));
     {#/for}
 </script>
-<!--/-->
 <script type="application/javascript">
     {#if $T.question.min && $T.question.min > 0}
         {#if $T.question.max}
@@ -67,12 +66,10 @@
             {#/if}
         {#else}
 </script>
-<!--/-->
 <script type="application/javascript">
             $("#question_how_many").append(gettext("at least") + " {$T.question.min}");
         {#/if}
 </script>
-<!--/-->
 <script type="application/javascript">
     {#else}
         {#if $T.question.max}
@@ -88,13 +85,11 @@
         $("#question_proceed").val(gettext("Proceed"));
     {#/if}
 </script>
-<!--/-->
 <script type="application/javascript">
     {#if $T.question_num != 0}
         $("#question_previous").val(gettext("Previous"));
     {#/if}
 </script>
-<!--/-->
 <script type="application/javascript">
     {#if $T.question_num < $T.last_question_num}
         $("#question_next").val(gettext("Next"));

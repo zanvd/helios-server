@@ -12,14 +12,17 @@
 {% trans 'Voters' %} {{offset_plus_one}} - {{offset_plus_limit}} &nbsp;&nbsp;
 
 {% if next_after %}
+<!--/-->
 <a href="./manage?after={{next_after}}&offset={{offset_plus_limit}}">{% trans 'next' %} {{limit}}</a> &nbsp;&nbsp;
 {% endif %}
 
 {% ifequal offset 0 %}
 {% else %}
+<!--/-->
 <a href="./manage">{% trans 'back to start' %}</a> &nbsp;&nbsp;
 {% endifequal %}
 {% if more_p %}
+<!--/-->
 <a href="./manage?after={{next_after}}&offset={{next_offset}}">{% trans 'next' %} {{limit}}</a>
 {% endif %}
 
@@ -34,6 +37,6 @@
 </td></tr>
 {% endfor %}
 </table>
-
+<!--/-->
 
 {% endblock %}

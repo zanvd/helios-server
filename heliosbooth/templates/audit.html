@@ -28,7 +28,7 @@
     <input id="audit_post_ballot" type="button" value=""
            onclick="$(this).attr('disabled', 'disabled');BOOTH.post_audited_ballot();"
            class="pretty" style="font-size:0.8em;"/>
-</form>
+</form><!--/-->
 <script type="application/javascript">
     $('#audit_header').text(gettext('Your audited ballot'));
     $('#audit_notice').text(gettext('IMPORTANT'));
@@ -52,3 +52,4 @@
     $('#audit_back_to_voting').val(gettext('Back to voting'));
     $('#audit_post_ballot').val(gettext('Post audited ballot to tracking center'));
 </script>
+<!--/-->

@@ -8,8 +8,10 @@
 {#else}
     <span id="footer_fingerprint"></span> <span id="election_hash" style="font-weight:bold;">{$T.election.hash}</span>
 {#/if}
+<!--/-->
 <script type="application/javascript">
     $('#footer_help_link').text(gettext('Help'));
     $('#footer_notice').text(gettext('The public key for this election is not yet ready. This election is in preview mode only.'));
     $('#footer_fingerprint').text(gettext('Election fingerprint:'));
 </script>
+<!--/-->

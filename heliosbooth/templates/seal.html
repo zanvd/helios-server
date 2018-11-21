@@ -58,7 +58,6 @@
         $('#seal_verify').val(gettext('Verify Encryption'));
     {#/if}
 </script>
-<!--/-->
 <script type="application/javascript">
     $('#seal_review_header').text(gettext('Review your Ballot'));
     $('#seal_question_number').text(gettext('Question #'));
@@ -67,7 +66,6 @@
             $('#seal_no_choice').text(gettext('No choice selected.'));
         {#/if}
 </script>
-<!--/-->
 <script type="application/javascript">
         {#if $T.choices[$T.question$index].length < $T.question.max}
             $('#seal_under_vote').text(gettext('you under-voted: you may select up to'));
@@ -82,3 +80,4 @@
         'will remain. The encrypted version will be submitted to the Helios server.'));
     $('#proceed_button').text(gettext('Submit this Vote'));
 </script>
+<!--/-->

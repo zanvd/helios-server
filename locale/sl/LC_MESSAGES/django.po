@@ -31,7 +31,7 @@ msgstr ""
 "Presledki niso dovoljeni. Kratko ime bo del URL-ja volitev (npr. moj-klub)."
 
 #: helios/forms.py:20 helios/templates/election_bboard.html:36
-#: helios/templates/voters_list.html:117 helios/templates/voters_manage.html:27
+#: helios/templates/voters_list.html:118 helios/templates/voters_manage.html:30
 #: helios/templates/voters_upload_confirm.html:11
 msgid "Name"
 msgstr "Ime"
@@ -472,7 +472,7 @@ msgstr "Revidirane glasovnice za"
 
 #: helios/templates/election_audited_ballots.html:6
 #: helios/templates/election_audited_ballots.html:22
-#: helios/templates/election_view.html:300
+#: helios/templates/election_view.html:302
 msgid "Audited Ballots"
 msgstr "Vaša glasovnica"
 
@@ -533,20 +533,20 @@ msgstr "overitelj glasovnice"
 #: helios/templates/election_bboard.html:21
 #: helios/templates/election_bboard.html:29
 #: helios/templates/stats_elections.html:24
-#: helios/templates/voters_list.html:111 helios/templates/voters_manage.html:15
-#: helios/templates/voters_manage.html:23
+#: helios/templates/voters_list.html:112 helios/templates/voters_manage.html:16
+#: helios/templates/voters_manage.html:26
 msgid "next"
 msgstr "naprej"
 
 #: helios/templates/election_audited_ballots.html:31
 #: helios/templates/election_bboard.html:26
-#: helios/templates/voters_manage.html:20
+#: helios/templates/voters_manage.html:22
 msgid "back to start"
 msgstr "na začetek"
 
 #: helios/templates/election_audited_ballots.html:38
 #: helios/templates/election_bboard.html:45
-#: helios/templates/voters_list.html:140
+#: helios/templates/voters_list.html:142
 msgid "view"
 msgstr "poglej"
 
@@ -573,7 +573,7 @@ msgid "Ballot Tracking Center for"
 msgstr "Center za sledenje glasovnic za"
 
 #: helios/templates/election_bboard.html:8
-#: helios/templates/election_view.html:299
+#: helios/templates/election_view.html:301
 msgid "Ballot Tracking Center"
 msgstr "Center za sledenje glasovnic"
 
@@ -591,12 +591,12 @@ msgid "Voters"
 msgstr "Volivci"
 
 #: helios/templates/election_bboard.html:34
-#: helios/templates/voters_list.html:121 helios/templates/voters_manage.html:27
+#: helios/templates/voters_list.html:122 helios/templates/voters_manage.html:30
 msgid "Alias"
 msgstr "Vzdevek"
 
 #: helios/templates/election_bboard.html:38
-#: helios/templates/voters_list.html:123
+#: helios/templates/voters_list.html:124
 msgid "Smart Ballot Tracker"
 msgstr "Pametni sledilec glasovnice"
 
@@ -1191,9 +1191,9 @@ msgid "Vote in"
 msgstr "Volite na"
 
 #: helios/templates/election_view.html:186
-#: helios/templates/election_view.html:233
-#: helios/templates/election_view.html:249
-#: helios/templates/election_view.html:253
+#: helios/templates/election_view.html:234
+#: helios/templates/election_view.html:251
+#: helios/templates/election_view.html:255
 msgid "this"
 msgstr "te"
 
@@ -1232,7 +1232,7 @@ msgstr "po presoji administratorja."
 msgid "This election is <em>private</em>. You are signed in as eligible voter"
 msgstr "Te volitve so <em>zasebne</em>. Prijavljeni ste kot upravičen volivec"
 
-#: helios/templates/election_view.html:219
+#: helios/templates/election_view.html:220
 msgid ""
 "You do not have Java installed in your browser.<br />At this time, Helios "
 "requires Java."
@@ -1240,89 +1240,89 @@ msgstr ""
 "V brskalniku nimate nameščene programske opreme Java.<br />E-volitve "
 "trenutno potrebujejo Javo."
 
-#: helios/templates/election_view.html:220
+#: helios/templates/election_view.html:221
 msgid "Visit"
 msgstr "Obiščite"
 
-#: helios/templates/election_view.html:220
+#: helios/templates/election_view.html:221
 msgid "to install it."
 msgstr "za namestitev."
 
-#: helios/templates/election_view.html:225
+#: helios/templates/election_view.html:226
 msgid "voting is not yet open"
 msgstr "volitve še niso odprte."
 
-#: helios/templates/election_view.html:232
+#: helios/templates/election_view.html:233
 msgid "You are registered to vote in"
 msgstr "Registrirani ste za glasovanje na"
 
-#: helios/templates/election_view.html:236
+#: helios/templates/election_view.html:237
 msgid "Your voter alias is"
 msgstr "Vaš volilni psevdonim je"
 
-#: helios/templates/election_view.html:245
+#: helios/templates/election_view.html:246
 msgid "You are eligible to vote in"
 msgstr "Upravičeni ste do glasovanja na"
 
-#: helios/templates/election_view.html:247
-#: helios/templates/election_view.html:252
+#: helios/templates/election_view.html:249
+#: helios/templates/election_view.html:254
 msgid "You are <em>not eligible</em> to vote in"
 msgstr "<em>Niste upravičeni</em> do glasovanja na"
 
-#: helios/templates/election_view.html:263
+#: helios/templates/election_view.html:265
 msgid "This election is open to:"
 msgstr "Te volitve so odprte do:"
 
-#: helios/templates/election_view.html:264
+#: helios/templates/election_view.html:266
 #: helios_auth/templates/login_box.html:6 server_ui/templates/base.html:104
 msgid "Log in"
 msgstr "Prijava"
 
-#: helios/templates/election_view.html:264
+#: helios/templates/election_view.html:266
 msgid "to check your eligibility."
 msgstr "za preverbo upravičenosti."
 
-#: helios/templates/election_view.html:266
+#: helios/templates/election_view.html:268
 msgid "Anyone can vote in this election."
 msgstr "Kdorkoli lahko glasuje na teh volitvah."
 
-#: helios/templates/election_view.html:277
+#: helios/templates/election_view.html:279
 msgid "extend voting"
 msgstr "podaljšaj glasovanje"
 
-#: helios/templates/election_view.html:281
+#: helios/templates/election_view.html:283
 msgid "Audit Info"
 msgstr "Informacije glede revizije"
 
-#: helios/templates/election_view.html:283
+#: helios/templates/election_view.html:285
 msgid "Election URL:"
 msgstr "URL volitev:"
 
-#: helios/templates/election_view.html:288
+#: helios/templates/election_view.html:290
 msgid "Election Fingerprint:"
 msgstr "Prstni odtis volitev:"
 
-#: helios/templates/election_view.html:293
+#: helios/templates/election_view.html:295
 msgid "Your smart ballot tracker:"
 msgstr "Vaš pametni sledilec glasovnice je:"
 
-#: helios/templates/election_view.html:307
+#: helios/templates/election_view.html:310
 msgid "preview booth"
 msgstr "predogled kabine"
 
-#: helios/templates/election_view.html:314
+#: helios/templates/election_view.html:317
 msgid "verify"
 msgstr "preveri"
 
-#: helios/templates/election_view.html:314
+#: helios/templates/election_view.html:317
 msgid "election tally"
 msgstr "rezultati volitev"
 
-#: helios/templates/election_view.html:317
+#: helios/templates/election_view.html:320
 msgid "review the"
 msgstr "preglej"
 
-#: helios/templates/election_view.html:317
+#: helios/templates/election_view.html:320
 msgid "voting booth"
 msgstr "kabino"
 
@@ -1774,11 +1774,11 @@ msgid ""
 "<u>First</u>, your secret key is used to decrypt the tally <em>inside</em> "
 "your browser, without connecting to the network.<br />\n"
 "      You can choose to take your browser \"offline\" for this step, if "
-"you'd like.<br /><br />\n"
+"you'd like.<br /><br /><!--'-->\n"
 "      <u>Second</u>, once your decryption factors have been computed, your "
 "browser will need to be \"online\" to submit them to the server.<br />\n"
 "      If you'd like, you can compute your decryption factors, copy them to "
-"your clipboard, restart your browser, and<br />\n"
+"your clipboard, restart your browser, and<br /><!--'-->\n"
 "      skip to the second step so that your browser is never online when you "
 "enter your secret key."
 msgstr ""
@@ -2024,7 +2024,7 @@ msgstr "le volivci, ki so člani"
 
 #: helios/templates/voters_list.html:42
 msgid "email voters"
-msgstr "Pošljite e-pošto volivcem"
+msgstr "Pošlji e-pošto volivcem"
 
 #: helios/templates/voters_list.html:48
 msgid "searching for"
@@ -2074,11 +2074,11 @@ msgstr[3] "oddanih glasov"
 msgid "no votes yet"
 msgstr "ni še oddanih glasov"
 
-#: helios/templates/voters_list.html:131
+#: helios/templates/voters_list.html:132
 msgid "email"
 msgstr "e-pošta"
 
-#: helios/templates/voters_list.html:147
+#: helios/templates/voters_list.html:149
 msgid "No voters."
 msgstr "Ni volivcev."
 
@@ -2086,9 +2086,13 @@ msgstr "Ni volivcev."
 msgid "Manage Voters"
 msgstr "Upravljaj volivce"
 
-#: helios/templates/voters_manage.html:27
+#: helios/templates/voters_manage.html:30
 msgid "Username"
 msgstr "Uporabniško ime"
+
+#: helios/templates/voters_search.html:4
+msgid "Search Voters for"
+msgstr "Iskanje volivcev za"
 
 #: helios/templates/voters_search.html:7
 msgid "Voter Found"
@@ -2111,7 +2115,7 @@ msgstr "ta volivec ni bil najden"
 msgid "Bulk Upload Voters"
 msgstr "Naloži volivce"
 
-#: helios/templates/voters_upload.html:8
+#: helios/templates/voters_upload.html:9
 msgid ""
 "If you would like to specify your list of voters by name and email address,"
 "<br />\n"
@@ -2120,16 +2124,16 @@ msgstr ""
 "Če želite določiti seznam volivcev z imeni in e-poštnimi naslovi,<br />\n"
 "    lahko tovrstven seznam volivcev naložite tukaj.<br /><br />"
 
-#: helios/templates/voters_upload.html:11
+#: helios/templates/voters_upload.html:12
 msgid "Please prepare a text file of comma-separated values with the fields:"
 msgstr ""
 "Prosimo, pripravite datoteko z vrednostmi, ločenimi z vejicami, s polji:"
 
-#: helios/templates/voters_upload.html:18
+#: helios/templates/voters_upload.html:19
 msgid "For example:"
 msgstr "Na primer:"
 
-#: helios/templates/voters_upload.html:27
+#: helios/templates/voters_upload.html:28
 msgid ""
 "The easiest way to prepare such a file is to use a spreadsheet program and "
 "to export as \"CSV\"."
@@ -2137,15 +2141,15 @@ msgstr ""
 "Najlažji način priprave tovrstne datoteke je z uporabo programa za "
 "razpredelnice in izvoza kot datoteka \"CSV\"."
 
-#: helios/templates/voters_upload.html:35
+#: helios/templates/voters_upload.html:36
 msgid "Go"
 msgstr "Prični"
 
-#: helios/templates/voters_upload.html:42
+#: helios/templates/voters_upload.html:43
 msgid "OK, done uploading."
 msgstr "Nalaganje zaključeno."
 
-#: helios/templates/voters_upload.html:43
+#: helios/templates/voters_upload.html:44
 msgid "You can now <a href=\"./manage\">view the list of voters</a>."
 msgstr "Sedaj lahko <a href=\"./manage\">pogledate listo volivcev</a>."
 
@@ -2345,6 +2349,7 @@ msgid ""
 "technology, and\n"
 "                built products.\n"
 "            </p>\n"
+"            <!--/-->\n"
 "            <p>\n"
 "                Currently, Jim is Vice President of Products at Metanautix, "
 "a big data\n"
@@ -2359,7 +2364,7 @@ msgid ""
 "            </p>\n"
 "        </div>\n"
 "\n"
-"        <div class=\"row\">&nbsp;</div>\n"
+"        <div class=\"row\">&nbsp;</div><!--/-->\n"
 "\n"
 "        <div class=\"row\"><h6 class=\"subheader\">Lawrence Lessig</h6>\n"
 "            <p>\n"
@@ -2586,7 +2591,7 @@ msgstr "Tehnična dokumentacija"
 msgid "Original peer-reviewed (Usenix Security 2008)"
 msgstr "Originalni članek (Usenix Security 2008)"
 
-#: server_ui/templates/docs.html:26
+#: server_ui/templates/docs.html:27
 msgid ""
 "<a href=\"https://github.com/google/pyrios\">Pyrios</a>, a Go library by <a "
 "href=\"http://1.37e2.net/\">Tom Roeder</a> that verifies Helios elections."
@@ -2594,7 +2599,7 @@ msgstr ""
 "<a href=\"https://github.com/google/pyrios\">Pyrios</a>, knjižnica za Go (<a "
 "href=\"http://1.37e2.net/\">Tom Roeder</a>), ki preverja E-volitve."
 
-#: server_ui/templates/docs.html:27
+#: server_ui/templates/docs.html:28
 msgid ""
 "<a href=\"http://www.uclouvain.be/crypto/electionmonitor/default/about"
 "\">Helios Election Monitor</a>, produced by the Universite catholique de "
@@ -2604,19 +2609,19 @@ msgstr ""
 "\">Helios Election Monitor</a>, narejen na Universite catholique de Louvain."
 "</li>"
 
-#: server_ui/templates/docs.html:31
+#: server_ui/templates/docs.html:32
 msgid "Helios has been covered in the press:"
 msgstr "Helios v medijih:"
 
-#: server_ui/templates/docs.html:35
+#: server_ui/templates/docs.html:36
 msgid "KCBS News Interview, May 2010"
 msgstr "KCBS News Interview, May 2010"
 
-#: server_ui/templates/docs.html:36
+#: server_ui/templates/docs.html:37
 msgid "Harvard Magazine, April 2010"
 msgstr "Harvard Magazine, April 2010"
 
-#: server_ui/templates/docs.html:37
+#: server_ui/templates/docs.html:38
 msgid "Ynet, Israeli Press, June 2009"
 msgstr "Ynet, Israeli Press, June 2009"
 
@@ -2743,7 +2748,7 @@ msgid "Is Helios the only system that provides this level of verifiability?"
 msgstr ""
 "Ali so E-volitve edini tovrstni sistem, ki ponuja tolikšno mero zaščite?"
 
-#: server_ui/templates/faq.html:52
+#: server_ui/templates/faq.html:53
 msgid ""
 "No, there are other systems. <a href=\"http://scantegrity.org\">Scantegrity</"
 "a>, <a href=\"http://www.pretavoter.com/\">Pret-a-Voter</a>, <a href="
@@ -2761,13 +2766,13 @@ msgstr ""
 "<a href=\"https://www.usenix.org/conference/evtwote13/workshop-program/"
 "presentation/bell\">STARVote</a>, Wombat Voting."
 
-#: server_ui/templates/faq.html:59
+#: server_ui/templates/faq.html:60
 msgid ""
 "Should we start using Helios for public-office elections? Maybe US President "
 "2016?"
 msgstr "Ali naj se E-volitve uporabijo kot uradni volilni sistem?"
 
-#: server_ui/templates/faq.html:61
+#: server_ui/templates/faq.html:62
 msgid ""
 "No, you should not. Online elections are appropriate when one does not "
 "expect a large attempt at defrauding or coercing voters. For some elections, "
@@ -2783,7 +2788,7 @@ msgstr ""
 "povezavo, saj se lahko zelo hitro pojavijo vdori, onemogočanje oddaje glasu "
 "in podobno."
 
-#: server_ui/templates/faq.html:64
+#: server_ui/templates/faq.html:65
 msgid ""
 "If you’d like to use a truly verifiable voting system for your public-office "
 "election, we recommend an in-person election. Helios could be adapted to the "

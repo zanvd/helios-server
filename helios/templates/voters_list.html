@@ -108,6 +108,7 @@
 {% trans 'Voters' %} {{voters_page.start_index}} - {{voters_page.end_index}} ({% trans 'of' %} {{total_voters}})&nbsp;&nbsp;
 
 {% if voters_page.has_next %}
+<!--/-->
 <a href="./list?page={{voters_page.next_page_number}}&limit={{limit}}&q={{q|urlencode}}">{% trans 'next' %} {{limit}}</a> &nbsp;&nbsp;
 {% endif %}
 
@@ -132,6 +133,7 @@
 {% endif %}
 [<a onclick="return confirm('are you sure you want to remove {{voter.name}} ?');" href="{% url "helios.views.voter_delete" election.uuid voter.uuid %}">x</a>]
 {% endif %}
+<!--/-->
 <img class="small-logo" src="{% static 'auth/login-icons/'|add:voter.voter_type|add:'.png' %}" alt="{{voter.voter_type}}" /> {{voter.name}}</td>
 {% endif %}
 {% if election.use_voter_aliases %}
@@ -145,6 +147,7 @@
 {% else %}
 <br /><br />
 <em>{% trans 'No voters.' %}</em>
+<!--/-->
 {% endif %}
 
 {% endblock %}

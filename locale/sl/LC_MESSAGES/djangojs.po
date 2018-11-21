@@ -19,105 +19,105 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 
-#: helios/media/static_templates/question.html:12
+#: helios/media/static_templates/question.html:13
 msgid "Are you sure you want to remove this question?"
 msgstr "Ali ste prepričani, da želite odstraniti to vprašanje?"
 
-#: helios/media/static_templates/question.html:14
+#: helios/media/static_templates/question.html:15
 msgid "Edit"
 msgstr "Uredi"
 
-#: helios/media/static_templates/question.html:25
+#: helios/media/static_templates/question.html:27
 msgid "unlimited"
 msgstr "neomjeno"
 
-#: helios/media/static_templates/question.html:37
+#: helios/media/static_templates/question.html:40
 msgid "More"
 msgstr "Več"
 
-#: helios/media/static_templates/question.html:114
+#: helios/media/static_templates/question.html:118
 msgid " select between "
 msgstr " izbira med "
 
-#: helios/media/static_templates/question.html:115
-#: helios/media/static_templates/question.html:208
+#: helios/media/static_templates/question.html:119
+#: helios/media/static_templates/question.html:213
 msgid " and "
 msgstr " in "
 
-#: helios/media/static_templates/question.html:116
+#: helios/media/static_templates/question.html:120
 msgid " answers"
 msgstr "odgovori"
 
-#: helios/media/static_templates/question.html:117
+#: helios/media/static_templates/question.html:121
 msgid ", result type "
 msgstr ", tip rezultata "
 
-#: helios/media/static_templates/question.html:118
-#: helios/media/static_templates/question.html:206
+#: helios/media/static_templates/question.html:122
+#: helios/media/static_templates/question.html:211
 msgid "Approval"
 msgstr "Odobritev"
 
-#: helios/media/static_templates/question.html:119
-#: helios/media/static_templates/question.html:207
+#: helios/media/static_templates/question.html:123
+#: helios/media/static_templates/question.html:212
 msgid "Select between"
 msgstr "Izbira med"
 
-#: helios/media/static_templates/question.html:120
+#: helios/media/static_templates/question.html:124
 msgid "and"
 msgstr "in"
 
-#: helios/media/static_templates/question.html:121
-#: helios/media/static_templates/question.html:209
+#: helios/media/static_templates/question.html:125
+#: helios/media/static_templates/question.html:214
 msgid "- (approval)"
 msgstr "- (odobritev)"
 
-#: helios/media/static_templates/question.html:122
-#: helios/media/static_templates/question.html:210
+#: helios/media/static_templates/question.html:126
+#: helios/media/static_templates/question.html:215
 msgid "answers"
 msgstr "odgovorov"
 
-#: helios/media/static_templates/question.html:123
-#: helios/media/static_templates/question.html:211
+#: helios/media/static_templates/question.html:127
+#: helios/media/static_templates/question.html:216
 msgid "Result Type"
 msgstr "Tip rezultata"
 
-#: helios/media/static_templates/question.html:124
-#: helios/media/static_templates/question.html:212
+#: helios/media/static_templates/question.html:128
+#: helios/media/static_templates/question.html:217
 msgid "absolute"
 msgstr "absoluten"
 
-#: helios/media/static_templates/question.html:125
-#: helios/media/static_templates/question.html:213
+#: helios/media/static_templates/question.html:129
+#: helios/media/static_templates/question.html:218
 msgid "relative"
 msgstr "relativen"
 
-#: helios/media/static_templates/question.html:126
-#: helios/media/static_templates/question.html:214
+#: helios/media/static_templates/question.html:130
+#: helios/media/static_templates/question.html:219
 msgid "Question"
 msgstr "Vprašanje"
 
-#: helios/media/static_templates/question.html:127
-#: helios/media/static_templates/question.html:215
+#: helios/media/static_templates/question.html:131
+#: helios/media/static_templates/question.html:220
 msgid "Add 5 more answers"
 msgstr "Dodaj 5 odgovorov"
 
-#: helios/media/static_templates/question.html:128
+#: helios/media/static_templates/question.html:132
 msgid "Update question"
 msgstr "Posodobi vprašanje"
 
-#: helios/media/static_templates/question.html:129
+#: helios/media/static_templates/question.html:133
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: helios/media/static_templates/question.html:134
+#: helios/media/static_templates/question.html:138
 msgid "No questions yet."
 msgstr "Trenutno še ni vprašanj."
 
-#: helios/media/static_templates/question.html:205
+#: helios/media/static_templates/question.html:210
 msgid "Add a Question:"
 msgstr "Dodaj vprašanje:"
 
-#: helios/media/static_templates/question.html:216
+#: helios/media/static_templates/question.html:221
 msgid "Add question"
 msgstr "Dodaj vprašanje"
 
@@ -339,18 +339,18 @@ msgstr "Pred oddajo se boste morali prijaviti, če se še niste."
 msgid "Start"
 msgstr "Pričetek"
 
-#: heliosbooth/templates/footer.html:12
+#: heliosbooth/templates/footer.html:13
 msgid "Help"
 msgstr "Pomoč"
 
-#: heliosbooth/templates/footer.html:13
+#: heliosbooth/templates/footer.html:14
 msgid ""
 "The public key for this election is not yet ready. This election is in "
 "preview mode only."
 msgstr ""
 "Javni kluč volitev še ni pripravljen. Te volitve so v načinu predogleda."
 
-#: heliosbooth/templates/footer.html:14
+#: heliosbooth/templates/footer.html:15
 msgid "Election fingerprint:"
 msgstr "Prstni odtis volitev:"
 
@@ -366,35 +366,35 @@ msgstr "glasujte za"
 msgid "Yes"
 msgstr "Da"
 
-#: heliosbooth/templates/question.html:64
+#: heliosbooth/templates/question.html:63
 msgid "to"
 msgstr "do"
 
-#: heliosbooth/templates/question.html:72
+#: heliosbooth/templates/question.html:70
 msgid "at least"
 msgstr "vsaj"
 
-#: heliosbooth/templates/question.html:79
+#: heliosbooth/templates/question.html:76
 msgid "up to"
 msgstr "največ"
 
-#: heliosbooth/templates/question.html:81
+#: heliosbooth/templates/question.html:78
 msgid "as many as you approve of"
 msgstr "kolikor želite"
 
-#: heliosbooth/templates/question.html:85
+#: heliosbooth/templates/question.html:82
 msgid "More info"
 msgstr "Več informacij"
 
-#: heliosbooth/templates/question.html:88
+#: heliosbooth/templates/question.html:85
 msgid "Proceed"
 msgstr "Nadaljuj"
 
-#: heliosbooth/templates/question.html:94
+#: heliosbooth/templates/question.html:90
 msgid "Previous"
 msgstr "Prejšnje vprašanje"
 
-#: heliosbooth/templates/question.html:100
+#: heliosbooth/templates/question.html:95
 msgid "Next"
 msgstr "Naslednje vprašanje"
 
@@ -424,45 +424,45 @@ msgstr ""
 msgid "Verify Encryption"
 msgstr "Preverba šifriranja"
 
-#: heliosbooth/templates/seal.html:63
+#: heliosbooth/templates/seal.html:62
 msgid "Review your Ballot"
 msgstr "Preglejte vašo glasovnico"
 
-#: heliosbooth/templates/seal.html:64 heliosbooth/verifier.js:33
+#: heliosbooth/templates/seal.html:63 heliosbooth/verifier.js:33
 #: heliosverifier/verify.html:150 heliosverifier/verify.html:152
 #: heliosverifier/verify.html:202
 msgid "Question #"
 msgstr "Vprašanje #"
 
-#: heliosbooth/templates/seal.html:67
+#: heliosbooth/templates/seal.html:66
 msgid "No choice selected."
 msgstr "Nobenega odgovora niste izbrali."
 
-#: heliosbooth/templates/seal.html:73
+#: heliosbooth/templates/seal.html:71
 msgid "you under-voted: you may select up to"
 msgstr "izbrali ste premalo odgovorov: izberete lahko do"
 
-#: heliosbooth/templates/seal.html:76
+#: heliosbooth/templates/seal.html:74
 msgid "edit responses"
 msgstr "uredite odgovore"
 
-#: heliosbooth/templates/seal.html:77
+#: heliosbooth/templates/seal.html:75
 msgid "Your ballot tracker is"
 msgstr "Vaš sledilec glasovnice je"
 
-#: heliosbooth/templates/seal.html:78
+#: heliosbooth/templates/seal.html:76
 msgid "and you can"
 msgstr "in ga lahko"
 
-#: heliosbooth/templates/seal.html:79
+#: heliosbooth/templates/seal.html:77
 msgid "print"
 msgstr "natisnete"
 
-#: heliosbooth/templates/seal.html:80
+#: heliosbooth/templates/seal.html:78
 msgid "it."
 msgstr "."
 
-#: heliosbooth/templates/seal.html:81
+#: heliosbooth/templates/seal.html:79
 msgid ""
 "Once you click \"Submit\", the unencrypted version of your ballot will be "
 "destroyed, and only the encrypted version will remain. The encrypted version "
@@ -471,37 +471,37 @@ msgstr ""
 "Ko kliknete na \"Oddaja\", bo nešifrirana verzija vaše glasovnice uničena, "
 "in ostala bo zgolj šifrirana. Slednja bo oddana na strežnik E-volitev."
 
-#: heliosbooth/templates/seal.html:83
+#: heliosbooth/templates/seal.html:81
 msgid "Submit this Vote"
 msgstr "Oddaja glasovnice"
 
-#: heliosbooth/templates/submit.html:30
+#: heliosbooth/templates/submit.html:31
 msgid "Submit Your Encrypted Ballot"
 msgstr "Oddajte vašo zašifrirano glasovnico."
 
-#: heliosbooth/templates/submit.html:31
+#: heliosbooth/templates/submit.html:32
 msgid "All information, other than your encrypted ballot,"
 msgstr "Vse informacije razen zašifrirane glasovnice"
 
-#: heliosbooth/templates/submit.html:32
+#: heliosbooth/templates/submit.html:33
 msgid "has been removed from memory."
 msgstr "so bile odstranjene iz spomina."
 
-#: heliosbooth/templates/submit.html:33
+#: heliosbooth/templates/submit.html:34
 msgid "As a reminder, your ballot tracking number is:"
 msgstr "Opomnik - vaša sledilna številka glasovnice je:"
 
-#: heliosbooth/templates/submit.html:34
+#: heliosbooth/templates/submit.html:35
 msgid ""
 "According to the election definition file, this ballot will be submitted to:"
 msgstr "Glede na nastavitve volitev bo ta glasovnica oddana na:"
 
-#: heliosbooth/templates/submit.html:35
+#: heliosbooth/templates/submit.html:36
 msgid "where you will log in to validate your eligibility to vote."
 msgstr ""
 "kjer se boste prijavili, ter s tem potrdili upravičenost do glasovanja."
 
-#: heliosbooth/templates/submit.html:36
+#: heliosbooth/templates/submit.html:37
 msgid "Submit Ballot"
 msgstr "Oddaja glasovnice"
 
@@ -771,6 +771,10 @@ msgstr "Napaka, javni ključ ne ustreza"
 #: heliosverifier/verify.html:199
 msgid "Tally"
 msgstr "Rezultat"
+
+#: heliosverifier/verify.html:207
+msgid "Answer #"
+msgstr "Odgovor #"
 
 #: heliosverifier/verify.html:207
 msgid "COUNT"

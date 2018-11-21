@@ -23,7 +23,7 @@
 
 {% ifequal offset 0 %}
 {% else %}
-<a href="./bboard">{% trans 'back to start' %}</a> &nbsp;&nbsp;
+<a href="./bboard">{% trans 'back to start' %}</a> &nbsp;&nbsp;<!--"-->
 {% endifequal %}
 {% if more_p %}
 <a href="./bboard?after={{next_after}}&offset={{next_offset}}">{% trans 'next' %} {{limit}}</a>

@@ -216,6 +216,7 @@
 {% endif %}
 
 <div class="highlight-box round" style="font-size: 1.2em; margin-right: 400px; display:none;" id="nojava_message">
+  <!--/-->
   {% trans 'You do not have Java installed in your browser.<br />At this time, Helios requires Java.' %}<br />
   {% trans 'Visit' %} <a target="_new" href="http://java.sun.com">java.sun.com</a> {% trans 'to install it.' %}
 </div>
@@ -244,6 +245,7 @@
 {% if eligible_p %}
 {% trans 'You are eligible to vote in' %}
 {% else %}
+<!--/-->
 {% trans 'You are <em>not eligible</em> to vote in' %}
 {% endif %}
 {% trans 'this' context election.election_type %}
@@ -303,6 +305,7 @@
 {% endif %}
 
 {% if not election.voting_has_started %}
+<!--/-->
 <p style="font-size: 1.2em;">
   <a href="{{SECURE_URL_HOST}}/booth/vote.html?election_url={% url "helios.views.one_election" election.uuid %}">{% trans 'preview booth' %}</a>
 </p>
@@ -321,7 +324,7 @@
 
 </div>
 </div>
-
+<!--/-->
 
 
 

@@ -10,7 +10,7 @@
 {% if voter %}
 <p>
     {% trans 'You are currently registered for this election.' %}
-</p>
+</p><!--/-->
 {% else %}
 <p>
     {% trans 'You are <em>not</em> registered for this election.' %}
@@ -19,6 +19,7 @@
 <form method="post" action="{% url "helios.views.one_election_register" election.uuid %}">
 <input type="submit" value="{% trans 'Register' %}" />
 </form>
+<!--/-->
 {% endif %}
 
 {% else %}
