@@ -705,7 +705,7 @@ msgstr "Štetje se je pričelo."
 
 #: helios/templates/election_compute_tally.html:21
 msgid "Compute encrypted tally"
-msgstr "Izračunajte šifrirane rezultate"
+msgstr "Izračunaj šifrirane rezultate"
 
 #: helios/templates/election_compute_tally.html:22
 #: helios/templates/election_freeze.html:39
@@ -1117,7 +1117,7 @@ msgstr "Ponovno naložite stran čez nekaj minut."
 
 #: helios/templates/election_view.html:114
 msgid "compute encrypted tally"
-msgstr "izračunajte šifrirane rezultate"
+msgstr "izračunaj šifrirane rezultate"
 
 #: helios/templates/election_view.html:115
 msgid ""
@@ -1132,7 +1132,7 @@ msgstr "bodo zaupniki morali prispevati svoj delež k odšifriranju."
 
 #: helios/templates/election_view.html:121
 msgid "release result"
-msgstr "Objavite rezultate"
+msgstr "Objavi rezultate"
 
 #: helios/templates/election_view.html:122
 msgid "The result displayed below is visible only to you."
@@ -1144,7 +1144,7 @@ msgstr "Ko objavite rezultate, bodo vidni vsem."
 
 #: helios/templates/election_view.html:129
 msgid "compute results"
-msgstr "Izračunajte rezultate"
+msgstr "Izračunaj rezultate"
 
 #: helios/templates/election_view.html:131
 msgid "combine trustee decryptions and compute results"
@@ -1507,7 +1507,7 @@ msgstr "so zasebne. Vidijo jih lahko le upravičeni volivci."
 #: helios/templates/release_result.html:3
 #: helios/templates/release_result.html:5
 msgid "Release Result"
-msgstr "Objavite rezultate"
+msgstr "Objavi rezultate"
 
 #: helios/templates/release_result.html:8
 msgid "You are about to release the result for this election."
@@ -1515,11 +1515,11 @@ msgstr "Ste pred tem, da objavite rezultate teh volitev."
 
 #: helios/templates/release_result.html:14
 msgid "Send email to voters reporting release of result."
-msgstr "Pošljite e-pošto volivcem z obvestilom o objavi rezultatov."
+msgstr "Pošlji e-pošto volivcem z obvestilom o objavi rezultatov."
 
 #: helios/templates/release_result.html:16
 msgid "Release result"
-msgstr "Objavite rezultate"
+msgstr "Objavi rezultate"
 
 #: helios/templates/socialbuttons.html:3
 msgid "Share"
@@ -2095,7 +2095,7 @@ msgstr "Volivec najden"
 
 #: helios/templates/voters_search.html:9
 msgid "email this voter"
-msgstr "Pošljite e-pošto volivcu"
+msgstr "Pošlji e-pošto volivcu"
 
 #: helios/templates/voters_search.html:11
 msgid "once this election is frozen, you'll be able to email this voter."
