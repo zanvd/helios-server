@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-21 12:42+0100\n"
+"POT-Creation-Date: 2018-11-21 14:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -960,7 +960,7 @@ msgstr "Odgovor #"
 
 #: helios/templates/election_questions.html:124
 msgid "Link (optional, <tt>http</tt> or <tt>https</tt> only):"
-msgstr "Povezava (neobvezno, dovoljena le <tt>http</tt> or <tt>https</tt>):"
+msgstr "Povezava (neobvezno, dovoljena le <tt>http</tt> in <tt>https</tt>):"
 
 #: helios/templates/election_register.html:4
 #: helios/templates/election_register.html:20
@@ -1274,7 +1274,7 @@ msgid "This election is open to:"
 msgstr "Te volitve so odprte do:"
 
 #: helios/templates/election_view.html:266
-#: helios_auth/templates/login_box.html:6 server_ui/templates/base.html:104
+#: helios_auth/templates/login_box.html:6 server_ui/templates/base.html:106
 msgid "Log in"
 msgstr "Prijava"
 
@@ -1536,7 +1536,7 @@ msgstr "Tvitni"
 msgid "Statistics"
 msgstr "Statistika"
 
-#: helios/templates/stats.html:6 server_ui/templates/base.html:49
+#: helios/templates/stats.html:6 server_ui/templates/base.html:51
 msgid "Admin"
 msgstr "Administracija"
 
@@ -2266,7 +2266,7 @@ msgstr ""
 "%(user_type)s</b>.\n"
 "    "
 
-#: helios_auth/templates/index.html:13 server_ui/templates/base.html:95
+#: helios_auth/templates/index.html:13 server_ui/templates/base.html:97
 msgid "Logout"
 msgstr "Odjava"
 
@@ -2308,8 +2308,8 @@ msgstr ""
 "\n"
 "Priporočamo, da sledite <b>@%(user_to_follow)s</b>.<br /><br />\n"
 "Tako %(reason_to_follow)s. Tega prijateljstva ne bomo zlorabili: neposredno "
-"vam bomo pošiljali le sporočila, ki se tičejo vas, splošne posodobitve "
-"pa se zgodijo le občasno.\n"
+"vam bomo pošiljali le sporočila, ki se tičejo vas, splošne posodobitve pa se "
+"zgodijo le občasno.\n"
 
 #: helios_auth/templates/twitter/follow.html:22
 msgid "follow"
@@ -2484,60 +2484,60 @@ msgstr ""
 "        </div>\n"
 "        "
 
-#: server_ui/templates/base.html:42
+#: server_ui/templates/base.html:44
 msgid "Menu"
 msgstr "Meni"
 
-#: server_ui/templates/base.html:53
+#: server_ui/templates/base.html:55
 msgid "About Helios"
 msgstr "O E-volitvah"
 
-#: server_ui/templates/base.html:61
+#: server_ui/templates/base.html:63
 msgid "About"
 msgstr "Opis"
 
-#: server_ui/templates/base.html:63
+#: server_ui/templates/base.html:65
 msgid "Code"
 msgstr "Koda"
 
-#: server_ui/templates/base.html:65
+#: server_ui/templates/base.html:67
 msgid "Docs"
 msgstr "Dokumentacija"
 
-#: server_ui/templates/base.html:67 server_ui/templates/faq.html:11
+#: server_ui/templates/base.html:69 server_ui/templates/faq.html:11
 msgid "FAQ"
 msgstr "Pogosta vprašanja"
 
-#: server_ui/templates/base.html:69 server_ui/templates/privacy.html:3
+#: server_ui/templates/base.html:71 server_ui/templates/privacy.html:3
 #: server_ui/templates/privacy.html:12
 msgid "Privacy"
 msgstr "Zasebnost"
 
-#: server_ui/templates/base.html:72
+#: server_ui/templates/base.html:74
 msgid "Help"
 msgstr "Pomoč"
 
-#: server_ui/templates/base.html:94
+#: server_ui/templates/base.html:96
 msgid "logged in as "
 msgstr "prijavljen kot "
 
-#: server_ui/templates/base.html:98
+#: server_ui/templates/base.html:100
 msgid "You are signed in as voter "
 msgstr "Prijavljeni ste kot volivec"
 
-#: server_ui/templates/base.html:99
+#: server_ui/templates/base.html:101
 msgid "in election "
 msgstr "v volitvah "
 
-#: server_ui/templates/base.html:100
+#: server_ui/templates/base.html:102
 msgid "Sign out"
 msgstr "Odjava"
 
-#: server_ui/templates/base.html:103
+#: server_ui/templates/base.html:105
 msgid "Not logged in."
 msgstr "Niste prijavljeni."
 
-#: server_ui/templates/base.html:106
+#: server_ui/templates/base.html:108
 msgid "Powered by "
 msgstr "Izdelano z"
 
@@ -2948,7 +2948,7 @@ msgid ""
 "Helios servers never see your vote."
 msgstr ""
 "Dodatno uporabljamo šifriranje same glasovnice. Tako je vaš glas <em>še "
-"vedno</em> šifriran, tudi po odšifriranju HTTPS seje. Na ta način tudi naši "
+"vedno</em> šifriran, tudi po odšifriranju seje HTTPS. Na ta način tudi naši "
 "strežniki ne morejo neposredno prebrati vašega glasu."
 
 #: server_ui/templates/privacy.html:33
