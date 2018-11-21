@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-17 23:18+0100\n"
+"POT-Creation-Date: 2018-11-21 12:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr ", tip rezultata "
 #: helios/media/static_templates/question.html:118
 #: helios/media/static_templates/question.html:206
 msgid "Approval"
-msgstr "Oddobritev"
+msgstr "Odobritev"
 
 #: helios/media/static_templates/question.html:119
 #: helios/media/static_templates/question.html:207
@@ -69,7 +69,7 @@ msgstr "in"
 #: helios/media/static_templates/question.html:121
 #: helios/media/static_templates/question.html:209
 msgid "- (approval)"
-msgstr "- (oddobritev)"
+msgstr "- (odobritev)"
 
 #: helios/media/static_templates/question.html:122
 #: helios/media/static_templates/question.html:210
@@ -120,22 +120,6 @@ msgstr "Dodaj vprašanje:"
 #: helios/media/static_templates/question.html:216
 msgid "Add question"
 msgstr "Dodaj vprašanje"
-
-#: helios/templates/election_questions.html:32
-msgid ""
-"The questions could not be saved. Please check that the URLs you entered are "
-"either http:// or https://"
-msgstr ""
-"Vprašanja ni bilo mogoče shraniti. Prosimo, preverite, če ste vnesli http:// "
-"ali https:// URL."
-
-#: helios/templates/election_questions.html:122 heliosverifier/verify.html:207
-msgid "Answer #"
-msgstr "Odgovor #"
-
-#: helios/templates/election_questions.html:124
-msgid "Link (optional, <tt>http</tt> or <tt>https</tt> only): "
-msgstr "Povezava (opcijsko, le <tt>http</tt> or <tt>https</tt> dovoljena): "
 
 #: heliosbooth/single-ballot-verify.html:61 heliosverifier/verify.html:100
 msgid "Loading election..."
@@ -523,7 +507,7 @@ msgstr "Oddaja glasovnice"
 
 #: heliosbooth/verifier.js:9
 msgid "Election fingerprint is "
-msgstr "Prstni odtis volitev je:"
+msgstr "Prstni odtis volitev je "
 
 #: heliosbooth/verifier.js:13
 msgid "Smart ballot tracker is "
@@ -531,11 +515,11 @@ msgstr "Sledilec glasovnice je "
 
 #: heliosbooth/verifier.js:17
 msgid "Election fingerprint matches ballot"
-msgstr "Prstni odtis volitev se ujema z glasovnico."
+msgstr "Prstni odtis volitev se ujema z glasovnico"
 
 #: heliosbooth/verifier.js:20
 msgid "Problem = election fingerprint does not match"
-msgstr "Težava: Podpis volitev se ne ujema."
+msgstr "Težava: podpis volitev se ne ujema"
 
 #: heliosbooth/verifier.js:24
 msgid "Ballot Contents:"
@@ -546,17 +530,17 @@ msgid ""
 "Warning: the tally type for this question is not homomorphic. Verification "
 "may fail because this verifier is only set up to handle homomorphic ballots."
 msgstr ""
-"Opozorilo: tip glasovnice za to vprašanje ni homomorfni. Verifikacija morda "
-"ne bo uspela, saj je ta verifikator nastavljen za preverbo homomorfnih "
-"glasovnic."
+"Opozorilo: tip preštevanja za to vprašanje ni homomorfen. Preverjanje morda "
+"ne bo uspelo, saj sistem za preverjanje glasovnic podpira le homomorfne "
+"glasovnice."
 
 #: heliosbooth/verifier.js:38
 msgid "Encryption Verified"
-msgstr "Šifriranje verificirano"
+msgstr "Šifriranje preverjeno"
 
 #: heliosbooth/verifier.js:41
 msgid "Problem = Encryption doesn't match."
-msgstr "Težava: Enkripcija se ne ujema."
+msgstr "Težava: šifriranje se ne ujema."
 
 #: heliosbooth/verifier.js:47
 msgid "Proofs ok."
@@ -564,7 +548,7 @@ msgstr "Dokazi so v redu."
 
 #: heliosbooth/verifier.js:50
 msgid "Problem = Proofs don't work."
-msgstr "Težava: Dokazi ne delujejo."
+msgstr "Težava: dokazi ne delujejo."
 
 #: heliosbooth/verifier.js:53
 msgid "Problem parsing election or ballot data structures, malformed inputs: "

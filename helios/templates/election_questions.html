@@ -29,7 +29,7 @@
   function save_questions(callback) {
       $.post('./save_questions', {'questions_json' : $.toJSON(QUESTIONS), 'csrf_token': CSRF_TOKEN}, function(result) {
           if (result == "FAILURE") {
-            alert(gettext("The questions could not be saved. Please check that the URLs you entered are either http:// or https://"));
+            alert("{% trans 'The questions could not be saved. Please check that the URLs you entered are either http:// or https://' %}");
           } else {
             callback();
           }
@@ -119,9 +119,9 @@
     el = $(el);
     var num_answers = el.find('input.answer').length + 1;
     el.find('tbody').append(
-        '<tr><th>&nbsp;&nbsp;&nbsp;</th><th>' + gettext('Answer #') + num_answers + '</th><td>'
+        '<tr><th>&nbsp;&nbsp;&nbsp;</th><th>{% trans "Answer #" %}' + num_answers + '</th><td>'
         + '<input type="text" class="answer" name="answer_' + num_answers + '" size="70" /><br />'
-        + '<nobr>' + gettext('Link (optional, <tt>http</tt> or <tt>https</tt> only): ')
+        + '<nobr>{% trans "Link (optional, <tt>http</tt> or <tt>https</tt> only):" %} '
         + '<input type="url" name="answer_url_' + num_answers + '" width="50%" /></nobr></td></tr>'
     );
   }

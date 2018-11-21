@@ -1108,7 +1108,7 @@ def trustee_upload_decryption(request, election, trustee_uuid):
     try:
       # send a note to admin
       election.admin.send_message(ugettext_lazy("%s - trustee partial decryption") % election.name,
-                                  ugettext_lazy("Trustee %s (%s) did their partial decryption.") % (trustee.name, trustee.email)
+                                  ugettext_lazy("Trustee %(name)s (%(email)s) did their partial decryption.") % {'name': trustee.name, 'email': trustee.email}
                                   )
     except:
       # ah well

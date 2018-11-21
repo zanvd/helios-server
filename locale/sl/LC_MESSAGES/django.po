@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-10 19:42+0100\n"
+"POT-Creation-Date: 2018-11-21 12:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -945,6 +945,22 @@ msgstr "nazaj na volitve"
 #: helios/templates/election_questions.html:5
 msgid "Questions for"
 msgstr "Vprašanja za"
+
+#: helios/templates/election_questions.html:32
+msgid ""
+"The questions could not be saved. Please check that the URLs you entered are "
+"either http:// or https://"
+msgstr ""
+"Vprašanja ni bilo mogoče shraniti. Prosimo, preverite, če ste vnesli URL, ki "
+"se začne s http:// ali https://"
+
+#: helios/templates/election_questions.html:122
+msgid "Answer #"
+msgstr "Odgovor #"
+
+#: helios/templates/election_questions.html:124
+msgid "Link (optional, <tt>http</tt> or <tt>https</tt> only):"
+msgstr "Povezava (neobvezno, dovoljena le <tt>http</tt> or <tt>https</tt>):"
 
 #: helios/templates/election_register.html:4
 #: helios/templates/election_register.html:20
@@ -1923,7 +1939,7 @@ msgstr "Nastavi upravičenost"
 
 #: helios/templates/voters_email.html:3
 msgid "Contact Voters for"
-msgstr "Kontaktiranje volivce za"
+msgstr "Kontaktiranje volivcev za"
 
 #: helios/templates/voters_email.html:12
 msgid "Contact Voters"
@@ -2172,11 +2188,11 @@ msgstr "ne, želim naložiti drugo datoteko"
 #: helios/views.py:214
 #, python-format
 msgid "An election with short name %s already exists"
-msgstr "Volitve s kratkim imenom %s že obstjajo."
+msgstr "Volitve s kratkim imenom %s že obstajajo."
 
 #: helios/views.py:216
 msgid "No special characters allowed in the short name."
-msgstr "Posebni znaki niso dovoljeni v kratkem imenu"
+msgstr "Posebni znaki niso dovoljeni v kratkem imenu."
 
 #: helios/views.py:1011
 msgid "Registration is closed for this election"
@@ -2189,16 +2205,16 @@ msgstr "%s - delno dešifriranje zaupnika"
 
 #: helios/views.py:1111
 #, python-format
-msgid "Trustee %s (%s) did their partial decryption."
-msgstr "Zaupnik %s (%s) je izvedel svoje delno dešifriranje."
+msgid "Trustee %(name)s (%(email)s) did their partial decryption."
+msgstr "Zaupnik %(name)s (%(email)s) je izvedel svoje delno dešifriranje."
 
 #: helios/views.py:1311
 msgid ""
 "your CSV file could not be processed. Please check that it is a proper CSV "
 "file."
 msgstr ""
-"Vaše CSV datoteke nismo mogli sprocesirati. Prosimo, preverite, če je "
-"pravilna CSV datoteka."
+"Vaše datoteke CSV ni bilo mogoče sprocesirati. Prosimo, preverite, če je "
+"datoteka CSV pravilna."
 
 #: helios/views.py:1315
 msgid ""
@@ -2210,7 +2226,7 @@ msgstr ""
 
 #: helios/views.py:1321
 msgid "No voter file specified, try again"
-msgstr "Nobena datoteka volivcev ni bila določena. Poizkusite znova."
+msgstr "Datoteka z volivci ni bila podana. Poizkusite znova."
 
 #: helios/views.py:1341
 msgid "Time to Vote"
