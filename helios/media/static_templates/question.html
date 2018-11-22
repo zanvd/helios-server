@@ -9,7 +9,8 @@
                 [<a onclick="return confirm($('#media_question_confirm').val());" href="javascript:question_remove({$T.question$index})">x</a>]
                 [<a href="javascript:question_edit({$T.question$index})"><span class="translate">Edit</span></a>]
             {#/if}
-            {$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type},
+            {$T.question$index + 1}. {$T.question.question}
+            (<span class="translate">{$T.question.choice_type}</span>,
             <span class="translate">select between</span> {$T.question.min}
             <span class="translate">and</span>
             {#if $T.question.max != null}
@@ -17,8 +18,8 @@
             {#else}
                 <span class="translate">unlimited</span>
             {#/if}
-            <span class="translate">answers</span>,
-            <span class="translate">result type</span> {$T.question.result_type}.)
+            <span class="translate" singular="answer" number="{#if $T.question.max != null}{$T.question.max}{#else}0{#/if}">answers</span>,
+            <span class="translate">result type</span> <span class="translate">{$T.question.result_type}</span>.)
         </h4>
         <ul>
             {#foreach $T.question.answers as answer}
@@ -176,10 +177,11 @@
         gettext('More');
         gettext('select between');
         gettext('and');
-        gettext('answers');
+        ngettext('answer', 'answers', 0);
         gettext('result type');
         gettext('Select between');
         gettext('- (approval)');
+        gettext('approval');
         gettext('Result Type');
         gettext('absolute');
         gettext('relative');

@@ -142,7 +142,13 @@
       $('#questions').setTemplateURL("{% static 'helios/static_templates/question.html' %}");
 
       refresh();
-      $("span.translate").each(function(key, tag) { $(tag).text(gettext($(tag).text())) });
+      $("span.translate").each(function(key, tag) {
+        if ($(tag).attr("number")) {
+          $(tag).text(ngettext($(tag).attr("singular"), $(tag).text(), $(tag).attr("number")));
+        } else {
+          $(tag).text(gettext($(tag).text()));
+        }
+      });
       $("option.translate").each(function(key, tag) { $(tag).text(gettext($(tag).text())) });
       $("input.translate").each(function(key, tag) { $(tag).val(gettext($(tag).val())) });
   });
