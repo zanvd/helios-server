@@ -53,7 +53,7 @@ msgstr[3] "odgovori"
 
 #: helios/media/static_templates/question.html:181
 msgid "result type"
-msgstr "tip rezultata"
+msgstr "tip rezultata:"
 
 #: helios/media/static_templates/question.html:182
 #: helios/media/static_templates/question.html:194
