@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-22 13:05+0100\n"
+"POT-Creation-Date: 2018-11-22 13:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,84 +19,84 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 
-#: helios/media/static_templates/question.html:13
+#: helios/media/static_templates/question.html:173
 msgid "Are you sure you want to remove this question?"
 msgstr "Ali ste prepričani, da želite odstraniti to vprašanje?"
 
-#: helios/media/static_templates/question.html:179
+#: helios/media/static_templates/question.html:174
 msgid "Edit"
 msgstr "Uredi"
 
-#: helios/media/static_templates/question.html:180
+#: helios/media/static_templates/question.html:175
 msgid "unlimited"
 msgstr "neomjeno"
 
-#: helios/media/static_templates/question.html:181
+#: helios/media/static_templates/question.html:176
 msgid "More"
 msgstr "Več"
 
-#: helios/media/static_templates/question.html:182
+#: helios/media/static_templates/question.html:177
 msgid "select between"
 msgstr "izbira med"
 
-#: helios/media/static_templates/question.html:183
+#: helios/media/static_templates/question.html:178
 msgid "and"
 msgstr "in"
 
-#: helios/media/static_templates/question.html:184
+#: helios/media/static_templates/question.html:179
 msgid "answers"
 msgstr "odgovorov"
 
-#: helios/media/static_templates/question.html:185
+#: helios/media/static_templates/question.html:180
 msgid "result type"
 msgstr "tip rezultata"
 
-#: helios/media/static_templates/question.html:186
-#: helios/media/static_templates/question.html:197
+#: helios/media/static_templates/question.html:181
+#: helios/media/static_templates/question.html:192
 msgid "Select between"
 msgstr "Izberite med"
 
-#: helios/media/static_templates/question.html:187
+#: helios/media/static_templates/question.html:182
 msgid "- (approval)"
 msgstr "- (odobritev)"
 
-#: helios/media/static_templates/question.html:188
+#: helios/media/static_templates/question.html:183
 msgid "Result Type"
 msgstr "Tip rezultata"
 
-#: helios/media/static_templates/question.html:189
+#: helios/media/static_templates/question.html:184
 msgid "absolute"
 msgstr "absoluten"
 
-#: helios/media/static_templates/question.html:190
+#: helios/media/static_templates/question.html:185
 msgid "relative"
 msgstr "relativen"
 
-#: helios/media/static_templates/question.html:191
+#: helios/media/static_templates/question.html:186
 msgid "Question"
 msgstr "Vprašanje"
 
-#: helios/media/static_templates/question.html:192
+#: helios/media/static_templates/question.html:187
 msgid "Add 5 more answers"
 msgstr "Dodaj 5 odgovorov"
 
-#: helios/media/static_templates/question.html:193
+#: helios/media/static_templates/question.html:188
 msgid "Update question"
 msgstr "Posodobi vprašanje"
 
-#: helios/media/static_templates/question.html:194
+#: helios/media/static_templates/question.html:189
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: helios/media/static_templates/question.html:195
+#: helios/media/static_templates/question.html:190
 msgid "No questions yet."
 msgstr "Trenutno še ni vprašanj."
 
-#: helios/media/static_templates/question.html:196
+#: helios/media/static_templates/question.html:191
 msgid "Add a Question"
 msgstr "Dodaj vprašanje"
 
-#: helios/media/static_templates/question.html:198
+#: helios/media/static_templates/question.html:193
 msgid "Add question"
 msgstr "Dodaj vprašanje"
 

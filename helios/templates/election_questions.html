@@ -142,6 +142,9 @@
       $('#questions').setTemplateURL("{% static 'helios/static_templates/question.html' %}");
 
       refresh();
+      $("span.translate").each(function(key, tag) { $(tag).text(gettext($(tag).text())) });
+      $("option.translate").each(function(key, tag) { $(tag).text(gettext($(tag).text())) });
+      $("input.translate").each(function(key, tag) { $(tag).val(gettext($(tag).val())) });
   });
   
 

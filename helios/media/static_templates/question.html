@@ -1,3 +1,4 @@
+<input class="translate" type="hidden" id="media_question_confirm" value="Are you sure you want to remove this question?" />
 {#foreach $T.questions as question}
     <div id="q_view_{$T.question$index}">
         <h4>
@@ -5,14 +6,8 @@
                 {#if $T.question$index > 0}
                     [<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;
                 {#/if}
-                [<a id="media_question_confirm_{$T.question$index}" href="javascript:question_remove({$T.question$index})">x</a>]
+                [<a onclick="return confirm($('#media_question_confirm').val());" href="javascript:question_remove({$T.question$index})">x</a>]
                 [<a href="javascript:question_edit({$T.question$index})"><span class="translate">Edit</span></a>]
-                <!--/-->
-                <script type="application/javascript">
-                    $('#media_question_confirm_{$T.question$index}').click(function() {
-                        confirm(gettext('Are you sure you want to remove this question?'));
-                    });
-                </script>
             {#/if}
             {$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type},
             <span class="translate">select between</span> {$T.question.min}
@@ -68,8 +63,8 @@
                 &nbsp;&nbsp;
                 <span class="translate">Result Type</span>:&nbsp;
                 <select name="result_type">
-                    <option class="translate" selected>absolute</option>
-                    <option class="translate">relative</option>
+                    <option class="translate" value="absolute" selected>absolute</option>
+                    <option class="translate" value="relative">relative</option>
                 </select>
             </p>
             <table id="answer_table_{$T.question$index}">
@@ -106,7 +101,6 @@
     </div>
 {#else}
     <span class="translate">No questions yet.</span>
-    <!--/-->
 {#/for}
 {#if $T.admin_p}
     <h4><span class="translate">Add a Question</span>:</h4>
@@ -141,8 +135,8 @@
             &nbsp;&nbsp;
             <span class="translate">Result Type</span>:&nbsp;
             <select name="result_type">
-                <option class="translate" selected>absolute</option>
-                <option class="translate">relative</option>
+                <option class="translate" value="absolute" selected>absolute</option>
+                <option class="translate" value="relative">relative</option>
             </select>
 
         </p>
@@ -176,6 +170,7 @@
         </table>
     </form>
     <script type="application/javascript">
+        gettext('Are you sure you want to remove this question?');
         gettext('Edit');
         gettext('unlimited');
         gettext('More');
