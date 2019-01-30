@@ -1,6 +1,8 @@
 {% load i18n %}
 {% load static %}
 
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!-->
@@ -46,6 +48,18 @@
 
         <section class="top-bar-section">
             <!-- Right Nav Section -->
+            <div class="right">
+                <ul class="languagepicker">
+                    {% language 'en' %}
+                        <a href="{% url "server_ui.views.home" %}/en"><li>English</li></a>
+                        <a href="{% url "server_ui.views.home" %}/sl"><li>Slovene</li></a>
+                    {% endlanguage %}
+                    {% language 'sl' %}
+                        <a href="{% url "server_ui.views.home" %}/sl"><li>Slovene</li></a>
+                        <a href="{% url "server_ui.views.home" %}/en"><li>English</li></a>
+                    {% endlanguage %}
+                </ul>
+            </div>
             <ul class="right">
                 {% if user and user.admin_p %}
                     <li><a href="{% url "helios.stats_views.home" %}">{% trans "Admin" %}</a></li>
