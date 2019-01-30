@@ -55,7 +55,7 @@ ELGAMAL_PARAMS_LD_OBJECT = datatypes.LDObject.instantiate(ELGAMAL_PARAMS, dataty
 
 # single election server? Load the single electionfrom models import Election
 from django.conf import settings
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import pgettext_lazy, ugettext_lazy
 
 def get_election_url(election):
   return settings.URL_HOST + reverse(election_shortcut, args=[election.short_name])  
@@ -955,13 +955,14 @@ def one_election_copy(request, election):
   # new short name by uuid, because it's easier and the user can change it.
   new_uuid = uuid.uuid4()
   new_short_name = new_uuid
+  new_election_name = pgettext_lazy('Copy of <election.name>', 'Copy of ') + election.name
   
   new_election = Election.objects.create(
     admin = election.admin,
     uuid = new_uuid,
     datatype = election.datatype,
     short_name = new_short_name,
-    name = "Copy of " + election.name,
+    name = new_election_name,
     election_type = election.election_type,
     private_p = election.private_p,
     description = election.description,

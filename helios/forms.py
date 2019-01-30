@@ -98,9 +98,11 @@ class ElectionTimeExtensionForm(forms.Form):
 
 class EmailVotersForm(forms.Form):
     subject = forms.CharField(
+        label=pgettext_lazy('Email subject label', 'Subject'),
         max_length=80
     )
     body = forms.CharField(
+        label=pgettext_lazy('Email body label', 'Body'),
         max_length=4000,
         widget=forms.Textarea
     )

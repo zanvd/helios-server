@@ -15,8 +15,13 @@
 [{% trans 'archived' %}]
 {% endif %}
 {% if admin_p %}
-&nbsp;{% if election.is_archived %}<a class="small button" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=0">unarchive it</a>{% else %}<a class="small button" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=1">{% trans 'archive it' %}</a>{% endif %}
-<a class="small button" onclick="return window.confirm('Are you sure you want to copy this election?');" href="{% url "helios.views.one_election_copy" election_uuid=election.uuid %}">copy</a>
+&nbsp;{% if election.is_archived %}<a class="small button" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=0">{% trans 'Unarchive it' %}</a>{% else %}<a class="small button" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=1">{% trans 'archive it' %}</a>{% endif %}
+<a id="election-copy-confirm-button" class="small button" href="{% url "helios.views.one_election_copy" election_uuid=election.uuid %}">{% trans 'copy' %}</a>
+    <script>
+    $('#election-copy-confirm-button').click(function() {
+        return window.confirm(gettext('Are you sure you want to copy this election?'));
+    });
+    </script>
 {% endif %}
 <br />
 {% if admin_p %}
