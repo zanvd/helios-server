@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-22 16:33+0100\n"
+"POT-Creation-Date: 2019-01-31 18:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,6 +107,10 @@ msgstr "Dodaj vprašanje"
 #: helios/media/static_templates/question.html:195
 msgid "Add question"
 msgstr "Dodaj vprašanje"
+
+#: helios/templates/election_view.html:22
+msgid "Are you sure you want to copy this election?"
+msgstr "Ali ste prepričani, da želite kopirati te volitve?"
 
 #: heliosbooth/single-ballot-verify.html:61 heliosverifier/verify.html:100
 msgid "Loading election..."
